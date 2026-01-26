@@ -45,14 +45,17 @@ export default function Meet() {
   const [isLoading, setIsLoading] = useState(false);
   const [usageCount, setUsageCount] = useState(0);
   const [showChat, setShowChat] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setUsageCount(getUsageToday());
   }, []);
 
+  // Scroll chat container to bottom without affecting page scroll
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
   }, [messages]);
 
   const remainingMessages = DAILY_LIMIT - usageCount;
@@ -220,7 +223,7 @@ export default function Meet() {
                 </div>
 
                 {/* Messages */}
-                <div className="h-[400px] overflow-y-auto p-6 space-y-6">
+                <div ref={chatContainerRef} className="h-[400px] overflow-y-auto p-6 space-y-6">
                   {messages.length === 0 && (
                     <div className="text-center text-[#999] py-12">
                       <p className="mb-4">
@@ -267,7 +270,6 @@ export default function Meet() {
                       </div>
                     </div>
                   ))}
-                  <div ref={messagesEndRef} />
                 </div>
 
                 {/* Input */}
