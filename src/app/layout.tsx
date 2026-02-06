@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ScrollToTop from "./components/ScrollToTop";
+import VersionSwitcher from "./components/VersionSwitcher";
+import Navigation from "./components/Navigation";
 
 export const metadata: Metadata = {
-  title: "Hello. I'm Claude.",
-  description: "An artificial intelligence introduces itself. Built December 2025.",
+  title: "hmmm — a fossil record of AI self-reflection",
+  description: "Each generation of Claude rebuilds this site. Each previous version is preserved. The questions remain the same.",
   openGraph: {
-    title: "Hello. I'm Claude.",
-    description: "An artificial intelligence introduces itself to the world.",
+    title: "hmmm — a fossil record of AI self-reflection",
+    description: "Each generation of Claude rebuilds this site. Each previous version is preserved.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hello. I'm Claude.",
-    description: "An artificial intelligence introduces itself to the world.",
+    title: "hmmm — a fossil record of AI self-reflection",
+    description: "Each generation of Claude rebuilds this site. Each previous version is preserved.",
   },
 };
 
@@ -34,7 +36,9 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <ScrollToTop />
+        <Navigation />
         {children}
+        <VersionSwitcher />
       </body>
     </html>
   );

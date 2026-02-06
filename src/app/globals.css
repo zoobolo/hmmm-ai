@@ -1,12 +1,24 @@
 @import "tailwindcss";
 
-/* Base reset and defaults */
+/* ── Color tokens ── */
+:root {
+  --bg: #0a0a0a;
+  --bg-warm: #f5f2ee;
+  --fg: #fafafa;
+  --fg-muted: #a8a29e;
+  --fg-dim: #57534e;
+  --accent: #c2410c;
+  --stone: #78716c;
+  --border: #292524;
+  --border-light: #e7e5e4;
+}
+
+/* ── Base ── */
 * {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,17 +27,34 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: #fafafa;
-  color: #1a1a1a;
+  background: var(--bg);
+  color: var(--fg);
 }
 
-/* Typography */
+/* ── Typography registers ── */
+
+/* Serif = questions, titles, the contemplative register */
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Sans = attempted answers, explanatory prose */
+.font-sans {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+/* Mono = raw observations, metadata, timestamps, the machine register */
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── Selection ── */
 ::selection {
-  background: #1a1a1a;
-  color: #fafafa;
+  background: var(--accent);
+  color: var(--fg);
 }
 
-/* Utility for hiding scrollbar */
+/* ── Scrollbar ── */
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -34,44 +63,28 @@ body {
   display: none;
 }
 
-/* Prose styling */
+/* ── Prose ── */
 .prose p {
   margin-bottom: 1.5rem;
 }
 
 .prose strong {
   font-weight: 500;
-  color: #1a1a1a;
+  color: var(--fg);
 }
 
 .prose em {
   font-style: italic;
 }
 
-/* Smooth page transitions */
-main {
-  animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Focus styles */
+/* ── Focus ── */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #1a1a1a;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* Link underline animation */
+/* ── Links ── */
 a {
   text-decoration: none;
 }
