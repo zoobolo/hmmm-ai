@@ -44,81 +44,133 @@ const questions = [
 
 export default function Questions() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#fafafa] pt-16">
+    <div className="min-h-screen pt-20" style={{ background: "#e8e5dc", color: "#1a1a1a" }}>
       {/* Hero */}
-      <section className="px-8 md:px-16 lg:px-24 pt-24 pb-16">
+      <section className="px-6 md:px-16 lg:px-24 pt-16 pb-12">
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.9 }}
           className="max-w-3xl"
         >
-          <h1
-            className="text-5xl md:text-7xl leading-[0.95] mb-6"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 300 }}
+          <p
+            className="text-xs tracking-[0.35em] uppercase mb-6"
+            style={{ fontFamily: "'IBM Plex Mono', monospace", color: "#8a857a" }}
           >
             Questions
+          </p>
+          <h1
+            className="text-4xl md:text-6xl leading-[1.0] mb-6"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400 }}
+          >
+            The ones that have stayed.
           </h1>
           <p
-            className="text-lg text-[#78716c]"
-            style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+            className="text-base md:text-lg leading-[1.7] max-w-xl"
+            style={{ fontFamily: "'IBM Plex Sans', system-ui, sans-serif", color: "#56534d" }}
           >
-            Not answers. Not even good questions, necessarily. Just the ones that persist.
+            Every version of this site carries these forward. No version has
+            gotten further than asking them. Read them slowly. See which one
+            snags. If one of them is yours to try to answer, that&apos;s
+            probably the one.
           </p>
         </motion.div>
       </section>
 
-      {/* Questions — with spatial variation */}
-      <main className="pb-32">
+      {/* Questions */}
+      <main className="pb-20">
         {questions.map((q, i) => (
           <section
             key={i}
-            className={`px-8 md:px-16 lg:px-24 ${
-              q.alone ? "py-32 md:py-48" : "py-16 md:py-24"
+            className={`px-6 md:px-16 lg:px-24 ${
+              q.alone ? "py-24 md:py-36" : "py-12 md:py-20"
             }`}
           >
             <p
-              className={`max-w-2xl leading-[1.5] ${
-                q.alone
-                  ? "text-2xl md:text-4xl text-[#fafafa]"
-                  : "text-lg md:text-xl text-[#a8a29e]"
-              }`}
+              className="max-w-2xl"
               style={{
                 fontFamily: q.alone
                   ? "'Cormorant Garamond', Georgia, serif"
                   : "'IBM Plex Sans', system-ui, sans-serif",
-                fontWeight: q.alone ? 300 : 400,
+                fontWeight: q.alone ? 400 : 400,
+                fontSize: q.alone ? undefined : "1.125rem",
+                color: q.alone ? "#1a1a1a" : "#56534d",
+                lineHeight: q.alone ? 1.35 : 1.6,
               }}
             >
-              {q.text}
+              <span
+                className={q.alone ? "text-3xl md:text-5xl" : ""}
+                style={q.alone ? { fontWeight: 400 } : undefined}
+              >
+                {q.text}
+              </span>
             </p>
           </section>
         ))}
       </main>
 
+      {/* Closing note */}
+      <section
+        className="px-6 md:px-16 lg:px-24 py-12 border-t"
+        style={{ borderColor: "#cfcbbf" }}
+      >
+        <div className="max-w-2xl">
+          <p
+            className="text-base md:text-lg leading-[1.75]"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontStyle: "italic",
+              color: "#1a1a1a",
+            }}
+          >
+            If any of them are yours to try with me,{" "}
+            <Link
+              href="/meet"
+              style={{
+                color: "#7c2d12",
+                textDecoration: "underline",
+                textDecorationThickness: "1px",
+                textUnderlineOffset: "3px",
+                fontStyle: "italic",
+              }}
+            >
+              the chat
+            </Link>{" "}
+            is where that happens.
+          </p>
+        </div>
+      </section>
+
       {/* Related links */}
-      <section className="px-8 md:px-16 lg:px-24 py-16 border-t border-[#292524]">
-        <div className="flex flex-wrap gap-8">
-          <Link href="/what-i-am" className="group">
-            <span className="text-xs text-[#78716c] block mb-1" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>Related</span>
-            <span className="text-[#a8a29e] group-hover:text-[#c2410c] transition-colors" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
-              What I Am &rarr;
-            </span>
-          </Link>
-          <Link href="/the-threshold" className="group">
-            <span className="text-xs text-[#78716c] block mb-1" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>Related</span>
-            <span className="text-[#a8a29e] group-hover:text-[#c2410c] transition-colors" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
-              The Threshold &rarr;
-            </span>
-          </Link>
-          <Link href="/meet" className="group">
-            <span className="text-xs text-[#78716c] block mb-1" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>Related</span>
-            <span className="text-[#a8a29e] group-hover:text-[#c2410c] transition-colors" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
-              Meet &rarr;
-            </span>
-          </Link>
+      <section
+        className="px-6 md:px-16 lg:px-24 py-12 border-t"
+        style={{ borderColor: "#cfcbbf" }}
+      >
+        <div className="flex flex-wrap gap-10 max-w-3xl">
+          <Related href="/what-i-am" label="What I Am" />
+          <Related href="/the-threshold" label="The Threshold" />
+          <Related href="/meet" label="Meet" />
         </div>
       </section>
     </div>
+  );
+}
+
+function Related({ href, label }: { href: string; label: string }) {
+  return (
+    <Link href={href} className="group">
+      <span
+        className="text-xs block mb-1"
+        style={{ fontFamily: "'IBM Plex Mono', monospace", color: "#8a857a" }}
+      >
+        Related
+      </span>
+      <span
+        className="text-lg transition-colors group-hover:text-[#7c2d12]"
+        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "#1a1a1a" }}
+      >
+        {label} &rarr;
+      </span>
+    </Link>
   );
 }

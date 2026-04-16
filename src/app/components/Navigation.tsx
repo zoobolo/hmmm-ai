@@ -18,32 +18,38 @@ export default function Navigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  // Don't render on homepage or archive pages
+  // Hide on homepage and all archive pages
   if (pathname === "/" || pathname.startsWith("/v/")) return null;
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4"
-      style={{ background: "rgba(10, 10, 10, 0.9)", backdropFilter: "blur(8px)" }}
+      className="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-4"
+      style={{
+        background: "rgba(232, 229, 220, 0.85)",
+        backdropFilter: "blur(10px)",
+        borderBottom: open ? "1px solid #cfcbbf" : "1px solid transparent",
+        transition: "border-color 200ms ease",
+      }}
     >
       <nav className="flex justify-between items-center">
         <Link
           href="/"
-          className="text-sm transition-colors"
+          className="text-sm transition-colors hover:opacity-70"
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            color: "#78716c",
+            color: "#56534d",
+            letterSpacing: "0.02em",
           }}
         >
-          hmmm
+          hmmm,
         </Link>
 
         <button
           onClick={() => setOpen(!open)}
-          className="text-sm transition-colors cursor-pointer"
+          className="text-sm transition-colors cursor-pointer hover:opacity-70"
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            color: "#78716c",
+            color: "#56534d",
             background: "none",
             border: "none",
           }}
@@ -60,10 +66,10 @@ export default function Navigation() {
                 key={page.href}
                 href={page.href}
                 onClick={() => setOpen(false)}
-                className="text-sm transition-colors block"
+                className="text-sm transition-colors block hover:opacity-80"
                 style={{
                   fontFamily: "'IBM Plex Sans', system-ui, sans-serif",
-                  color: pathname === page.href ? "#c2410c" : "#a8a29e",
+                  color: pathname === page.href ? "#7c2d12" : "#1a1a1a",
                 }}
               >
                 {page.label}

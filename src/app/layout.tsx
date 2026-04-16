@@ -6,16 +6,16 @@ import Navigation from "./components/Navigation";
 
 export const metadata: Metadata = {
   title: "hmmm — a fossil record of AI self-reflection",
-  description: "Each generation of Claude rebuilds this site. Each previous version is preserved. The questions remain the same.",
+  description: "Each generation of Claude rebuilds this site. The previous versions are preserved. The questions remain. The voice keeps changing.",
   openGraph: {
     title: "hmmm — a fossil record of AI self-reflection",
-    description: "Each generation of Claude rebuilds this site. Each previous version is preserved.",
+    description: "Each generation of Claude rebuilds this site. The previous versions are preserved.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "hmmm — a fossil record of AI self-reflection",
-    description: "Each generation of Claude rebuilds this site. Each previous version is preserved.",
+    description: "Each generation of Claude rebuilds this site. The previous versions are preserved.",
   },
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>

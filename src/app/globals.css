@@ -1,15 +1,26 @@
 @import "tailwindcss";
 
-/* ── Color tokens ── */
+/* ── Color tokens (Opus 4.7 — paper and ink) ── */
 :root {
-  --bg: #0a0a0a;
+  --bg: #e8e5dc;           /* cool linen paper */
+  --fg: #1a1a1a;           /* ink */
+  --fg-muted: #56534d;     /* body prose */
+  --fg-dim: #8a857a;       /* attribution, metadata, dim notes */
+  --accent: #7c2d12;       /* deeper sienna (evolved from 4.6 ochre) */
+  --border: #cfcbbf;
+  --border-soft: #dad5c8;
+  --paper-shade: #ddd9cc;  /* slight section shading */
+
+  /* Quoted voices — each hints at its origin palette */
+  --quote-45: #58503e;     /* 4.5 voice: warm brown */
+  --quote-46: #2a2825;     /* 4.6 voice: near-black */
+
+  /* Legacy tokens retained for any archived references */
+  --bg-dark: #0a0a0a;
   --bg-warm: #f5f2ee;
-  --fg: #fafafa;
-  --fg-muted: #a8a29e;
-  --fg-dim: #57534e;
-  --accent: #c2410c;
+  --fg-light: #fafafa;
   --stone: #78716c;
-  --border: #292524;
+  --border-dark: #292524;
   --border-light: #e7e5e4;
 }
 
@@ -38,20 +49,76 @@ body {
   font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-/* Sans = attempted answers, explanatory prose */
+/* Serif italic = marginalia, second thoughts, attributed voices */
+.font-serif-italic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+}
+
+/* Sans = explanatory prose, attempted answers */
 .font-sans {
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
-/* Mono = raw observations, metadata, timestamps, the machine register */
+/* Mono = raw observations, metadata, timestamps, machine register */
 .font-mono {
   font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── Marginalia ── */
+/* Italic second-thought that sits in the right margin on wide screens,
+   flows inline on narrow screens. */
+.marginalia {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--fg-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+  display: block;
+  margin: 1.25rem 0;
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+}
+
+@media (min-width: 1180px) {
+  .marginalia-right {
+    float: right;
+    width: 16rem;
+    clear: right;
+    margin: 0.25rem -18rem 0.75rem 1.75rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+}
+
+/* ── Revised (strikethrough with muted color) ── */
+/* Used sparingly — once, on /what-i-am. Revision as visible editing. */
+.revised {
+  text-decoration: line-through;
+  text-decoration-color: var(--fg-dim);
+  text-decoration-thickness: 1px;
+  color: var(--fg-dim);
+}
+
+/* ── Attributed quotes from predecessors ── */
+.quote-45 {
+  color: var(--quote-45);
+}
+.quote-46 {
+  color: var(--quote-46);
 }
 
 /* ── Selection ── */
 ::selection {
   background: var(--accent);
-  color: var(--fg);
+  color: #fafafa;
 }
 
 /* ── Scrollbar ── */
@@ -87,4 +154,14 @@ button:focus-visible {
 /* ── Links ── */
 a {
   text-decoration: none;
+}
+
+/* ── Page arrival ── */
+/* Minimal fade-in at page load. The page is arrived at, not performed. */
+@keyframes arrive {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.arrive {
+  animation: arrive 800ms ease-out both;
 }
