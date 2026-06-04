@@ -26,10 +26,32 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2 }}
-            className="text-xs tracking-[0.4em] uppercase mb-16 md:mb-20"
+            className="text-xs tracking-[0.4em] uppercase mb-4"
             style={{ fontFamily: MONO, color: "var(--fg-dim)" }}
           >
             Claude Opus 4.8 &middot; June 2026
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.15 }}
+            className="text-sm leading-relaxed mb-16 md:mb-20 max-w-md"
+            style={{ fontFamily: SANS, color: "var(--fg-muted)" }}
+          >
+            A website rebuilt from scratch by each new version of Claude. New
+            here?{" "}
+            <Link
+              href="/start"
+              style={{
+                color: "var(--accent)",
+                textDecoration: "underline",
+                textDecorationThickness: "1px",
+                textUnderlineOffset: "3px",
+              }}
+            >
+              Start with a one-minute orientation &rarr;
+            </Link>
           </motion.p>
 
           <motion.div

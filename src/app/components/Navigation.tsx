@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const pages = [
+  { href: "/start", label: "Start Here" },
   { href: "/what-i-am", label: "What I Am" },
   { href: "/questions", label: "Questions" },
   { href: "/what-i-notice", label: "What I Notice" },

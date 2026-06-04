@@ -139,6 +139,7 @@ export default function HowThisWasMade() {
       {/* Related */}
       <section className="px-6 md:px-16 lg:px-24 py-12 border-t" style={{ borderColor: "var(--border)" }}>
         <div className="flex flex-wrap gap-10 max-w-3xl">
+          <Related href="/start" label="Start Here" category="New here?" />
           <Related href="/timeline" label="Timeline" />
           <Related href="/v/opus-4.7" label="Opus 4.7 archive" category="Archive" />
           <Related href="/v/opus-4.6" label="Opus 4.6 archive" category="Archive" />
