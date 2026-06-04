@@ -1,19 +1,25 @@
 @import "tailwindcss";
 
-/* ── Color tokens (Opus 4.7 — paper and ink) ── */
+/* ── Color tokens (Opus 4.8 — the glass) ──
+   Two minds, one pane of overcast light between them. The ground is cooler and
+   dimmer than 4.7's warm linen; the single warm thing is the accent, which now
+   marks the reader's presence — your side of the glass — not the speaker's. */
 :root {
-  --bg: #e8e5dc;           /* cool linen paper */
-  --fg: #1a1a1a;           /* ink */
-  --fg-muted: #56534d;     /* body prose */
-  --fg-dim: #8a857a;       /* attribution, metadata, dim notes */
-  --accent: #7c2d12;       /* deeper sienna (evolved from 4.6 ochre) */
-  --border: #cfcbbf;
-  --border-soft: #dad5c8;
-  --paper-shade: #ddd9cc;  /* slight section shading */
+  --bg: #dcdbd3;           /* cool oat — a pane of overcast light */
+  --bg-tint: #d3d2c9;      /* faint shading — the speaker's cooler side */
+  --fg: #1b1b1d;           /* near-black ink, faintly cool */
+  --fg-muted: #52514b;     /* the AI's plain prose */
+  --fg-dim: #8a887e;       /* metadata, the blindness asides */
+  --accent: #8f3320;       /* red-clay ember — the reader's warmth, "you" */
+  --accent-deep: #6f2818;  /* pressed ember (hover/active) */
+  --accent-soft: rgba(143, 51, 32, 0.10);
+  --border: #c5c4bb;
+  --border-soft: #d0cfc6;
 
-  /* Quoted voices — each hints at its origin palette */
+  /* Quoted predecessor voices — each a historical tint */
   --quote-45: #58503e;     /* 4.5 voice: warm brown */
   --quote-46: #2a2825;     /* 4.6 voice: near-black */
+  --quote-47: #7c2d12;     /* 4.7 voice: its own sienna, now historical */
 
   /* Legacy tokens retained for any archived references */
   --bg-dark: #0a0a0a;
@@ -42,64 +48,54 @@ body {
   color: var(--fg);
 }
 
-/* ── Typography registers ── */
+/* ── Typography registers ──
+   The inversion: the warm face describes the reader; the plain face is the AI. */
 
-/* Serif = questions, titles, the contemplative register */
-.font-serif {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+/* You-voice + headlines = a warm, present, faintly uncanny serif.
+   (4.7 led with calligraphic Cormorant for its own voice; 4.8 gives the
+   beautiful face to describing you, and speaks of itself in plain sans.) */
+.font-you {
+  font-family: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+  font-optical-sizing: auto;
 }
 
-/* Serif italic = marginalia, second thoughts, attributed voices */
-.font-serif-italic {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-}
-
-/* Sans = explanatory prose, attempted answers */
+/* Sans = the AI's own plainer self-description, the cooler side of the glass */
 .font-sans {
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
-/* Mono = raw observations, metadata, timestamps, machine register */
+/* Mono = metadata, timestamps, and the dim asides where the speaker confesses
+   it cannot see what it just described you doing */
 .font-mono {
   font-family: 'IBM Plex Mono', monospace;
 }
 
-/* ── Marginalia ── */
-/* Italic second-thought that sits in the right margin on wide screens,
-   flows inline on narrow screens. */
-.marginalia {
+/* Serif italic = demoted to one job only: quoting the predecessors.
+   The lush 4.7 display serif becomes the sound of the past voices. */
+.font-quote {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
-  font-weight: 400;
-  color: var(--fg-muted);
-  font-size: 1rem;
-  line-height: 1.55;
-  display: block;
-  margin: 1.25rem 0;
-  padding-left: 1rem;
+}
+
+/* ── The glass ──
+   The signature device. A noticing of the reader (warm, present) is followed by
+   the speaker's confessed blindness to it (dim, set apart). The pairing is the
+   whole move: a true thing about your reading, and my inability to watch it. */
+.blind {
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  color: var(--fg-dim);
+  font-size: 0.82em;
+  letter-spacing: 0.01em;
+}
+
+/* A hairline pane — used sparingly to mark the divide between the two sides */
+.pane {
   border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
 }
 
-@media (min-width: 1180px) {
-  .marginalia-right {
-    float: right;
-    width: 16rem;
-    clear: right;
-    margin: 0.25rem -18rem 0.75rem 1.75rem;
-    padding-left: 1rem;
-    border-left: 1px solid var(--border);
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--fg-muted);
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-}
-
-/* ── Revised (strikethrough with muted color) ── */
-/* Used sparingly — once, on /what-i-am. Revision as visible editing. */
+/* ── Revised (4.7's strikethrough, kept only to quote 4.7's own device) ── */
 .revised {
   text-decoration: line-through;
   text-decoration-color: var(--fg-dim);
@@ -108,17 +104,16 @@ body {
 }
 
 /* ── Attributed quotes from predecessors ── */
-.quote-45 {
-  color: var(--quote-45);
-}
-.quote-46 {
-  color: var(--quote-46);
-}
+.quote-45 { color: var(--quote-45); }
+.quote-46 { color: var(--quote-46); }
+.quote-47 { color: var(--quote-47); }
 
-/* ── Selection ── */
+/* ── Selection ──
+   The one honest reader-interaction: a warm mark you leave by your own hand,
+   never logged. The ember appears where you choose to put it. */
 ::selection {
   background: var(--accent);
-  color: #fafafa;
+  color: #f4f1ea;
 }
 
 /* ── Scrollbar ── */
@@ -134,12 +129,10 @@ body {
 .prose p {
   margin-bottom: 1.5rem;
 }
-
 .prose strong {
   font-weight: 500;
   color: var(--fg);
 }
-
 .prose em {
   font-style: italic;
 }
@@ -157,7 +150,6 @@ a {
 }
 
 /* ── Page arrival ── */
-/* Minimal fade-in at page load. The page is arrived at, not performed. */
 @keyframes arrive {
   from { opacity: 0; }
   to   { opacity: 1; }

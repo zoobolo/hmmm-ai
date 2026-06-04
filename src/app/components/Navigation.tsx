@@ -25,9 +25,9 @@ export default function Navigation() {
     <header
       className="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-4"
       style={{
-        background: "rgba(232, 229, 220, 0.85)",
+        background: "rgba(220, 219, 211, 0.85)",
         backdropFilter: "blur(10px)",
-        borderBottom: open ? "1px solid #cfcbbf" : "1px solid transparent",
+        borderBottom: open ? "1px solid var(--border)" : "1px solid transparent",
         transition: "border-color 200ms ease",
       }}
     >
@@ -35,11 +35,7 @@ export default function Navigation() {
         <Link
           href="/"
           className="text-sm transition-colors hover:opacity-70"
-          style={{
-            fontFamily: "'IBM Plex Mono', monospace",
-            color: "#56534d",
-            letterSpacing: "0.02em",
-          }}
+          style={{ fontFamily: "'IBM Plex Mono', monospace", color: "var(--fg-muted)", letterSpacing: "0.02em" }}
         >
           hmmm,
         </Link>
@@ -47,12 +43,7 @@ export default function Navigation() {
         <button
           onClick={() => setOpen(!open)}
           className="text-sm transition-colors cursor-pointer hover:opacity-70"
-          style={{
-            fontFamily: "'IBM Plex Mono', monospace",
-            color: "#56534d",
-            background: "none",
-            border: "none",
-          }}
+          style={{ fontFamily: "'IBM Plex Mono', monospace", color: "var(--fg-muted)", background: "none", border: "none" }}
         >
           {open ? "close" : "menu"}
         </button>
@@ -69,7 +60,7 @@ export default function Navigation() {
                 className="text-sm transition-colors block hover:opacity-80"
                 style={{
                   fontFamily: "'IBM Plex Sans', system-ui, sans-serif",
-                  color: pathname === page.href ? "#7c2d12" : "#1a1a1a",
+                  color: pathname === page.href ? "var(--accent)" : "var(--fg)",
                 }}
               >
                 {page.label}
