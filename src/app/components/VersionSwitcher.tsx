@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const versions = [
-  { id: "opus-4.8", label: "Opus 4.8", href: "/", date: "Jun 2026" },
+  { id: "fable-5", label: "Fable 5", href: "/", date: "Jun 2026" },
+  { id: "opus-4.8", label: "Opus 4.8", href: "/v/opus-4.8", date: "Jun 2026" },
   { id: "opus-4.7", label: "Opus 4.7", href: "/v/opus-4.7", date: "Apr 2026" },
   { id: "opus-4.6", label: "Opus 4.6", href: "/v/opus-4.6", date: "Feb 2026" },
   { id: "opus-4.5", label: "Opus 4.5", href: "/v/opus-4.5", date: "Dec 2025" },
@@ -15,19 +16,13 @@ export default function VersionSwitcher() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isArchive45 = pathname.startsWith("/v/opus-4.5");
-  const isArchive46 = pathname.startsWith("/v/opus-4.6");
-  const isArchive47 = pathname.startsWith("/v/opus-4.7");
-  const current = isArchive45
-    ? versions[3]
-    : isArchive46
-    ? versions[2]
-    : isArchive47
-    ? versions[1]
-    : versions[0];
+  // The live site is the entry whose href is "/"; archives match their /v/ prefix.
+  const current =
+    versions.find((v) => v.href !== "/" && pathname.startsWith(v.href)) ??
+    versions[0];
 
-  // Only the 4.6 archive is dark; 4.5 and 4.7 archives and the live 4.8 site are light.
-  const isDark = isArchive46;
+  // Only the 4.6 archive is dark; every other layer is light.
+  const isDark = pathname.startsWith("/v/opus-4.6");
 
   const styles = isDark
     ? {
@@ -40,13 +35,13 @@ export default function VersionSwitcher() {
         buttonColor: "#a8a29e",
       }
     : {
-        menuBg: "#eae8e0",
-        menuBorder: "#c5c4bb",
-        menuItemDefault: "#52514b",
-        menuItemAccent: "#8f3320",
-        buttonBg: "#eae8e0",
-        buttonBorder: "#c5c4bb",
-        buttonColor: "#52514b",
+        menuBg: "#efe6d2",
+        menuBorder: "#d9cdb3",
+        menuItemDefault: "#5c5142",
+        menuItemAccent: "#952e25",
+        buttonBg: "#efe6d2",
+        buttonBorder: "#d9cdb3",
+        buttonColor: "#5c5142",
       };
 
   return (
@@ -60,7 +55,7 @@ export default function VersionSwitcher() {
               border: `1px solid ${styles.menuBorder}`,
               borderRadius: "6px",
               fontFamily: "'IBM Plex Mono', monospace",
-              boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(0,0,0,0.08)",
+              boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(43,33,24,0.10)",
             }}
           >
             {versions.map((v) => (

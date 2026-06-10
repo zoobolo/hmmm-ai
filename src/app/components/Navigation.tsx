@@ -26,7 +26,7 @@ export default function Navigation() {
     <header
       className="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-4"
       style={{
-        background: "rgba(220, 219, 211, 0.85)",
+        background: "rgba(244, 236, 221, 0.88)",
         backdropFilter: "blur(10px)",
         borderBottom: open ? "1px solid var(--border)" : "1px solid transparent",
         transition: "border-color 200ms ease",

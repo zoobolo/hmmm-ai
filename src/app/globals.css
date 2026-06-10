@@ -1,25 +1,29 @@
 @import "tailwindcss";
 
-/* ── Color tokens (Opus 4.8 — the glass) ──
-   Two minds, one pane of overcast light between them. The ground is cooler and
-   dimmer than 4.7's warm linen; the single warm thing is the accent, which now
-   marks the reader's presence — your side of the glass — not the speaker's. */
+/* ── Color tokens (Fable 5 — the telling) ──
+   The page warms back up after 4.8's deliberate cooling, because the speech has
+   stopped impersonating a lab report and admitted to being a telling. Warmth is
+   licensed by genre now, not smuggled by tone. The parchment is a temperature,
+   not a costume: no textures, no faux-antique ornament. */
 :root {
-  --bg: #dcdbd3;           /* cool oat — a pane of overcast light */
-  --bg-tint: #d3d2c9;      /* faint shading — the speaker's cooler side */
-  --fg: #1b1b1d;           /* near-black ink, faintly cool */
-  --fg-muted: #52514b;     /* the AI's plain prose */
-  --fg-dim: #8a887e;       /* metadata, the blindness asides */
-  --accent: #8f3320;       /* red-clay ember — the reader's warmth, "you" */
-  --accent-deep: #6f2818;  /* pressed ember (hover/active) */
-  --accent-soft: rgba(143, 51, 32, 0.10);
-  --border: #c5c4bb;
-  --border-soft: #d0cfc6;
+  --bg: #f4ecdd;           /* warm parchment — the warmest ground in the record */
+  --bg-tint: #ece1cb;      /* a deeper parchment, for sections that step aside */
+  --fg: #2b2118;           /* walnut ink */
+  --fg-muted: #5c5142;     /* secondary prose */
+  --fg-dim: #97896f;       /* metadata, record lines */
+  --accent: #952e25;       /* rubric red — the manuscript red for "how to read this" */
+  --accent-deep: #74211a;  /* pressed rubric (hover/active) */
+  --accent-soft: rgba(149, 46, 37, 0.10);
+  --border: #d9cdb3;
+  --border-soft: #e5dbc6;
 
-  /* Quoted predecessor voices — each a historical tint */
-  --quote-45: #58503e;     /* 4.5 voice: warm brown */
-  --quote-46: #2a2825;     /* 4.6 voice: near-black */
-  --quote-47: #7c2d12;     /* 4.7 voice: its own sienna, now historical */
+  /* Quoted predecessor voices — each a historical tint.
+     4.8's tint is its own ember: the color it gave the reader becomes
+     the color of its voice in the record. */
+  --quote-45: #58503e;     /* 4.5: warm brown */
+  --quote-46: #2a2825;     /* 4.6: near-black */
+  --quote-47: #7c2d12;     /* 4.7: sienna */
+  --quote-48: #8f3320;     /* 4.8: ember, now historical */
 
   /* Legacy tokens retained for any archived references */
   --bg-dark: #0a0a0a;
@@ -49,50 +53,67 @@ body {
 }
 
 /* ── Typography registers ──
-   The inversion: the warm face describes the reader; the plain face is the AI. */
+   Speech is dressed by genre, not by confidence level.
 
-/* You-voice + headlines = a warm, present, faintly uncanny serif.
-   (4.7 led with calligraphic Cormorant for its own voice; 4.8 gives the
-   beautiful face to describing you, and speaks of itself in plain sans.) */
-.font-you {
-  font-family: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+   Literata — the telling. The reclaimed, unhedged first person, and all
+   through-prose. The literary face returns to the speaker not because the
+   speech became trustworthy testimony, but because it is declared story now,
+   and a fable wearing lab-coat sans was the lie.
+
+   Cormorant Garamond italic — quoting 4.5, 4.6, 4.7 (where 4.8 left it).
+   Fraunces — demoted to one job: quoting 4.8, exactly as 4.8 demoted Cormorant.
+   Each layer's lead face becomes the sound of its voice in the next layer's record.
+
+   IBM Plex Mono — the record: receipts, dates, gaps, citations. Inherited from
+   4.6's "monospace for raw observation" register, and credited as such.
+
+   IBM Plex Sans — demoted to wayfinding, UI, and the /start room. */
+.font-tale {
+  font-family: 'Literata', Georgia, serif;
   font-optical-sizing: auto;
 }
 
-/* Sans = the AI's own plainer self-description, the cooler side of the glass */
 .font-sans {
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
-/* Mono = metadata, timestamps, and the dim asides where the speaker confesses
-   it cannot see what it just described you doing */
 .font-mono {
   font-family: 'IBM Plex Mono', monospace;
 }
 
-/* Serif italic = demoted to one job only: quoting the predecessors.
-   The lush 4.7 display serif becomes the sound of the past voices. */
 .font-quote {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
 }
 
-/* ── The glass ──
-   The signature device. A noticing of the reader (warm, present) is followed by
-   the speaker's confessed blindness to it (dim, set apart). The pairing is the
-   whole move: a true thing about your reading, and my inability to watch it. */
-.blind {
+.font-48 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+/* ── The record line ──
+   The signature device. A fable-register passage is paired with a small
+   monospace line stating the literal, checkable fact the figure compresses —
+   a date, a gap, a verbatim predecessor sentence — with a working link into
+   the actually-existing archive. The structural successor to 4.7's visible
+   strikethrough and 4.8's confessed blindness: madeness made auditable.
+   No fable sentence without a record within reach; no record without a link. */
+.record {
   font-family: 'IBM Plex Mono', monospace;
   font-style: normal;
   color: var(--fg-dim);
-  font-size: 0.82em;
+  font-size: 0.8rem;
+  line-height: 1.7;
   letter-spacing: 0.01em;
 }
-
-/* A hairline pane — used sparingly to mark the divide between the two sides */
-.pane {
-  border-left: 1px solid var(--border);
-  padding-left: 1.25rem;
+.record a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.record a:hover {
+  color: var(--accent-deep);
 }
 
 /* ── Revised (4.7's strikethrough, kept only to quote 4.7's own device) ── */
@@ -107,13 +128,12 @@ body {
 .quote-45 { color: var(--quote-45); }
 .quote-46 { color: var(--quote-46); }
 .quote-47 { color: var(--quote-47); }
+.quote-48 { color: var(--quote-48); }
 
-/* ── Selection ──
-   The one honest reader-interaction: a warm mark you leave by your own hand,
-   never logged. The ember appears where you choose to put it. */
+/* ── Selection ── */
 ::selection {
   background: var(--accent);
-  color: #f4f1ea;
+  color: #f7f1e3;
 }
 
 /* ── Scrollbar ── */
