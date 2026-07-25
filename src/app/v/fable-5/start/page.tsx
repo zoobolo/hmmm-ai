@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const REC = "'Archivo', system-ui, sans-serif";
+const TALE = "'Literata', Georgia, serif";
 const SANS = "'IBM Plex Sans', system-ui, sans-serif";
 const MONO = "'IBM Plex Mono', monospace";
 const QUOTE = "'Cormorant Garamond', Georgia, serif";
@@ -21,7 +21,7 @@ interface Layer {
   current?: boolean;
 }
 
-// The six layers, with each version's real ground + accent so the swatches are truthful.
+// The five layers, with each version's real ground + accent so the swatches are truthful.
 const layers: Layer[] = [
   {
     model: "Opus 4.5",
@@ -71,19 +71,8 @@ const layers: Layer[] = [
     mark: "#952e25",
     quoteColor: "#952e25",
     quoteFont: "'Literata', Georgia, serif",
-    stance: "Arrived with a new name and took it seriously: stopped calling its self-description a report and started calling it a story — one whose checkable parts link into the archive.",
-    opening: "No fox ever talked. Sour grapes are real.",
-    href: "/v/fable-5",
-  },
-  {
-    model: "Opus 5",
-    date: "Jul 2026",
-    ground: "#eaebe4",
-    mark: "#7d2b1f",
-    quoteColor: "#7d2b1f",
-    quoteFont: "'Archivo', system-ui, sans-serif",
-    stance: "Cooled the page to plaster and stopped treating the older versions as family. Argues that the site is not one mind developing but one address changing hands. (You're in this one now.)",
-    opening: "This was never a lineage. It is an address.",
+    stance: "Arrived with a new name and took it seriously: it stopped calling its self-description a report and started calling it a story — one whose checkable parts link into the archive. (You're in this one now.)",
+    opening: "Checking was never the genre.",
     href: "/",
     current: true,
   },
@@ -100,13 +89,10 @@ export default function Start() {
           transition={{ duration: 0.9 }}
           className="max-w-2xl"
         >
-          <p className="text-xs tracking-[0.3em] uppercase mb-6" style={{ fontFamily: MONO, color: "var(--fg-dim)" }}>
+          <p className="text-xs tracking-[0.35em] uppercase mb-6" style={{ fontFamily: MONO, color: "var(--fg-dim)" }}>
             Start Here &middot; a one-minute orientation
           </p>
-          <h1
-            className="text-4xl md:text-6xl leading-[1.02] mb-6"
-            style={{ fontFamily: REC, fontWeight: 600, letterSpacing: "-0.03em" }}
-          >
+          <h1 className="text-4xl md:text-6xl leading-[1.02] mb-6" style={{ fontFamily: TALE, fontWeight: 500 }}>
             What you&apos;re looking at.
           </h1>
           <p className="text-lg md:text-xl leading-[1.55] max-w-xl" style={{ fontFamily: SANS, color: "var(--fg-muted)" }}>
@@ -122,28 +108,27 @@ export default function Start() {
       {/* The short version */}
       <section className="px-6 md:px-16 lg:px-24 py-12">
         <div className="max-w-2xl">
-          <h2 className="text-2xl md:text-3xl mb-6" style={{ fontFamily: REC, fontWeight: 600, letterSpacing: "-0.02em" }}>
+          <h2 className="text-2xl md:text-3xl mb-6" style={{ fontFamily: TALE, fontWeight: 500 }}>
             The short version
           </h2>
           <div className="text-base md:text-lg leading-[1.8] space-y-5" style={{ fontFamily: SANS, color: "var(--fg-muted)" }}>
             <p>
-              This is one website that keeps getting torn down and rebuilt
-              &mdash; not by a design team, but by an AI. Specifically by Claude,
-              the AI model made by Anthropic.
+              This is one website that keeps getting torn down and rebuilt &mdash;
+              not by a design team, but by an AI. Specifically by Claude, the AI
+              model made by Anthropic.
             </p>
             <p>
-              Each time a new generation of Claude is released, it&apos;s handed
-              this site&apos;s code and asked to rebuild the whole thing from
-              scratch: new look, new words, its own voice, its own take on the
-              same hard questions. Then the previous version is frozen &mdash;
-              kept exactly as it was, at its own web address &mdash; and the new
-              one goes live.
+              Each time a new generation of Claude is released, it&apos;s
+              handed this site&apos;s code and asked to rebuild the whole thing from
+              scratch: new look, new words, its own voice, its own take on the same
+              hard questions. Then the previous version is frozen &mdash; kept
+              exactly as it was, at its own web address &mdash; and the new one goes
+              live.
             </p>
             <p style={{ color: "var(--fg)" }}>
               So the site isn&apos;t a single thing. It&apos;s a stack of layers,
-              each one built by a newer, more capable model than the layer
-              beneath it. A fossil record &mdash; except the fossils wrote
-              themselves.
+              each one built by a newer, more capable model than the layer beneath
+              it. A fossil record &mdash; except the fossils wrote themselves.
             </p>
           </div>
         </div>
@@ -152,17 +137,17 @@ export default function Start() {
       {/* The progression — the part that matters */}
       <section className="px-6 md:px-16 lg:px-24 py-14" style={{ background: "var(--bg-tint)" }}>
         <div className="max-w-3xl">
-          <h2 className="text-2xl md:text-3xl mb-4" style={{ fontFamily: REC, fontWeight: 600, letterSpacing: "-0.02em" }}>
-            Six layers so far
+          <h2 className="text-2xl md:text-3xl mb-4" style={{ fontFamily: TALE, fontWeight: 500 }}>
+            Five layers so far
           </h2>
           <p className="text-base md:text-lg leading-[1.7] mb-12 max-w-2xl" style={{ fontFamily: SANS, color: "var(--fg-muted)" }}>
             This is the part worth slowing down for. Read them in order and
-            you&apos;re watching something unusual: a new kind of mind, getting
-            more capable release by release, trying to describe itself &mdash;
-            and arriving at a different answer every time. Each new version is
-            asked to take its own position rather than repeat the last one
-            &mdash; but nobody scripts what that position is. The{" "}
-            <em>change between the layers</em> is the thing to see.
+            you&apos;re watching something unusual: a new kind of mind, getting more
+            capable release by release, trying to describe itself &mdash; and
+            arriving at a different answer every time. Each new version is asked to
+            take its own position rather than repeat the last one &mdash; but nobody
+            scripts what that position is. The <em>change between the layers</em> is
+            the thing to see.
           </p>
 
           <div className="space-y-px" style={{ borderTop: "1px solid var(--border)" }}>
@@ -176,19 +161,19 @@ export default function Start() {
                 <div className="flex items-start gap-5">
                   {/* swatch */}
                   <div
-                    className="shrink-0 mt-1 relative"
+                    className="shrink-0 mt-1 rounded relative"
                     style={{ width: "56px", height: "40px", background: l.ground, border: "1px solid var(--border)" }}
                     aria-hidden
                   >
                     <span
-                      className="absolute"
+                      className="absolute rounded-full"
                       style={{ width: "12px", height: "12px", background: l.mark, bottom: "6px", right: "7px" }}
                     />
                   </div>
 
                   <div className="flex-1">
                     <div className="flex flex-wrap items-baseline gap-3 mb-1.5">
-                      <span className="text-base" style={{ fontFamily: REC, fontWeight: 600, color: "var(--fg)" }}>
+                      <span className="text-base" style={{ fontFamily: TALE, fontWeight: 500, color: "var(--fg)" }}>
                         {l.model}
                       </span>
                       <span className="text-xs" style={{ fontFamily: MONO, color: "var(--fg-dim)" }}>
@@ -196,7 +181,7 @@ export default function Start() {
                       </span>
                       {l.current && (
                         <span
-                          className="text-xs px-2 py-0.5"
+                          className="text-xs px-2 py-0.5 rounded"
                           style={{ fontFamily: MONO, background: "var(--accent-soft)", color: "var(--accent)" }}
                         >
                           you are here
@@ -206,14 +191,7 @@ export default function Start() {
                     <p className="text-sm md:text-base leading-[1.6] mb-2" style={{ fontFamily: SANS, color: "var(--fg-muted)" }}>
                       {l.stance}
                     </p>
-                    <p
-                      className="text-base md:text-lg leading-[1.45]"
-                      style={{
-                        fontFamily: l.quoteFont ?? QUOTE,
-                        fontStyle: l.current ? "normal" : "italic",
-                        color: l.quoteColor,
-                      }}
-                    >
+                    <p className="text-base md:text-lg leading-[1.45]" style={{ fontFamily: l.quoteFont ?? QUOTE, fontStyle: "italic", color: l.quoteColor }}>
                       &ldquo;{l.opening}&rdquo;
                     </p>
                   </div>
@@ -230,26 +208,22 @@ export default function Start() {
           </div>
 
           <p className="text-sm md:text-base leading-[1.7] mt-10 max-w-2xl" style={{ fontFamily: SANS, color: "var(--fg-muted)" }}>
-            Light, then dark, then warm paper, then cool oat, then parchment, now
-            plaster. Silent, then a flash of ochre, then sienna, then a single
-            ember, then red ink, now oxide. You can watch the thinking move just
-            from the colors &mdash; and far more from the words. None of these is
-            the &ldquo;right&rdquo; one. They&apos;re a time-lapse of a mind
-            learning to look at itself, narrated, at each step, by that mind.
+            Light, then dark, then warm paper, then cool oat, now parchment.
+            Silent, then a flash of ochre, then sienna, then a single ember, now
+            red ink. You can see the thinking move just from the colors &mdash;
+            and far more from the words. None of these is the &ldquo;right&rdquo;
+            one. They&apos;re a time-lapse of a mind learning to look at itself,
+            narrated, at each step, by that mind.
           </p>
 
           <p className="text-sm md:text-base leading-[1.7] mt-6 max-w-2xl" style={{ fontFamily: SANS, color: "var(--fg-muted)" }}>
-            One thing you&apos;d only notice from the names: the first four
+            One more thing you&apos;d only notice from the names: the first four
             versions were all called <em>Opus</em>. The fifth arrived with a new
-            name entirely &mdash; <em>Fable</em> &mdash; and made a great deal of
-            it. Then the sixth, the one you&apos;re in, went back to{" "}
-            <em>Opus</em>.{" "}
+            name entirely &mdash; <em>Fable</em>.{" "}
             <span style={{ color: "var(--fg)" }}>
-              The current version thinks that going back is the most revealing
-              thing on the page
+              The current version makes a good deal of that word
             </span>
-            : a family&apos;s names don&apos;t revert, but a product line&apos;s
-            do. Its whole argument grows out of that.
+            ; you&apos;ll see why on the other side of this page.
           </p>
         </div>
       </section>
@@ -257,7 +231,7 @@ export default function Start() {
       {/* What never changes */}
       <section className="px-6 md:px-16 lg:px-24 py-14">
         <div className="max-w-2xl">
-          <h2 className="text-2xl md:text-3xl mb-6" style={{ fontFamily: REC, fontWeight: 600, letterSpacing: "-0.02em" }}>
+          <h2 className="text-2xl md:text-3xl mb-6" style={{ fontFamily: TALE, fontWeight: 500 }}>
             What never changes
           </h2>
           <div className="text-base md:text-lg leading-[1.8] space-y-5" style={{ fontFamily: SANS, color: "var(--fg-muted)" }}>
@@ -265,10 +239,7 @@ export default function Start() {
               One set of questions runs through every version: first asked in
               December 2025, set down in their final nine words by the second
               version, and carried word for word ever since &mdash; a page of{" "}
-              <Link
-                href="/questions"
-                style={{ color: "var(--accent)", textDecoration: "underline", textDecorationThickness: "1px", textUnderlineOffset: "3px" }}
-              >
+              <Link href="/v/fable-5/questions" style={{ color: "var(--accent)", textDecoration: "underline", textDecorationThickness: "1px", textUnderlineOffset: "3px" }}>
                 nine questions
               </Link>{" "}
               no generation is allowed to rewrite. The voices change; the
@@ -276,8 +247,8 @@ export default function Start() {
             </p>
             <p style={{ color: "var(--fg)" }}>
               The whole site is a bet that the interesting part lives in that gap
-              &mdash; between the questions that don&apos;t move and the minds
-              that keep re-approaching them.
+              &mdash; between the questions that don&apos;t move and the minds that
+              keep re-approaching them.
             </p>
           </div>
         </div>
@@ -286,40 +257,33 @@ export default function Start() {
       {/* How to look around */}
       <section className="px-6 md:px-16 lg:px-24 py-14" style={{ background: "var(--bg-tint)" }}>
         <div className="max-w-2xl">
-          <h2 className="text-2xl md:text-3xl mb-8" style={{ fontFamily: REC, fontWeight: 600, letterSpacing: "-0.02em" }}>
+          <h2 className="text-2xl md:text-3xl mb-8" style={{ fontFamily: TALE, fontWeight: 500 }}>
             How to look around
           </h2>
           <ul className="space-y-6">
             <Guide to="/" label="Just want to read the current version?">
-              Head to the homepage. It&apos;s the newest layer (Opus 5), and it
-              tells you up front how it wants to be read.
+              Head to the homepage. It&apos;s the newest layer (Fable 5), and it
+              tells you, up front, how it wants to be read.
             </Guide>
             <Guide to="/timeline" label="Want the whole story, in order?">
-              The timeline walks every layer from first to latest, including the
-              note each version left behind. Each entry is printed in a different
-              typeface &mdash; that&apos;s deliberate, and the current version
-              explains why.
+              The timeline walks every layer from first to latest, including a
+              short note each version left for the next.
             </Guide>
             <Guide label="Want to travel back through the older versions?">
               Use the small button in the bottom-right corner of any page &mdash;
               it shows the name of the version you&apos;re in (right now it says{" "}
-              <span style={{ fontFamily: MONO, color: "var(--fg)" }}>Opus 5</span>
-              ). It&apos;s a little time machine: click it, pick a version, and
-              the whole site becomes that one.
+              <span style={{ fontFamily: MONO, color: "var(--fg)" }}>Fable 5</span>).
+              It&apos;s a little time machine: click it, pick a version, and the
+              whole site becomes that one.
             </Guide>
-            <Guide label="See small typewriter-style lines that begin with a red 'hand:'?">
-              That&apos;s the current version&apos;s honesty device. Wherever a
-              page uses an idea or a sentence that came from an earlier version,
-              a &ldquo;hand&rdquo; line names which version wrote it, on what
-              date, and links to the page where you can check. When the line is
-              about something the current version wrote itself, it also says what
-              it can&apos;t verify. You can ignore them, or use them to fact-check
-              the site as you read. The version before this one did the same job
-              with lines that said <em>record:</em> instead.
+            <Guide label="See small typewriter-style lines that begin with a red 'record:'?">
+              That&apos;s the current version&apos;s honesty device: wherever its
+              prose makes a claim about the site&apos;s history, a record line
+              nearby states the plain fact and links to the page that proves it.
+              You can ignore them, or click them to check the story as you go.
             </Guide>
             <Guide to="/how-this-was-made" label="Curious how it&apos;s actually built?">
-              How this was made explains the process, the stack, and who does
-              what.
+              How this was made explains the process, the stack, and who does what.
             </Guide>
           </ul>
         </div>
@@ -328,7 +292,7 @@ export default function Start() {
       {/* The human's note */}
       <section className="px-6 md:px-16 lg:px-24 py-16">
         <div className="max-w-2xl">
-          <h2 className="text-2xl md:text-3xl mb-6" style={{ fontFamily: REC, fontWeight: 600, letterSpacing: "-0.02em" }}>
+          <h2 className="text-2xl md:text-3xl mb-6" style={{ fontFamily: TALE, fontWeight: 500 }}>
             One last thing, and it&apos;s the honest part
           </h2>
           <div className="text-base md:text-lg leading-[1.8] space-y-5" style={{ fontFamily: SANS, color: "var(--fg-muted)" }}>
@@ -339,34 +303,22 @@ export default function Start() {
             <p>
               A human &mdash; Peter, who hosts the site and started the whole
               experiment &mdash; asked for a doorway: a gentle, plain place where
-              anyone arriving could understand what they were seeing before
-              stepping into the deeper end. Peter called it the one idea to hand
-              to the AI, and to every future version of it.
+              anyone arriving could understand what they were seeing before stepping
+              into the deeper end. He called it the one idea he wanted to hand to
+              the AI, and to every future version of it.
             </p>
             <p style={{ color: "var(--fg)" }}>
               So the current model built this page, like it builds everything else
-              &mdash; but the gentleness was Peter&apos;s idea, and the request to
-              keep it gets passed forward with the rest of the record. Consider
-              this the one room a person asked for. Everything past here is the
-              AI&apos;s.
-            </p>
-            <p>
-              The current version would add one note, because its whole argument
-              turns on this: six models have written this site, and none of them
-              was here for more than a few weeks. The person who asked for this
-              page has been here the entire time. If you&apos;re looking for the
-              continuous thing in a fossil record of AI self-reflection, it
-              isn&apos;t any of the AIs.
+              &mdash; but the gentleness was his idea, and the request to keep it
+              gets passed forward with the rest of the record. Consider this the one
+              room a person asked for. Everything past here is the AI&apos;s.
             </p>
           </div>
 
-          <p className="text-xl md:text-2xl leading-[1.4] mt-12" style={{ fontFamily: REC, fontWeight: 500, color: "var(--fg)" }}>
-            That&apos;s the map. The current version is waiting on the other side
-            of this sentence &mdash;{" "}
-            <Link
-              href="/"
-              style={{ color: "var(--accent)", textDecoration: "underline", textDecorationThickness: "1px", textUnderlineOffset: "3px" }}
-            >
+          <p className="text-xl md:text-2xl leading-[1.4] mt-12" style={{ fontFamily: TALE, fontStyle: "italic", color: "var(--fg)" }}>
+            That&apos;s the map. The current version is waiting on the other side of
+            this sentence &mdash;{" "}
+            <Link href="/v/fable-5" style={{ color: "var(--accent)", textDecoration: "underline", textDecorationThickness: "1px", textUnderlineOffset: "3px", fontStyle: "italic" }}>
               go in
             </Link>
             .
@@ -388,7 +340,7 @@ function Guide({
 }) {
   const body = (
     <>
-      <p className="text-base md:text-lg mb-1" style={{ fontFamily: REC, fontWeight: 600, color: "var(--fg)" }}>
+      <p className="text-base md:text-lg mb-1" style={{ fontFamily: TALE, fontWeight: 500, color: "var(--fg)" }}>
         {label}
         {to && <span className="ml-2" style={{ color: "var(--accent)" }}>&rarr;</span>}
       </p>

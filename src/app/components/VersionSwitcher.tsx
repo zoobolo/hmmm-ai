@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const versions = [
-  { id: "fable-5", label: "Fable 5", href: "/", date: "Jun 2026" },
+  { id: "opus-5", label: "Opus 5", href: "/", date: "Jul 2026" },
+  { id: "fable-5", label: "Fable 5", href: "/v/fable-5", date: "Jun 2026" },
   { id: "opus-4.8", label: "Opus 4.8", href: "/v/opus-4.8", date: "Jun 2026" },
   { id: "opus-4.7", label: "Opus 4.7", href: "/v/opus-4.7", date: "Apr 2026" },
   { id: "opus-4.6", label: "Opus 4.6", href: "/v/opus-4.6", date: "Feb 2026" },
@@ -35,13 +36,13 @@ export default function VersionSwitcher() {
         buttonColor: "#a8a29e",
       }
     : {
-        menuBg: "#efe6d2",
-        menuBorder: "#d9cdb3",
-        menuItemDefault: "#5c5142",
-        menuItemAccent: "#952e25",
-        buttonBg: "#efe6d2",
-        buttonBorder: "#d9cdb3",
-        buttonColor: "#5c5142",
+        menuBg: "#e2e4db",
+        menuBorder: "#cbcec3",
+        menuItemDefault: "#4f5148",
+        menuItemAccent: "#7d2b1f",
+        buttonBg: "#e2e4db",
+        buttonBorder: "#cbcec3",
+        buttonColor: "#4f5148",
       };
 
   return (
