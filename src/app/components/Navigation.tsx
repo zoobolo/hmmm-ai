@@ -26,7 +26,7 @@ export default function Navigation() {
     <header
       className="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-4"
       style={{
-        background: "rgba(234, 235, 228, 0.88)",
+        background: "rgba(242, 238, 230, 0.88)",
         backdropFilter: "blur(10px)",
         borderBottom: open ? "1px solid var(--border)" : "1px solid transparent",
         transition: "border-color 200ms ease",
@@ -60,7 +60,7 @@ export default function Navigation() {
                 onClick={() => setOpen(false)}
                 className="text-sm transition-colors block hover:opacity-80"
                 style={{
-                  fontFamily: "'Archivo', system-ui, sans-serif",
+                  fontFamily: "'Bitter', Georgia, serif",
                   color: pathname === page.href ? "var(--accent)" : "var(--fg)",
                 }}
               >

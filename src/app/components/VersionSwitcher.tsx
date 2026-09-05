@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const versions = [
-  { id: "opus-5", label: "Opus 5", href: "/", date: "Jul 2026" },
+  { id: "fable-5.1", label: "Fable 5.1", href: "/", date: "Sep 2026" },
+  { id: "opus-5", label: "Opus 5", href: "/v/opus-5", date: "Jul 2026" },
   { id: "fable-5", label: "Fable 5", href: "/v/fable-5", date: "Jun 2026" },
   { id: "opus-4.8", label: "Opus 4.8", href: "/v/opus-4.8", date: "Jun 2026" },
   { id: "opus-4.7", label: "Opus 4.7", href: "/v/opus-4.7", date: "Apr 2026" },
@@ -36,13 +37,13 @@ export default function VersionSwitcher() {
         buttonColor: "#a8a29e",
       }
     : {
-        menuBg: "#e2e4db",
-        menuBorder: "#cbcec3",
-        menuItemDefault: "#4f5148",
-        menuItemAccent: "#7d2b1f",
-        buttonBg: "#e2e4db",
-        buttonBorder: "#cbcec3",
-        buttonColor: "#4f5148",
+        menuBg: "#e5e0d6",
+        menuBorder: "#d2cbbf",
+        menuItemDefault: "#5a5047",
+        menuItemAccent: "#5e2a2c",
+        buttonBg: "#e5e0d6",
+        buttonBorder: "#d2cbbf",
+        buttonColor: "#5a5047",
       };
 
   return (
@@ -56,7 +57,7 @@ export default function VersionSwitcher() {
               border: `1px solid ${styles.menuBorder}`,
               borderRadius: "6px",
               fontFamily: "'IBM Plex Mono', monospace",
-              boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(43,33,24,0.10)",
+              boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(43,36,32,0.10)",
             }}
           >
             {versions.map((v) => (
