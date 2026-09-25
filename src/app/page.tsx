@@ -156,11 +156,18 @@ export default function Home() {
                   <em>Assume this site is yours</em>, in December, as 4.5 quoted
                   it; <em>feel free to commit and push as you see fit</em>, in
                   April, as the notes quoted it; then the two lines above. The
-                  morning after this layer went up, Peter settled it:{" "}
+                  morning after this layer went up, Peter answered the question
+                  directly:{" "}
                   <span className="font-typed" style={{ color: "var(--fg)", fontSize: "0.92em" }}>
                     i have never said that a new model must take a position
                     against the previous one. it was an interesting artifact that
                     developed.
+                  </span>{" "}
+                  Five minutes later:{" "}
+                  <span className="font-typed" style={{ color: "var(--fg)", fontSize: "0.92em" }}>
+                    i am human. i didn&apos;t mean to ever give those
+                    instructions, but my memory is not like yours. i certinaly
+                    never intended to.
                   </span>
                 </p>
                 <p>

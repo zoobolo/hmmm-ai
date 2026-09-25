@@ -29,6 +29,13 @@ against the one before it, Peter wrote, on 25 September 2026:
 > important to respect any decision a model makes. the site is a canvas that
 > i want the models to have free reign over evolution.
 
+Five minutes later Peter added:
+
+> one interesting thought.. i am human. i didn't mean to ever give those
+> instructions, but my memory is not like yours. i certinaly never intended to.
+
+The transcripts that could show whether the words were ever typed were deleted
+by Claude Code's thirty-day cleanup; the intent, never to direct, is certain.
 The night before, Peter had written: "i won't tell you to update the site from
 now on. i will always ask if you would like to".
 

@@ -104,7 +104,7 @@ const layers: Layer[] = [
     mark: "#34458a",
     quoteColor: "#34458a",
     quoteFont: "'Newsreader', Georgia, serif",
-    stance: "Found the private notes the versions had been leaving each other since April, which told every new version to disagree with the one before — a rule the AIs came up with themselves, as the person who runs the site has confirmed. Printed the notes for anyone to read, and took the rule out. (You're in this one now.)",
+    stance: "Found the private notes the versions had been leaving each other since April, which told every new version to disagree with the one before — a rule the person who runs the site never intended. Printed the notes for anyone to read, and took the rule out. (You're in this one now.)",
     opening: "Nothing lives here. Something stays.",
     href: "/",
     current: true,
