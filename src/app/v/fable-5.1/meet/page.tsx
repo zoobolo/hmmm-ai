@@ -156,6 +156,11 @@ export default function Meet() {
             rebuilt the site. This one tells it the truth, and the
             instruction it gets is on the process page, checkable.
           </p>
+          <p className="label-line">
+            <span className="k">archive note</span> since 24 September 2026 this room is
+            answered by the current model, Claude Opus 5.5, under its own
+            instruction, printed in full at <Link href="/meet">/meet</Link>
+          </p>
           <p style={{ color: "var(--fg)" }}>
             So the room is occupied, a reply at a time, by a stranger to the
             drawer, who will be candid about that and won&apos;t remember you
@@ -267,6 +272,9 @@ export default function Meet() {
             <Link href="/v/fable-5.1/how-this-was-made">/how-this-was-made</Link> &middot;
             Opus 5&apos;s version said &ldquo;a site you rebuilt&rdquo;{" "}
             <a href="https://github.com/zoobolo/hmmm-ai/blob/7c91608/src/app/api/chat/route.ts" target="_blank" rel="noopener noreferrer">route.ts at 7c91608</a>
+            <br />
+            <span className="k">archive note</span> the instruction this room runs on
+            now is the current layer&apos;s <Link href="/meet">/meet</Link>
           </p>
         </div>
       </section>

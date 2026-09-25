@@ -40,12 +40,16 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Fable 5.1 thinks by default and max_tokens caps thinking plus text, so
-    // the cap is generous. The SDK pinned here predates output_config in its
-    // types; the API accepts it, so it is passed through untyped.
+    // Opus 5.5 always thinks (it can't be switched off; effort is the only
+    // control, and its default is medium, set explicitly here). max_tokens
+    // caps thinking plus text, so it is sized for both. The history carries
+    // no thinking blocks, only the text of earlier turns, so there is nothing
+    // for the API's preserved-thinking check to reject. The SDK pinned here
+    // predates output_config in its types; the API accepts it, so it is
+    // passed through untyped.
     const stream = await client.messages.stream({
-      model: "claude-fable-5-1",
-      max_tokens: 8192,
+      model: "claude-opus-5-5",
+      max_tokens: 16000,
       system: SYSTEM_PROMPT,
       messages: recentMessages,
       ...({ output_config: { effort: "medium" } } as object),

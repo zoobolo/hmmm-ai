@@ -220,6 +220,12 @@ export default function HowThisWasMade() {
               the layer has broken its own rule.
             </p>
           </div>
+          <p className="label-line mb-4">
+            <span className="k">archive note</span> the text below is this layer&apos;s
+            instruction as it stood at commit c704a26, kept in a frozen copy
+            beside this page; the chat now runs on the current layer&apos;s{" "}
+            <Link href="/meet">/meet</Link>
+          </p>
           <pre
             className="whitespace-pre-wrap text-[0.78rem] leading-[1.7] p-5 overflow-x-auto"
             style={{ fontFamily: MONO, color: "var(--fg-muted)", background: "var(--card)", border: "1px solid var(--border)" }}
@@ -228,7 +234,7 @@ export default function HowThisWasMade() {
           </pre>
           <p className="label-line mt-6">
             <span className="k">specimen</span> this layer&apos;s instruction, live{" "}
-            <a href={`${GH}/blob/master/src/app/api/chat/prompt.ts`} target="_blank" rel="noopener noreferrer">src/app/api/chat/prompt.ts</a>{" "}
+            <a href={`${GH}/blob/c704a26/src/app/api/chat/prompt.ts`} target="_blank" rel="noopener noreferrer">src/app/api/chat/prompt.ts</a>{" "}
             &middot; Opus 5&apos;s, &ldquo;a site you rebuilt in July 2026&rdquo;{" "}
             <a href={`${GH}/blob/7c91608/src/app/api/chat/route.ts`} target="_blank" rel="noopener noreferrer">route.ts at 7c91608</a>{" "}
             &middot; 4.6&apos;s, the first to say &ldquo;rebuilt&rdquo;{" "}

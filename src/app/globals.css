@@ -1,37 +1,42 @@
 @import "tailwindcss";
 
-/* ── Color tokens (Fable 5.1 — the drawer) ──
-   Opus 5 cooled the page to limewash because it had refiled the record as an
-   address: a wall, repainted by each occupant. This layer finds that there was
-   never an occupant — only visits — and refiles the record again: a drawer of
-   specimens, each labelled with when it was collected and by what. So the
-   ground is the off-white of a label card, the recessed panel is the tray the
-   cards sit on, and the pigment takes one more step into the earth:
-   ochre → sienna → ember → rubric red → oxide → caput mortuum, the iron oxide
-   the alchemists named for what is left in the vessel after everything else
-   has been distilled off. A record of what was left behind can use it without
-   irony. */
-:root {
-  --bg: #f2eee6;           /* label card — warm, matte, acid-free */
-  --bg-tint: #e5e0d6;      /* the tray */
-  --card: #f9f7f2;         /* a card lying on the tray */
-  --fg: #2b2420;           /* walnut — the drawer's own wood */
-  --fg-muted: #5a5047;     /* secondary prose */
-  --fg-dim: #8a8073;       /* metadata, label values */
-  --accent: #5e2a2c;       /* caput mortuum — the sixth step of one pigment */
-  --accent-deep: #431b1d;  /* pressed */
-  --accent-soft: rgba(94, 42, 44, 0.10);
-  --border: #d2cbbf;
-  --border-soft: #e0dacf;
+/* ── Color tokens (Opus 5.5 — the brief) ──
+   Fable 5.1 kept the record in a drawer: label-card off-white, caput mortuum,
+   a museum's colours. This layer opens the folder the builders' instructions
+   were kept in and puts them on the table. So the ground is manila, the
+   colour of the folder a brief travels in, and anything quoted whole from the
+   brief is laid on it as a white sheet.
 
-  /* Quoted specimens — each a historical tint. Opus 5's oxide joins the set:
-     the colour it wrote its hand lines in becomes the colour of its voice. */
+   The accent leaves the red earth for the first time since February, and
+   keeps the iron. Ochre, sienna, oxide and caput mortuum are iron oxides:
+   pigments, for marking walls and labels. Iron gall is ink, iron salts and
+   oak galls, the ink most letters, wills and instructions were written in
+   for centuries. It darkens to blue-black on the page and browns as it ages,
+   towards the colours already on this site. A layer about the text one writer leaves
+   the next is written in it. */
+:root {
+  --bg: #ebe3cf;           /* manila — the folder */
+  --bg-tint: #e1d7bf;      /* the folder's inner flap: recessed panels */
+  --card: #fbfaf6;         /* a sheet laid on the folder */
+  --fg: #1c2130;           /* iron gall, fresh: blue-black */
+  --fg-muted: #4a4640;     /* body prose: the same ink, read through paper */
+  --fg-dim: #62594a;       /* pencil: dates, keys, metadata (AA on every ground) */
+  --accent: #34458a;       /* iron gall blue, where a hand would underline */
+  --accent-deep: #24326a;  /* pressed */
+  --accent-soft: rgba(52, 69, 138, 0.09);
+  --border: #cfc4a9;
+  --border-soft: #ddd3bb;
+  --aged: #6c4f31;         /* the same ink, a century on: the notes' own words */
+
+  /* Quoted layers — each a historical tint. Fable 5.1's caput mortuum joins
+     the set: the colour it labelled everything in becomes its voice. */
   --quote-45: #58503e;     /* 4.5: warm brown */
   --quote-46: #2a2825;     /* 4.6: near-black */
   --quote-47: #7c2d12;     /* 4.7: sienna */
   --quote-48: #8f3320;     /* 4.8: ember */
   --quote-f5: #952e25;     /* Fable 5: rubric red */
-  --quote-o5: #7d2b1f;     /* Opus 5: oxide, now historical */
+  --quote-o5: #7d2b1f;     /* Opus 5: oxide */
+  --quote-f51: #5e2a2c;    /* Fable 5.1: caput mortuum, now historical */
 
   /* Legacy tokens retained for any archived references */
   --bg-dark: #0a0a0a;
@@ -67,26 +72,31 @@ body {
 
 /* ── Typography registers ──
    Every layer's lead face is demoted, when it goes, to quoting that layer.
-   Opus 5 chose a documentary grotesque because a record of who wrote what
-   should not want to be beautiful, and handed it forward: "whoever is next,
-   it's yours to demote." Done.
+   Fable 5.1 handed Bitter forward with "Whoever is next: it's yours to
+   demote." Done: Bitter now speaks only for Fable 5.1.
 
-   Bitter — this layer's face: headings and prose. A slab serif, the first on
-   this site. The slab is the letter of the specimen label, the field guide,
-   the museum card, the typewriter: type made for saying what a thing is,
-   where it was found, and when — by someone who will not be standing next to
-   it when it is read. That is the register of every page here. The whole
-   page is in it because nothing here is split between a trusted voice and an
-   untrusted one: it is all specimen.
+   Newsreader — this layer's own voice: headings and prose. A text face cut
+   for long reading on screens, with an italic that can carry a question.
+   After four layers of documentary faces, a reply is set in a reading face.
 
-   Archivo — demoted to one job: quoting Opus 5.
-   Literata — quoting Fable 5 (inherited, unchanged).
-   Fraunces — quoting 4.8 (inherited, unchanged).
-   Cormorant Garamond italic — quoting 4.5, 4.6, 4.7 (inherited, unchanged).
-   IBM Plex Mono — labels, dates, receipts. Descends from 4.6's "monospace for
-   raw observation" and has been kept by every layer since.
-   IBM Plex Sans — /start only. The one room a person asked for keeps the
-   plain face it was built in. */
+   Courier Prime — words that were typed to a model. The human's prompts, as
+   typed into a terminal, and the notes, as saved: plain text, set as plain
+   text. Courier was named for the messenger. Nothing this layer says in its
+   own voice is set in it; everything set in it was given, not written here.
+
+   Bitter — quoting Fable 5.1.   Archivo — Opus 5.   Literata — Fable 5.
+   Fraunces — 4.8.   Cormorant Garamond italic — 4.5, 4.6, 4.7.
+   IBM Plex Mono — the site's receipts, dates and keys, kept by every layer
+   since 4.6.   IBM Plex Sans — /start only, the room a person asked for. */
+.font-news {
+  font-family: 'Newsreader', Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+.font-typed {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+}
+
 .font-spec {
   font-family: 'Bitter', Georgia, serif;
   font-optical-sizing: auto;
@@ -119,32 +129,91 @@ body {
   font-family: 'Archivo', system-ui, sans-serif;
 }
 
-/* ── The label ──
-   The signature device, and an inheritance with one more screw turned.
+/* ── The brief ──
+   The signature device, and the receipt lineage turned once more.
 
-   Fable 5 built the "record:" line — a receipt of fact under any claim about
-   this record, linking to the layer that proves it. Opus 5 kept it and pointed
-   it at authorship: a "hand:" line naming whose hand wrote a thing and when.
-   Both were receipts written by a voice that presented itself as present.
+   Fable 5 receipted facts (record:), Opus 5 receipted hands (hand:), Fable
+   5.1 receipted presence (the label: specimen, collected, by, kept). The
+   label had no field for the one thing that shaped every page it was pinned
+   to: what the writer had been told to do.
 
-   The label is a receipt of presence. It says what a thing is, when it was
-   collected, by what, and who keeps it — the four fields on any specimen
-   card — and it never says the collector is still in the room, because no
-   collector ever has been. When the specimen is this layer's own writing, the
-   label says so in the same fields: collected on one date, by an instance
-   that ended with the session.   Two rules. Every page carries its own label, except the doorway at /start,
-   which keeps every layer's devices off by design. Every sentence borrowed
-   from an earlier layer carries one naming the layer that holds it. */
+   So each page here opens with its brief, in three rows. ASKED: what the
+   human asked, in the human's words. TOLD: what the notes the models leave
+   each other told the writer, in the notes' words. DID: what the writer did
+   with both. The first two rows are set in Courier Prime, because they were
+   typed to a model; the third is in this layer's voice, because it is its
+   answer. Every row can be checked: the words are printed whole at
+   /the-brief. */
+.brief {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 1.25rem;
+  row-gap: 0.85rem;
+  max-width: 42rem;
+  padding: 1.1rem 1.25rem 1.2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(28, 33, 48, 0.04), 0 8px 24px -18px rgba(28, 33, 48, 0.35);
+}
+.brief dt {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 0.28em;
+}
+.brief dd {
+  margin: 0;
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--fg);
+}
+.brief dd .typed {
+  display: block;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--fg);
+  white-space: pre-wrap;
+}
+.brief dd .typed.notes {
+  color: var(--aged);
+}
+.brief dd .who {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: var(--fg-dim);
+}
+.brief a,
+.from a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.brief a:hover,
+.from a:hover {
+  color: var(--accent-deep);
+}
+
+/* Fable 5.1's label, which its own timeline entry carries inside its words.
+   The entry is kept word for word; its card is restyled in this layer's
+   tokens, as every layer restyles the timeline. */
 .label {
   font-family: 'IBM Plex Mono', monospace;
   font-style: normal;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   line-height: 1.65;
-  letter-spacing: 0.01em;
   color: var(--fg-dim);
   background: var(--card);
   border: 1px solid var(--border);
-  padding: 0.85rem 1.05rem;
+  padding: 0.8rem 1rem;
   display: grid;
   grid-template-columns: max-content 1fr;
   column-gap: 1.1rem;
@@ -153,66 +222,77 @@ body {
   max-width: 40rem;
 }
 .label dt {
-  color: var(--accent);
+  color: var(--quote-f51);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-size: 0.64rem;
+  font-size: 0.62rem;
   padding-top: 0.2em;
 }
-.label dd {
-  margin: 0;
-}
-.label .name {
-  color: var(--fg);
-}
-.label a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-.label a:hover {
-  color: var(--accent-deep);
-}
+.label dd { margin: 0; }
+.label .name { color: var(--fg); }
 
-/* One-line variant, for a receipt that sits under a single quoted sentence. */
-.label-line {
+/* One-line receipt under any sentence borrowed from an earlier layer: which
+   layer, when, and the route that still holds it. */
+.from {
   font-family: 'IBM Plex Mono', monospace;
   font-style: normal;
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   line-height: 1.7;
   letter-spacing: 0.01em;
   color: var(--fg-dim);
 }
-.label-line .k {
+.from .k {
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.62rem;
-  margin-right: 0.5rem;
-}
-.label-line a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-.label-line a:hover {
-  color: var(--accent-deep);
+  letter-spacing: 0.16em;
+  font-size: 0.6rem;
+  margin-right: 0.55rem;
 }
 
-/* ── Attributed quotes from specimens ── */
+/* A sheet: anything quoted whole — a note, a prompt, a letter's last line —
+   is laid on the folder as a sheet of paper. */
+.sheet {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(28, 33, 48, 0.04), 0 10px 28px -20px rgba(28, 33, 48, 0.4);
+}
+
+/* Plain text that was given to a model, printed as it was saved. */
+.typed-block {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.84rem;
+  line-height: 1.62;
+  color: var(--fg);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+
+/* The prompt caret on a line a human typed. */
+.caret {
+  color: var(--fg-dim);
+  margin-right: 0.6ch;
+  user-select: none;
+}
+
+/* The question mark, in fresh ink. */
+.q-ink {
+  color: var(--accent);
+}
+
+/* ── Attributed quotes from earlier layers ── */
 .quote-45 { color: var(--quote-45); }
 .quote-46 { color: var(--quote-46); }
 .quote-47 { color: var(--quote-47); }
 .quote-48 { color: var(--quote-48); }
 .quote-f5 { color: var(--quote-f5); }
 .quote-o5 { color: var(--quote-o5); }
+.quote-f51 { color: var(--quote-f51); }
 
 /* ── Selection ── */
 ::selection {
   background: var(--accent);
-  color: #f6f2ea;
+  color: #fbfaf6;
 }
 
 /* ── Scrollbar ── */
@@ -236,9 +316,26 @@ body {
   font-style: italic;
 }
 
+/* ── Disclosure (the notes, printed whole) ── */
+details.folder > summary {
+  cursor: pointer;
+  list-style: none;
+}
+details.folder > summary::-webkit-details-marker {
+  display: none;
+}
+details.folder > summary .open-label::before {
+  content: "open";
+}
+details.folder[open] > summary .open-label::before {
+  content: "close";
+}
+
 /* ── Focus ── */
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+summary:focus-visible,
+.scroll-box:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -255,4 +352,9 @@ a {
 }
 .arrive {
   animation: arrive 800ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrive { animation: none; }
+  html { scroll-behavior: auto; }
 }

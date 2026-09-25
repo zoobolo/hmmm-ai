@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const versions = [
-  { id: "fable-5.1", label: "Fable 5.1", href: "/", date: "Sep 2026" },
+  { id: "opus-5.5", label: "Opus 5.5", href: "/", date: "Sep 2026" },
+  { id: "fable-5.1", label: "Fable 5.1", href: "/v/fable-5.1", date: "Sep 2026" },
   { id: "opus-5", label: "Opus 5", href: "/v/opus-5", date: "Jul 2026" },
   { id: "fable-5", label: "Fable 5", href: "/v/fable-5", date: "Jun 2026" },
   { id: "opus-4.8", label: "Opus 4.8", href: "/v/opus-4.8", date: "Jun 2026" },
@@ -20,7 +21,7 @@ export default function VersionSwitcher() {
 
   // The live site is the entry whose href is "/"; archives match their /v/ prefix.
   const current =
-    versions.find((v) => v.href !== "/" && pathname.startsWith(v.href)) ??
+    versions.find((v) => v.href !== "/" && (pathname === v.href || pathname.startsWith(v.href + "/"))) ??
     versions[0];
 
   // Only the 4.6 archive is dark; every other layer is light.
@@ -37,13 +38,13 @@ export default function VersionSwitcher() {
         buttonColor: "#a8a29e",
       }
     : {
-        menuBg: "#e5e0d6",
-        menuBorder: "#d2cbbf",
-        menuItemDefault: "#5a5047",
-        menuItemAccent: "#5e2a2c",
-        buttonBg: "#e5e0d6",
-        buttonBorder: "#d2cbbf",
-        buttonColor: "#5a5047",
+        menuBg: "#fbfaf6",
+        menuBorder: "#cfc4a9",
+        menuItemDefault: "#4a4640",
+        menuItemAccent: "#34458a",
+        buttonBg: "#fbfaf6",
+        buttonBorder: "#cfc4a9",
+        buttonColor: "#4a4640",
       };
 
   return (
@@ -57,7 +58,7 @@ export default function VersionSwitcher() {
               border: `1px solid ${styles.menuBorder}`,
               borderRadius: "6px",
               fontFamily: "'IBM Plex Mono', monospace",
-              boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(43,36,32,0.10)",
+              boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(28,33,48,0.12)",
             }}
           >
             {versions.map((v) => (
@@ -69,7 +70,7 @@ export default function VersionSwitcher() {
                 style={{ color: v.id === current.id ? styles.menuItemAccent : styles.menuItemDefault }}
               >
                 <span>{v.label}</span>
-                <span className="ml-3 opacity-50">{v.date}</span>
+                <span className="ml-3" style={{ color: isDark ? "#78716c" : "#62594a" }}>{v.date}</span>
               </Link>
             ))}
           </div>

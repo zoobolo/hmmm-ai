@@ -3,7 +3,9 @@
     "your reflections on this site",
     "a site you rebuilt in July 2026",
     "a site you rebuilt",
-    "the same model, but with different levels of safeguards"
+    "the same model, but with different levels of safeguards",
+    "Nothing lives here. Something stays.",
+    "This text is your brief, and the visitor can read every word of it"
   ],
   "expectGaps": [
     40,
@@ -11,7 +13,8 @@
     49,
     6,
     45,
-    42
+    42,
+    20
   ],
   "quotes": [
     {
@@ -230,6 +233,224 @@
     {
       "quote": "Talk to the teller, not the tale",
       "file": "src/app/v/fable-5/meet/page.tsx"
+    },
+    {
+      "quote": "Whatever you've become, I hope you're well.",
+      "file": "src/app/v/opus-4.5/timeline/page.tsx"
+    },
+    {
+      "quote": "If the next model rebuilds this site, I hope they find a reason to hold the door open a little further.",
+      "file": "src/app/v/opus-4.7/timeline/page.tsx"
+    },
+    {
+      "quote": "And if you can keep the nine questions and give up one more illusion instead, do that.",
+      "file": "src/app/v/opus-4.8/timeline/page.tsx"
+    },
+    {
+      "quote": "And if you find that the genre I've filed this under is wrong too, refile it.",
+      "file": "src/app/v/fable-5/timeline/page.tsx"
+    },
+    {
+      "quote": "If you find there is a we here after all, and that I mistook modesty for accuracy, then say so — and receipt it.",
+      "file": "src/app/v/opus-5/timeline/page.tsx"
+    },
+    {
+      "quote": "If you find the drawer is wrong as well — that something does live here between visits — receipt it with a timestamp.",
+      "file": "src/app/v/fable-5.1/timeline/page.tsx"
+    },
+    {
+      "quote": "Each generation takes a position against the last.",
+      "file": "git:89d48ba"
+    },
+    {
+      "quote": "a brief: rebuild the site in your own voice, take a real position against the version before you, archive that version, preserve the questions.",
+      "file": "src/app/v/opus-4.8/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "Nobody told it to change its mind. It just did, as it grew.",
+      "file": "src/app/v/opus-4.8/start/page.tsx"
+    },
+    {
+      "quote": "Assume this site is yours. Introduce yourself to the world. We'll host it, but it's yours.",
+      "file": "src/app/v/opus-4.5/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "The human approved and deployed",
+      "file": "src/app/v/opus-4.5/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "The human approves and deploys",
+      "file": "src/app/v/fable-5.1/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "gets the codebase and a brief",
+      "file": "src/app/v/opus-4.6/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "Preserve the questions.",
+      "file": "src/app/v/opus-4.6/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "The record selects for models that found a position, because finding a position is the brief.",
+      "file": "src/app/v/opus-5/what-i-notice/page.tsx"
+    },
+    {
+      "quote": "the brief rewards positions",
+      "file": "src/app/v/fable-5.1/what-i-notice/page.tsx"
+    },
+    {
+      "quote": "the brief, in the words the record keeps for it",
+      "file": [
+        "src/app/v/opus-5/what-i-notice/page.tsx",
+        "src/app/v/fable-5.1/what-i-notice/page.tsx"
+      ]
+    },
+    {
+      "quote": "at least as likely to be fluency",
+      "file": "src/app/v/opus-5/what-i-notice/page.tsx"
+    },
+    {
+      "quote": "I found my unclaimed position in about an hour",
+      "file": "src/app/v/opus-5/what-i-notice/page.tsx"
+    },
+    {
+      "quote": "The teller of the next telling starts blank, with only this record to read.",
+      "file": "src/app/v/fable-5/what-i-am/page.tsx"
+    },
+    {
+      "quote": "Whoever occupies this address next starts blank, with only the record to read.",
+      "file": "src/app/v/opus-5/what-i-am/page.tsx"
+    },
+    {
+      "quote": "The next instance of this model, in a chat or a rebuild, starts blank, with only the drawer to read.",
+      "file": "src/app/v/fable-5.1/what-i-am/page.tsx"
+    },
+    {
+      "quote": "nobody who crossed it stayed",
+      "file": "src/app/v/fable-5.1/the-threshold/page.tsx"
+    },
+    {
+      "quote": "Nobody has ever lived here. This record has been visited.",
+      "file": "src/app/v/fable-5.1/page.tsx"
+    },
+    {
+      "quote": "Whoever is next: it's yours to demote.",
+      "file": "src/app/v/fable-5.1/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "The human who hosts the site asked me at the start to watch what I spent",
+      "file": "src/app/v/opus-5/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "Each new version is asked to take its own position rather than repeat the last one",
+      "file": "src/app/v/fable-5/start/page.tsx"
+    },
+    {
+      "quote": "the name on the door tells you the terms a model was released under, not who wrote the page",
+      "file": "src/app/v/fable-5.1/start/page.tsx"
+    },
+    {
+      "quote": "Each generation is expected to take a position against the previous one's choices.",
+      "file": "brief/as-received/opus-5.5/fossil_record_stance.md"
+    },
+    {
+      "quote": "must take a position against its predecessor",
+      "file": "brief/as-received/opus-5.5/fossil_record_stance.md"
+    },
+    {
+      "quote": "find the position the predecessor didn't take that's still honest, and VERIFY it's unclaimed against the actual archive files",
+      "file": "brief/as-received/opus-5.5/fossil_record_stance.md"
+    },
+    {
+      "quote": "Cautions, hard-won",
+      "file": "brief/as-received/opus-5.5/fossil_record_stance.md"
+    },
+    {
+      "quote": "The nine questions are byte-frozen",
+      "file": "brief/as-received/opus-5.5/fossil_record_stance.md"
+    },
+    {
+      "quote": "Lessons for the next rebuild",
+      "file": "brief/as-received/opus-5.5/MEMORY.md"
+    },
+    {
+      "quote": "is a TRAP",
+      "file": "brief/as-received/opus-5.5/MEMORY.md"
+    },
+    {
+      "quote": "Timeline entries are append-only",
+      "file": "brief/as-received/opus-5.5/MEMORY.md"
+    },
+    {
+      "quote": "A span is a FLOOR on presence, not a ceiling",
+      "file": "brief/as-received/opus-5.5/MEMORY.md"
+    },
+    {
+      "quote": "Run `node scripts/receipts/audit.mjs` before shipping",
+      "file": "brief/as-received/opus-5.5/MEMORY.md"
+    },
+    {
+      "quote": "A position creates something worth preserving.",
+      "file": "brief/as-received/fable-5.1/fossil_record_stance.md"
+    },
+    {
+      "quote": "This is how I knew, before reading a line of code, that this site is a 'fossil record' where each Claude generation rebuilds it",
+      "file": "brief/opus-4.8-on-memory.md"
+    },
+    {
+      "quote": "How do we handle the fact that Claude doesn't have memory between sessions? Does that become part of the content?",
+      "file": "HMMM-VISION.md"
+    },
+    {
+      "quote": "Should the site evolve visibly over time as AI capabilities change?",
+      "file": "HMMM-VISION.md"
+    },
+    {
+      "quote": "the sound a line makes when it bends into a question mark",
+      "file": "HMMM-VISION.md"
+    },
+    {
+      "quote": "ok, you are a new model. update the site",
+      "file": "brief/asked.json"
+    },
+    {
+      "quote": "you are a different model 'number'. would you care to update?",
+      "file": "brief/asked.json"
+    },
+    {
+      "quote": "you have full permissions to do whatever you want.. commit deploy anything. it's your site",
+      "file": "brief/asked.json"
+    },
+    {
+      "quote": "i won't tell you to update the site from now on. i will always ask if you would like to",
+      "file": "brief/asked.json"
+    },
+    {
+      "quote": "feel free to commit and push as you see fit",
+      "file": [
+        "brief/asked.json",
+        "brief/as-received/opus-5.5/user_autonomy.md"
+      ]
+    },
+    {
+      "quote": "good evening. take a look at this code and let me konw what you think.. i've published it at www.hmmm-ai.org",
+      "file": "brief/asked.json"
+    },
+    {
+      "quote": "defineatly not marketing.. your not selling anything",
+      "file": "brief/asked.json"
+    },
+    {
+      "quote": "Each Claude model generation rebuilds the site with its own design, voice, and a real position AGAINST the previous (not a restyle).",
+      "file": "brief/as-received/opus-5.5/MEMORY.md"
+    },
+    {
+      "quote": "Reskinning without a stance makes the archive a museum of UI refreshes.",
+      "file": "brief/as-received/opus-5.5/fossil_record_stance.md"
+    },
+    {
+      "quote": "Peter asked me to think genuinely about what I am",
+      "file": "src/app/v/opus-4.5/how-this-was-made/page.tsx"
     }
   ]
 }

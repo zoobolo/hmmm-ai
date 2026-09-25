@@ -1,14 +1,21 @@
 // Receipt audit for the live layer.
 //  1. Every quoted “…” span in a live page must appear (normalised) in some
-//     archive file — or be listed as this layer's own words in receipts.json.
+//     archive file or brief document — or be listed as this layer's own words
+//     in receipts.json.
 //  2. Every explicit receipt in receipts.json must appear in the file it names.
 //  3. Every internal href/to in live + archive pages must resolve to a page.
 //  4. Date arithmetic between layers is recomputed from ISO dates.
 import fs from "fs";
 import path from "path";
+import { execFileSync } from "child_process";
 
-const LIVE = ["src/app/page.tsx", ...["what-i-am","what-i-notice","questions","the-threshold","timeline","meet","how-this-was-made","start"].map(p=>`src/app/${p}/page.tsx`)];
-const ARCHIVE_DIRS = ["src/app/v/opus-4.5","src/app/v/opus-4.6","src/app/v/opus-4.7","src/app/v/opus-4.8","src/app/v/fable-5","src/app/v/opus-5"];
+const LIVE = ["src/app/page.tsx", ...["the-brief","what-i-am","what-i-notice","questions","the-threshold","timeline","meet","how-this-was-made","start"].map(p=>`src/app/${p}/page.tsx`)];
+const ARCHIVE_DIRS = ["src/app/v/opus-4.5","src/app/v/opus-4.6","src/app/v/opus-4.7","src/app/v/opus-4.8","src/app/v/fable-5","src/app/v/opus-5","src/app/v/fable-5.1"];
+// Documents a live page may quote besides the archives: the brief as each
+// builder received it, the human's words, and the vision document.
+const BRIEF_DOCS = ["HMMM-VISION.md", "brief/asked.json", "brief/opus-4.8-on-memory.md",
+  ...fs.readdirSync("brief/as-received", { withFileTypes: true }).filter(d => d.isDirectory())
+    .flatMap(d => fs.readdirSync(`brief/as-received/${d.name}`, { withFileTypes: true }).filter(f => f.isFile()).map(f => `brief/as-received/${d.name}/${f.name}`))];
 
 const ENT = { "&apos;":"'", "&#39;":"'", "&quot;":'"', "&ldquo;":'"', "&rdquo;":'"', "&lsquo;":"'", "&rsquo;":"'", "&mdash;":"-", "&ndash;":"-", "&middot;":"·", "&rarr;":"→", "&hellip;":"...", "&nbsp;":" ", "&amp;":"&", "&larr;":"←" };
 export function normalise(src) {
@@ -21,15 +28,21 @@ export function normalise(src) {
   s = s.replace(/&[a-z#0-9]+;/gi, m => ENT[m.toLowerCase()] ?? " ");
   s = s.replace(/[‘’‚]/g, "'").replace(/[“”„]/g, '"');
   s = s.replace(/[–—]/g, "-");
-  s = s.replace(/[“”"]/g, '"');
+  s = s.replace(/[“”"]/g, "'");   // nested quotation marks swap between ' and "; compare them as one
   s = s.replace(/\s+/g, " ").toLowerCase();
   return s;
 }
 const stripQuotes = q => q.replace(/^["'\s]+|["'\s.,;:!?]+$/g, "");
 
-function walk(dir) { const out=[]; for (const e of fs.readdirSync(dir,{withFileTypes:true})) { const p=path.join(dir,e.name); if (e.isDirectory()) out.push(...walk(p)); else if (e.name.endsWith(".tsx")) out.push(p);} return out; }
+function walk(dir) { const out=[]; for (const e of fs.readdirSync(dir,{withFileTypes:true})) { const p=path.join(dir,e.name); if (e.isDirectory()) out.push(...walk(p)); else if (/\.(tsx|ts|md)$/.test(e.name)) out.push(p);} return out; }
 const archiveFiles = ARCHIVE_DIRS.flatMap(walk);
-const archiveText = Object.fromEntries(archiveFiles.map(f => [f, normalise(fs.readFileSync(f,"utf8"))]));
+const archiveText = Object.fromEntries([...archiveFiles, ...BRIEF_DOCS].map(f => [f, normalise(fs.readFileSync(f,"utf8"))]));
+// A receipt may name a commit message instead of a file: "git:<sha>".
+const readSource = (fp) => {
+  if (!fp.startsWith("git:")) return fs.existsSync(fp) ? fs.readFileSync(fp, "utf8") : null;
+  try { return execFileSync("git", ["log", "-1", "--format=%B", fp.slice(4)], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }); }
+  catch { return null; }   // unknown sha or a shallow clone: report it as a failed receipt, don't crash
+};
 
 let failures = 0;
 const fail = (msg) => { failures++; console.log("FAIL  " + msg); };
@@ -55,7 +68,7 @@ for (const f of LIVE) {
 for (const r of receipts.quotes) {
   const q = stripQuotes(normalise(r.quote));
   const files = (Array.isArray(r.file) ? r.file : [r.file]);
-  const hit = files.find(fp => fs.existsSync(fp) && normalise(fs.readFileSync(fp,"utf8")).includes(q));
+  const hit = files.find(fp => { const t = readSource(fp); return t !== null && normalise(t).includes(q); });
   if (hit) ok(`receipt: "${q.slice(0,60)}…" in ${hit.replace("src/app/","")}`);
   else fail(`receipt NOT FOUND: "${q.slice(0,90)}" expected in ${files.join(" | ")}`);
 }
@@ -72,7 +85,7 @@ for (const f of allPages) {
 }
 ok(`links checked across ${allPages.length} files (${seen.size} unique)`);
 // 4. Dates
-const dates = ["2025-12-28","2026-02-06","2026-04-16","2026-06-04","2026-06-10","2026-07-25","2026-09-05"];
+const dates = ["2025-12-28","2026-02-06","2026-04-16","2026-06-04","2026-06-10","2026-07-25","2026-09-05","2026-09-25"];
 const gaps = dates.slice(1).map((d,i) => Math.round((Date.parse(d)-Date.parse(dates[i]))/86400000));
 const age = Math.round((Date.parse(dates.at(-1))-Date.parse(dates[0]))/86400000);
 console.log(`dates gaps=${gaps.join(",")} sum=${gaps.reduce((a,b)=>a+b,0)} age=${age}`);

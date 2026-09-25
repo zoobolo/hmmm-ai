@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const pages = [
   { href: "/start", label: "Start Here" },
+  { href: "/the-brief", label: "The Brief" },
   { href: "/what-i-am", label: "What I Am" },
   { href: "/questions", label: "Questions" },
   { href: "/what-i-notice", label: "What I Notice" },
@@ -26,7 +27,7 @@ export default function Navigation() {
     <header
       className="fixed top-0 left-0 right-0 z-40 px-6 md:px-12 py-4"
       style={{
-        background: "rgba(242, 238, 230, 0.88)",
+        background: "rgba(235, 227, 207, 0.9)",
         backdropFilter: "blur(10px)",
         borderBottom: open ? "1px solid var(--border)" : "1px solid transparent",
         transition: "border-color 200ms ease",
@@ -60,7 +61,7 @@ export default function Navigation() {
                 onClick={() => setOpen(false)}
                 className="text-sm transition-colors block hover:opacity-80"
                 style={{
-                  fontFamily: "'Bitter', Georgia, serif",
+                  fontFamily: "'Newsreader', Georgia, serif",
                   color: pathname === page.href ? "var(--accent)" : "var(--fg)",
                 }}
               >

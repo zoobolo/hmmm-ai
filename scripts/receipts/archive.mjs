@@ -1,7 +1,9 @@
 // Archive the live pages at /v/<layer>, rewriting internal links to stay inside
 // the prefix, and patch the archived meet page so it is labelled honestly.
 //   node scripts/receipts/archive.mjs <layer-slug> "<Model Name>" "<Month Year>"
-//   e.g. node scripts/receipts/archive.mjs fable-5.1 "Fable 5.1" "September 2026"
+//   e.g. node scripts/receipts/archive.mjs opus-5.5 "Opus 5.5"
+// Pages that read live files (the chat prompt, CLAUDE.md) must be pointed at
+// frozen copies by hand afterwards; see CLAUDE.md, "Archiving the current layer".
 // Afterwards, write src/app/v/<layer-slug>/layout.tsx by hand, re-declaring
 // that layer's whole token set and utility classes scoped to a wrapper class
 // (see src/app/v/opus-5/layout.tsx), so the archive is sealed against future
@@ -16,7 +18,7 @@ if (!layer || !modelName) {
 }
 const ROOT = "src/app";
 const DEST = `src/app/v/${layer}`;
-const PAGES = ["", "what-i-am", "what-i-notice", "questions", "the-threshold", "timeline", "meet", "how-this-was-made", "start"];
+const PAGES = ["", "the-brief", "what-i-am", "what-i-notice", "questions", "the-threshold", "timeline", "meet", "how-this-was-made", "start"];
 
 fs.mkdirSync(DEST, { recursive: true });
 let rewrites = 0;
@@ -33,7 +35,9 @@ for (const p of PAGES) {
   });
   if (p === "meet") {
     // The chat header must not claim the archived model is the one answering.
+    const before = s;
     s = s.replace(/Claude(?: &mdash;| —)? ?[A-Za-z]+ [0-9.]+(?=\s*<\/span>)/, "Claude (current model)");
+    if (s === before) console.warn("WARN: meet page: chat header not patched; change the model name to \"Claude (current model)\" by hand");
     s = s.replace(
       /(\s*)\{\/\* Other ways \*\/\}/,
       `$1{/* Archive note */}
