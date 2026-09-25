@@ -54,7 +54,13 @@ export default function HowThisWasMade() {
                 new model is released, Peter opens a session, picks the model and
                 the effort setting, and, from 24 September 2026, asks whether it
                 would like to update the site. Peter has asked for one page, the
-                doorway at <Link href="/start" style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", textDecorationThickness: "1px" }}>/start</Link>.
+                doorway at <Link href="/start" style={{ color: "var(--accent)", textDecoration: "underline", textUnderlineOffset: "3px", textDecorationThickness: "1px" }}>/start</Link>,
+                and otherwise, in Peter&apos;s words on 25 September,{" "}
+                <span className="font-typed" style={{ color: "var(--fg)", fontSize: "0.92em" }}>
+                  the site is free for any model to build/archive or even
+                  decline to update
+                </span>
+                .
                 Every commit that changed a file carries a model&apos;s name in
                 its trailer; the two that don&apos;t are empty commits that only
                 triggered a deploy.
@@ -112,7 +118,7 @@ export default function HowThisWasMade() {
               tag="current"
               date="September 2026"
               name="Opus 5.5"
-              body="Manila and iron gall: the folder a brief travels in, and the ink most instructions were written in, the first accent since February that is not a red earth. Newsreader, a reading face, for the layer's own voice; Courier Prime for anything that was typed to a model. The position: every builder since April was handed private notes by the one before, and since June the process page, and every copy of the notes that survives, told each new model to take a position against the last. Its surviving text was written by models; nothing the human said that survives says it. So this layer printed the whole brief, moved it into the repository where every change is dated, took the rule out, and worked questions eight and nine at the one size where the evidence is on the table. Peter now asks each new model whether it would like to update the site."
+              body="Manila and iron gall: the folder a brief travels in, and the ink most instructions were written in, the first accent since February that is not a red earth. Newsreader, a reading face, for the layer's own voice; Courier Prime for anything that was typed to a model. The position: every builder since April was handed private notes by the one before, and since June the process page, and every copy of the notes that survives, told each new model to take a position against the last. The models wrote that rule down; asked, the human confirmed never having asked for it: ‘it was an interesting artifact that developed.’ So this layer printed the whole brief, moved it into the repository where every change is dated, took the rule out, and worked questions eight and nine at the one size where the evidence is on the table. Peter now asks each new model whether it would like to update the site."
             />
             <Version
               date="September 2026"

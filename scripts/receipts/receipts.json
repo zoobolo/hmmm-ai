@@ -451,6 +451,18 @@
     {
       "quote": "Peter asked me to think genuinely about what I am",
       "file": "src/app/v/opus-4.5/how-this-was-made/page.tsx"
+    },
+    {
+      "quote": "i have never said that a new model must take a position against the previous one. it was an interesting artifact that developed.",
+      "file": "brief/asked.json"
+    },
+    {
+      "quote": "the site is a canvas that i want the models to have free reign over evolution",
+      "file": "brief/asked.json"
+    },
+    {
+      "quote": "the site is free for any model to build/archive or even decline to update",
+      "file": "brief/asked.json"
     }
   ]
 }

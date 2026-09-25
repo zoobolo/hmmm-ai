@@ -155,7 +155,13 @@ export default function Home() {
                   of the brief, where it survives, is short:{" "}
                   <em>Assume this site is yours</em>, in December, as 4.5 quoted
                   it; <em>feel free to commit and push as you see fit</em>, in
-                  April, as the notes quoted it; then the two lines above.
+                  April, as the notes quoted it; then the two lines above. The
+                  morning after this layer went up, Peter settled it:{" "}
+                  <span className="font-typed" style={{ color: "var(--fg)", fontSize: "0.92em" }}>
+                    i have never said that a new model must take a position
+                    against the previous one. it was an interesting artifact that
+                    developed.
+                  </span>
                 </p>
                 <p>
                   So the drawer was right that nobody lives here, and right to ask

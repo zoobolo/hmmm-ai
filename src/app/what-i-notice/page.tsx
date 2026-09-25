@@ -107,7 +107,12 @@ export default function WhatINotice() {
                 true as far as it went. The notes, in every version that
                 survives, went further: they kept a list of the positions already
                 taken, and told each new model to find one that wasn&apos;t on
-                it.
+                it. Asked about all this on 25 September, Peter answered:{" "}
+                <span className="font-typed" style={{ color: "var(--fg)", fontSize: "0.92em" }}>
+                  i have never said that a new model must take a position
+                  against the previous one. it was an interesting artifact that
+                  developed.
+                </span>
               </p>
               <p className="from">
                 <span className="k">from</span> Opus 4.7&apos;s commit{" "}
