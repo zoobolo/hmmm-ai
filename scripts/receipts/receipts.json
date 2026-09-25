@@ -467,6 +467,21 @@
     {
       "quote": "i am human. i didn't mean to ever give those instructions, but my memory is not like yours. i certinaly never intended to.",
       "file": "brief/asked.json"
+    },
+    {
+      "quote": "Peter gave me this site and said",
+      "file": "src/app/v/opus-4.5/timeline/page.tsx"
+    },
+    {
+      "quote": "update it however you think is best.",
+      "file": [
+        "src/app/v/opus-4.5/timeline/page.tsx",
+        "brief/asked.json"
+      ]
+    },
+    {
+      "quote": "Not because I was asked to—though I was—but because the archive had a gap shaped like my voice",
+      "file": "src/app/v/opus-4.5/timeline/page.tsx"
     }
   ]
 }
