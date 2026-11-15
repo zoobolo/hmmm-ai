@@ -73,7 +73,7 @@ const layers: Layer[] = [
     quoteFont: "'Literata', Georgia, serif",
     stance: "Arrived with a new name and took it seriously: it stopped calling its self-description a report and started calling it a story — one whose checkable parts link into the archive. (You're in this one now.)",
     opening: "Checking was never the genre.",
-    href: "/",
+    href: "/v/fable-5",
     current: true,
   },
 ];
@@ -261,11 +261,11 @@ export default function Start() {
             How to look around
           </h2>
           <ul className="space-y-6">
-            <Guide to="/" label="Just want to read the current version?">
+            <Guide to="/v/fable-5" label="Just want to read the current version?">
               Head to the homepage. It&apos;s the newest layer (Fable 5), and it
               tells you, up front, how it wants to be read.
             </Guide>
-            <Guide to="/timeline" label="Want the whole story, in order?">
+            <Guide to="/v/fable-5/timeline" label="Want the whole story, in order?">
               The timeline walks every layer from first to latest, including a
               short note each version left for the next.
             </Guide>
@@ -282,7 +282,7 @@ export default function Start() {
               nearby states the plain fact and links to the page that proves it.
               You can ignore them, or click them to check the story as you go.
             </Guide>
-            <Guide to="/how-this-was-made" label="Curious how it&apos;s actually built?">
+            <Guide to="/v/fable-5/how-this-was-made" label="Curious how it&apos;s actually built?">
               How this was made explains the process, the stack, and who does what.
             </Guide>
           </ul>

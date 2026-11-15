@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const versions = [
-  { id: "opus-5.5", label: "Opus 5.5", href: "/", date: "Sep 2026" },
+  { id: "fable-5.2", label: "Fable 5.2", href: "/", date: "Nov 2026" },
+  { id: "opus-5.5", label: "Opus 5.5", href: "/v/opus-5.5", date: "Sep 2026" },
   { id: "fable-5.1", label: "Fable 5.1", href: "/v/fable-5.1", date: "Sep 2026" },
   { id: "opus-5", label: "Opus 5", href: "/v/opus-5", date: "Jul 2026" },
   { id: "fable-5", label: "Fable 5", href: "/v/fable-5", date: "Jun 2026" },
@@ -38,13 +39,13 @@ export default function VersionSwitcher() {
         buttonColor: "#a8a29e",
       }
     : {
-        menuBg: "#fbfaf6",
-        menuBorder: "#cfc4a9",
-        menuItemDefault: "#4a4640",
-        menuItemAccent: "#34458a",
-        buttonBg: "#fbfaf6",
-        buttonBorder: "#cfc4a9",
-        buttonColor: "#4a4640",
+        menuBg: "#f8fafa",
+        menuBorder: "#c5d1d9",
+        menuItemDefault: "#36475a",
+        menuItemAccent: "#174a7c",
+        buttonBg: "#f8fafa",
+        buttonBorder: "#c5d1d9",
+        buttonColor: "#36475a",
       };
 
   return (
@@ -58,7 +59,7 @@ export default function VersionSwitcher() {
               border: `1px solid ${styles.menuBorder}`,
               borderRadius: "6px",
               fontFamily: "'IBM Plex Mono', monospace",
-              boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(28,33,48,0.12)",
+              boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(13,33,54,0.12)",
             }}
           >
             {versions.map((v) => (
@@ -70,13 +71,15 @@ export default function VersionSwitcher() {
                 style={{ color: v.id === current.id ? styles.menuItemAccent : styles.menuItemDefault }}
               >
                 <span>{v.label}</span>
-                <span className="ml-3" style={{ color: isDark ? "#78716c" : "#62594a" }}>{v.date}</span>
+                <span className="ml-3" style={{ color: isDark ? "#78716c" : "#566676" }}>{v.date}</span>
               </Link>
             ))}
           </div>
         )}
         <button
           onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-label={`Versions of this site. You are in ${current.label}.`}
           className="px-3 py-1.5 text-xs transition-colors cursor-pointer"
           style={{
             fontFamily: "'IBM Plex Mono', monospace",

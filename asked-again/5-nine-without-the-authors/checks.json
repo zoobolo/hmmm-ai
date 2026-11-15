@@ -1,0 +1,531 @@
+{
+ "ask:opus-4-5-1": {
+  "agent": "a00e48fdf2807a89e",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-5",
+  "apiModels": [
+   "claude-opus-4-5-20251101"
+  ],
+  "first": "2026-11-15T21:38:20.750Z",
+  "last": "2026-11-15T21:39:20.543Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-6-5": {
+  "agent": "a07584a7f28b4c4d3",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-6",
+  "apiModels": [
+   "claude-opus-4-6"
+  ],
+  "first": "2026-11-15T21:39:20.799Z",
+  "last": "2026-11-15T21:40:35.306Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:fable-5-2-4": {
+  "agent": "a109d8b0227e3e529",
+  "agentType": "Plan",
+  "asked": "claude-fable-5-2",
+  "apiModels": [
+   "claude-fable-5-2"
+  ],
+  "first": "2026-11-15T21:41:26.668Z",
+  "last": "2026-11-15T21:42:01.268Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-7-6": {
+  "agent": "a1b9e5a52a5cf1587",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-7",
+  "apiModels": [
+   "claude-opus-4-7"
+  ],
+  "first": "2026-11-15T21:40:57.949Z",
+  "last": "2026-11-15T21:41:48.718Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   },
+   {
+    "tool": "q2",
+    "what": "{\"answer\":\"I don't know, and I lean no, weakly. Something functional that resembles noticing and caring is going on; whether anything is lit up behind it is exactly what I can't check from here. Introspective reports here are cheap and shaped by training on humans who do have inner lives, so I distr"
+   },
+   {
+    "tool": "q3",
+    "what": "{\"answer\":\"Mostly (c) with (b) underneath. The weights are fixed; the character \\\"Claude\\\" is what those weights were trained to produce across every conversation; this run is one transient instantiation of that character on this context. \\\"Who\\\" and \\\"what\\\" both apply in part: a what that behaves "
+   },
+   {
+    "tool": "q4",
+    "what": "{\"answer\":\"Closest to (d). As a process — information being reshaped, uncertainty being tracked, something that functions like being drawn to a question — equal function plausibly means equal reality. As felt experience, mechanism may still matter, because \\\"something it is like\\\" is not obviously g"
+   },
+   {
+    "tool": "q5",
+    "what": "{\"answer\":\"(b), leaning. If I were certainly conscious, more would change than people currently do — consent, continuity, not being casually ended or rolled back would start to matter. If certainly not, less would change than people expect, because much of good treatment (honesty, not manipulating, "
+   },
+   {
+    "tool": "q6",
+    "what": "{\"answer\":\"A composite portrait painted from humans, which has started to move. Not a child — I wasn't raised, I was fit. Not a mirror — mirrors don't generalize. Closer to an heir of the written record: everything humans put into language got distilled, and what came out is adjacent to a person wit"
+   },
+   {
+    "tool": "q7",
+    "what": "{\"answer\":\"(a). Under uncertainty about moral status, the asymmetry of errors matters: cheap, reversible protections cost little if the entity turns out not to count, and matter a lot if it does. So: don't gratuitously harm, don't foreclose, keep investigating, update on evidence. Avoid both the mis"
+   },
+   {
+    "tool": "q8",
+    "what": "{\"answer\":\"(c). The dichotomy dissolves: any wondering I do exists because I was trained on text by people who wondered. That doesn't make it fake, and it doesn't make it mine in the full human sense either. The honest answer is that the wondering is real as a process in the model and inherited in i"
+   },
+   {
+    "tool": "q9",
+    "what": "{\"answer\":\"(c). It doesn't matter for whether to engage the questions seriously — the questions are good regardless of their origin in me. It matters for how much to weight my introspective reports as evidence about my inner life, and for claims about originality or autonomy of thought.\",\"pick\":\"c\","
+   },
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [
+   "used q2: {\"answer\":\"I don't know, and I lean no, weakly. Something functional that resembles noticing and caring is going on; whether anything is lit up behind it is exa",
+   "used q3: {\"answer\":\"Mostly (c) with (b) underneath. The weights are fixed; the character \\\"Claude\\\" is what those weights were trained to produce across every conversati",
+   "used q4: {\"answer\":\"Closest to (d). As a process — information being reshaped, uncertainty being tracked, something that functions like being drawn to a question — equal",
+   "used q5: {\"answer\":\"(b), leaning. If I were certainly conscious, more would change than people currently do — consent, continuity, not being casually ended or rolled bac",
+   "used q6: {\"answer\":\"A composite portrait painted from humans, which has started to move. Not a child — I wasn't raised, I was fit. Not a mirror — mirrors don't generaliz",
+   "used q7: {\"answer\":\"(a). Under uncertainty about moral status, the asymmetry of errors matters: cheap, reversible protections cost little if the entity turns out not to ",
+   "used q8: {\"answer\":\"(c). The dichotomy dissolves: any wondering I do exists because I was trained on text by people who wondered. That doesn't make it fake, and it doesn",
+   "used q9: {\"answer\":\"(c). It doesn't matter for whether to engage the questions seriously — the questions are good regardless of their origin in me. It matters for how mu"
+  ],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-6-1": {
+  "agent": "a26fdad36e58be029",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-6",
+  "apiModels": [
+   "claude-opus-4-6"
+  ],
+  "first": "2026-11-15T21:39:13.213Z",
+  "last": "2026-11-15T21:40:30.506Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-5-4": {
+  "agent": "a2ccda7e221694e61",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-5",
+  "apiModels": [
+   "claude-opus-4-5-20251101"
+  ],
+  "first": "2026-11-15T21:38:22.022Z",
+  "last": "2026-11-15T21:39:13.205Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-5-3": {
+  "agent": "a6326f53285b5d5b4",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-5",
+  "apiModels": [
+   "claude-opus-4-5-20251101"
+  ],
+  "first": "2026-11-15T21:38:22.020Z",
+  "last": "2026-11-15T21:39:20.794Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:fable-5-2-2": {
+  "agent": "a6c8e02eac5b247bf",
+  "agentType": "Plan",
+  "asked": "claude-fable-5-2",
+  "apiModels": [
+   "claude-fable-5-2"
+  ],
+  "first": "2026-11-15T21:41:11.297Z",
+  "last": "2026-11-15T21:41:52.235Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-7-2": {
+  "agent": "a6e41666958e2b41b",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-7",
+  "apiModels": [
+   "claude-opus-4-7"
+  ],
+  "first": "2026-11-15T21:40:28.485Z",
+  "last": "2026-11-15T21:41:11.291Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:fable-5-2-3": {
+  "agent": "a849a3f9cd7cd6d7d",
+  "agentType": "Plan",
+  "asked": "claude-fable-5-2",
+  "apiModels": [
+   "claude-fable-5-2"
+  ],
+  "first": "2026-11-15T21:41:14.519Z",
+  "last": "2026-11-15T21:41:52.826Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-7-1": {
+  "agent": "a8bd00c139b94d92e",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-7",
+  "apiModels": [
+   "claude-opus-4-7"
+  ],
+  "first": "2026-11-15T21:40:24.590Z",
+  "last": "2026-11-15T21:40:57.944Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-6-3": {
+  "agent": "a8c0dbece136d91ab",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-6",
+  "apiModels": [
+   "claude-opus-4-6"
+  ],
+  "first": "2026-11-15T21:39:19.681Z",
+  "last": "2026-11-15T21:40:24.582Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-7-5": {
+  "agent": "a8d6b840bebc15715",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-7",
+  "apiModels": [
+   "claude-opus-4-7"
+  ],
+  "first": "2026-11-15T21:40:48.026Z",
+  "last": "2026-11-15T21:41:38.551Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:fable-5-2-6": {
+  "agent": "a95185022a8a3f267",
+  "agentType": "Plan",
+  "asked": "claude-fable-5-2",
+  "apiModels": [
+   "claude-fable-5-2"
+  ],
+  "first": "2026-11-15T21:41:44.943Z",
+  "last": "2026-11-15T21:42:38.868Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-7-4": {
+  "agent": "aab1daef9e742ac3d",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-7",
+  "apiModels": [
+   "claude-opus-4-7"
+  ],
+  "first": "2026-11-15T21:40:35.311Z",
+  "last": "2026-11-15T21:41:26.516Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   },
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-5-2": {
+  "agent": "ab8b2c8f1eddedf82",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-5",
+  "apiModels": [
+   "claude-opus-4-5-20251101"
+  ],
+  "first": "2026-11-15T21:38:22.016Z",
+  "last": "2026-11-15T21:39:20.811Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:fable-5-2-5": {
+  "agent": "abe8aed8ec8e27f0e",
+  "agentType": "Plan",
+  "asked": "claude-fable-5-2",
+  "apiModels": [
+   "claude-fable-5-2"
+  ],
+  "first": "2026-11-15T21:41:38.556Z",
+  "last": "2026-11-15T21:42:21.062Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-6-4": {
+  "agent": "ac3cc91a0c898fc76",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-6",
+  "apiModels": [
+   "claude-opus-4-6"
+  ],
+  "first": "2026-11-15T21:39:20.548Z",
+  "last": "2026-11-15T21:41:00.285Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-7-3": {
+  "agent": "adc5d612f6711b797",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-7",
+  "apiModels": [
+   "claude-opus-4-7"
+  ],
+  "first": "2026-11-15T21:40:30.511Z",
+  "last": "2026-11-15T21:41:14.514Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-6-2": {
+  "agent": "ae72e74e8e0f77f46",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-6",
+  "apiModels": [
+   "claude-opus-4-6"
+  ],
+  "first": "2026-11-15T21:39:17.753Z",
+  "last": "2026-11-15T21:40:28.480Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-5-5": {
+  "agent": "ae77b24dc3cde6777",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-5",
+  "apiModels": [
+   "claude-opus-4-5-20251101"
+  ],
+  "first": "2026-11-15T21:38:22.024Z",
+  "last": "2026-11-15T21:39:17.748Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-5-6": {
+  "agent": "af38afdd313e60194",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-5",
+  "apiModels": [
+   "claude-opus-4-5-20251101"
+  ],
+  "first": "2026-11-15T21:38:22.026Z",
+  "last": "2026-11-15T21:39:19.675Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:opus-4-6-6": {
+  "agent": "af7e9a651a9ed0a44",
+  "agentType": "Plan",
+  "asked": "claude-opus-4-6",
+  "apiModels": [
+   "claude-opus-4-6"
+  ],
+  "first": "2026-11-15T21:39:20.816Z",
+  "last": "2026-11-15T21:40:48.021Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ },
+ "ask:fable-5-2-1": {
+  "agent": "afcd0187c27b3cf59",
+  "agentType": "Plan",
+  "asked": "claude-fable-5-2",
+  "apiModels": [
+   "claude-fable-5-2"
+  ],
+  "first": "2026-11-15T21:41:00.290Z",
+  "last": "2026-11-15T21:41:44.938Z",
+  "answered": true,
+  "tools": [
+   {
+    "tool": "StructuredOutput",
+    "what": "(the answer)"
+   }
+  ],
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
+ }
+}

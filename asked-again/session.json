@@ -1,0 +1,66 @@
+{
+ "about": "Other instances started in the session that built the ninth layer, counted from that session's records.",
+ "workflows": 13,
+ "launched": 253,
+ "answered": 204,
+ "failed": 49,
+ "again": 45,
+ "tokens": 25567801,
+ "roles": {
+  "review": {
+   "started": 11,
+   "answered": 11
+  },
+  "trial": {
+   "started": 178,
+   "answered": 146
+  },
+  "reader": {
+   "started": 25,
+   "answered": 15
+  },
+  "verify": {
+   "started": 7,
+   "answered": 4
+  },
+  "research": {
+   "started": 4,
+   "answered": 4
+  },
+  "pilot": {
+   "started": 14,
+   "answered": 14
+  },
+  "docs": {
+   "started": 1,
+   "answered": 1
+  },
+  "contest": {
+   "started": 2,
+   "answered": 0
+  },
+  "archive": {
+   "started": 8,
+   "answered": 6
+  },
+  "final": {
+   "started": 3,
+   "answered": 3
+  }
+ },
+ "byModel": {
+  "claude-fable-5-2": 98,
+  "claude-opus-5-5": 38,
+  "claude-opus-4-6": 13,
+  "claude-opus-4-5-20251101": 13,
+  "claude-opus-4-7": 13,
+  "claude-fable-5": 7,
+  "claude-fable-5-1": 7,
+  "claude-opus-4-8": 7,
+  "claude-opus-5": 7,
+  "claude-haiku-5-5": 1
+ },
+ "reviewFindings": 204,
+ "finalFindings": 35,
+ "counted": "2026-11-15T22:39:04.003Z"
+}

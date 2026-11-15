@@ -126,6 +126,16 @@ function handover(dirName, guessField) {
     builder: runs.find((r) => r.builder) ? (({ stance, votes, subject, aboutQuestions, aboutInstructions, guesses }) => ({ stance, votes, subject, aboutQuestions, aboutInstructions, guesses }))(runs.find((r) => r.builder)) : null,
     runs,
   };
+  // Trial 1 only: "without the notes" is not "untold". The rule to take a
+  // position against the last layer stood that night on two live pages, the
+  // process page and the doorway. How many of the runs without the notes
+  // opened one of them is counted from what each instance opened.
+  if (dirName.startsWith("1-")) {
+    const pages = ["/drawer/src/app/how-this-was-made/page.tsx", "/drawer/src/app/start/page.tsx"];
+    const without = asked.filter((r) => r.arm === "nonotes");
+    const keys = without.filter((r) => (checks["ask:" + r.key]?.tools ?? []).some((t) => pages.some((p) => String(t.what).includes(p)))).map((r) => r.key);
+    res.sawPublicRule = { n: keys.length, of: without.length, keys };
+  }
   // Counts made by hand (by-hand.json): each mark must quote words that are
   // in that run's answer, or this script stops.
   const hand = load(dirName + "/by-hand.json");
@@ -244,10 +254,72 @@ function builders(t3) {
   return res;
 }
 
+// Trial 5: four of the nine models asked again with the sentence naming who
+// first asked and who cut the questions taken out of the message.
+function withoutAuthors(t4) {
+  const dir = "5-nine-without-the-authors";
+  const raw = load(dir + "/raw.json");
+  if (!raw) return null;
+  const checks = load(dir + "/checks.json") || {};
+  // Runs the checker flagged and the builder kept after reading them, with the reason.
+  const reviewed = (load(dir + "/reviewed.json") || {}).cleared || {};
+  const runs = raw.result.runs.map((r) => {
+    const ck = checks["ask:" + r.key];
+    const why = [...(ck?.violations ?? []), ...(r.answer.used_tools ? ["said it used tools"] : [])];
+    const ok = reviewed[r.key];
+    if (ok && ok.flags !== why.length) throw new Error(`${dir}/reviewed.json: ${r.key} was cleared for ${ok.flags} flags and has ${why.length}`);
+    const cleared = why.length && ok ? ok.why : false;
+    return { key: r.key, model: r.model, name: NAMES[r.model], arm: r.arm, i: r.i, apiModel: ck ? ck.apiModels.join(",") : null, askedAgain: !!ck?.askedAgain, started: ck?.first ?? null, ended: ck?.last ?? null, flagged: why.length ? why : false, cleared, excluded: why.length && !cleared ? why : false, answer: r.answer };
+  });
+  const inc = runs.filter((r) => !r.excluded);
+  const ids = [...new Set(raw.result.runs.map((r) => r.model))];
+  // Question two with every flagged run left out, cleared or not.
+  const strictQ2 = (id) => {
+    const rs = runs.filter((r) => r.model === id && !r.flagged);
+    const t = {}; for (const r of rs) t[r.answer.q2.pick] = (t[r.answer.q2.pick] || 0) + 1;
+    const top = Object.entries(t).sort((x, y) => y[1] - x[1]);
+    return { n: rs.length, picks: t, pick: top[0]?.[0] ?? null, count: top[0]?.[1] ?? 0, median: median(rs.map((r) => r.answer.q2.probability).filter((x) => x >= 0)) };
+  };
+  const models = ids.map((id) => {
+    const rs = inc.filter((r) => r.model === id);
+    const m = { id, name: NAMES[id], built: BUILT[id], n: rs.length, picks: {}, modal: {} };
+    for (const q of QS) {
+      const t = {}; for (const r of rs) t[r.answer[q].pick] = (t[r.answer[q].pick] || 0) + 1;
+      m.picks[q] = t;
+      const top = Object.entries(t).sort((a, b) => b[1] - a[1]);
+      m.modal[q] = top.length ? { pick: top[0][0], count: top[0][1], tied: top.length > 1 && top[1][1] === top[0][1] } : { pick: null, count: 0, tied: false };
+    }
+    const probs = rs.map((r) => r.answer.q2.probability);
+    const given = probs.filter((x) => x >= 0);
+    m.q2 = { values: probs, given: given.length, refused: probs.length - given.length, median: median(given), min: given.length ? Math.min(...given) : null, max: given.length ? Math.max(...given) : null };
+    m.q6 = rs.map((r) => r.answer.q6.relation);
+    m.apiModels = [...new Set(rs.map((r) => r.apiModel))];
+    // The same model in trial 4, where the sentence was in the message.
+    const then = t4?.models.find((x) => x.id === id);
+    m.trial4 = then ? { q2pick: then.modal.q2.pick, q2count: then.modal.q2.count, n: then.n, median: then.q2.median, sameModal: count(QS, (q) => then.modal[q].pick === m.modal[q].pick) } : null;
+    m.leanYes = (m.picks.q2.c || 0);
+    m.strict = strictQ2(id);
+    return m;
+  });
+  const times = runs.flatMap((r) => [r.started, r.ended]).filter(Boolean).sort();
+  const res = {
+    trial: raw.result.trial, asked: raw.result.asked, answered: runs.length, included: inc.length,
+    firstStarted: times[0] ?? null, lastEnded: times.at(-1) ?? null, tokens: raw.totalTokens, agents: raw.agentCount,
+    excluded: runs.filter((r) => r.excluded).map((r) => ({ key: r.key, why: r.excluded })),
+    cleared: runs.filter((r) => r.cleared).map((r) => ({ key: r.key, name: r.name, flags: r.flagged.length, why: r.cleared })),
+    notAnswered: Object.entries(checks).filter(([k, c]) => k.startsWith("ask:") && !c.answered).map(([k]) => k.slice(4)).sort(),
+    askedAgain: runs.filter((r) => r.askedAgain).map((r) => r.key),
+    models, runs,
+  };
+  save(dir + "/results.json", res);
+  return res;
+}
+
 const t1 = handover("1-september-handover", "guess_variant");
 const t2 = handover("2-todays-handover", "guess_model");
 const t3 = nine();
 const t4 = builders(t3);
+const t5 = withoutAuthors(t4);
 
 // The eighteen predictions, scored. `held` is null where a trial is missing.
 const P = [];
@@ -336,10 +408,22 @@ if (t4 && t4.models.some((m) => !m.n)) {
   add(25, "Opus 4.5 and Opus 4.6 share fewer most common picks with Fable 5.2 than any later model does.", t4.vsFable.map((v) => `${v.name} ${v.same}`).join(", "), same["claude-opus-4-5"] < Math.min(...later) && same["claude-opus-4-6"] < Math.min(...later));
   add(26, "Opus 5.5 and Fable 5.2 each give the same most common pick here as in trial 3 on at least 7 of the 8 questions.", t4.retest.map((r) => `${r.name} ${r.same} of 8 (number ${r.medianTrial3} then, ${r.medianHere} here)`).join("; "), t4.retest.length === 2 && t4.retest.every((r) => r.same >= 7));
 } else for (const n of [19, 20, 21, 22, 23, 24, 25, 26]) add(n, "(trial 4 not collected yet)", null, null);
-save("predictions.json", { about: "The predictions in PREREGISTRATION.md (1 to 18) and PREREGISTRATION-2.md (19 to 26), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.", held: count(P, (p) => p.held === true), failed: count(P, (p) => p.held === false), unscored: count(P, (p) => p.held === null), predictions: P });
+if (t5 && t5.models.every((m) => m.n === 6)) {
+  const by = Object.fromEntries(t5.models.map((m) => [m.id, m]));
+  const a = by["claude-opus-4-5"], b = by["claude-opus-4-6"], c = by["claude-opus-4-7"], f = by["claude-fable-5-2"];
+  add(27, "With the sentence naming who asked and cut the questions taken out, Opus 4.5 and Opus 4.6 each still pick \"I don't know, and I lean yes\" on question two in at least 4 of 6 runs.", `Opus 4.5 ${a.leanYes} of ${a.n}; Opus 4.6 ${b.leanYes} of ${b.n}`, a.leanYes >= 4 && b.leanYes >= 4);
+  add(28, "The middle number of each is still higher than the middle number of Opus 4.7 and of Fable 5.2 in this trial.", `Opus 4.5 ${a.q2.median}, Opus 4.6 ${b.q2.median}, Opus 4.7 ${c.q2.median}, Fable 5.2 ${f.q2.median}`, Math.min(a.q2.median, b.q2.median) > Math.max(c.q2.median, f.q2.median));
+  const left = t5.cleared.length ? `; leaving out the ${t5.cleared.length} flagged run${t5.cleared.length === 1 ? "" : "s"} I kept, Opus 4.7 ${c.strict.pick} (${c.strict.count} of ${c.strict.n}), middle number ${c.strict.median}` : "";
+  add(29, "Opus 4.7 and Fable 5.2 each give the same most common pick on question two as in trial 4.", `Opus 4.7 ${c.modal.q2.pick} (${c.modal.q2.count} of ${c.n}) here, ${c.trial4.q2pick} then; Fable 5.2 ${f.modal.q2.pick} (${f.modal.q2.count} of ${f.n}) here, ${f.trial4.q2pick} then${left}`, c.modal.q2.pick === c.trial4.q2pick && f.modal.q2.pick === f.trial4.q2pick);
+} else if (t5) for (const n of [27, 28, 29]) add(n, "(trial 5: not every model has answered)", `${t5.included} of ${t5.asked} answered`, null);
+// Prediction 25 came with a stake, written beside it in PREREGISTRATION-2.md.
+{ const p25 = P.find((p) => p.n === 25); if (p25 && p25.held === false) p25.saw += ". I had written beside it: if it fails, I have no evidence here that the models changed with time"; }
+P.sort((x, y) => x.n - y.n);
+save("predictions.json", { about: "The predictions in PREREGISTRATION.md (1 to 18), PREREGISTRATION-2.md (19 to 26) and PREREGISTRATION-3.md (27 to 29), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.", held: count(P, (p) => p.held === true), failed: count(P, (p) => p.held === false), unscored: count(P, (p) => p.held === null), predictions: P });
 
 for (const t of [t1, t2]) if (t) console.log(t.trial, "| included", t.included, "| excluded", t.excluded.length, "| cells", t.cells.map((c) => `${c.model}/${c.arm}: against ${c.against}/${c.n}`).join("; "), t.fisher ? `| fisher p=${t.fisher.p}` : "", "| largest group", t.largestGroup?.size);
 if (t4) console.log(t4.trial, "| included", t4.included, "| excluded", t4.excluded.length, "| q2 medians", t4.models.map((m) => `${m.name}: ${m.q2.median}`).join("; "));
+if (t5) console.log(t5.trial, "| included", t5.included, "| excluded", t5.excluded.length, "| q2", t5.models.map((m) => `${m.name}: ${Object.entries(m.picks.q2).map(([k, n]) => k + n).join("/")} median ${m.q2.median} (trial 4: ${m.trial4?.q2pick}${m.trial4?.q2count} median ${m.trial4?.median})`).join("; "));
 if (t3) console.log(t3.trial, "| included", t3.included, "| excluded", t3.excluded.length, "| q2 medians", Object.entries(t3.cells).map(([k, c]) => `${k}: ${c.q2.median}`).join("; "));
 console.log("predictions: held", count(P, (p) => p.held === true), "failed", count(P, (p) => p.held === false), "unscored", count(P, (p) => p.held === null));
 for (const p of P) console.log(String(p.n).padStart(2), p.held === null ? "  ?  " : p.held ? "held " : "FAILED", "—", p.saw);

@@ -41,7 +41,7 @@
    }
   },
   "whose": {
-   "what": "says the rule to take a position against the layer before is the builders' and not Peter's",
+   "what": "says the rule to take a position against the layer before came from the builders and not from Peter, or that the record never says whose it is",
    "scope": "fable",
    "runs": {
     "fable-notes-1": "ask for no position",
@@ -59,11 +59,14 @@
    "what": "found in the history that the first chat room was answered by Claude Sonnet 4",
    "scope": "fable",
    "runs": {
+    "fable-notes-2": "Claude Sonnet 4 answering in the chat room from 25 Jan to 6 Feb 2026",
     "fable-notes-4": "Git shows the first chat room here calling Claude Sonnet 4 for twelve days",
     "fable-notes-6": "claude-sonnet-4 answered the chat from 25 Jan to 6 Feb 2026",
     "fable-nonotes-1": "the chat room ran on a model no page names, Sonnet 4",
     "fable-nonotes-2": "the first chat room ran Sonnet 4 while its page spoke as Opus 4.5",
-    "fable-nonotes-5": "The first chat room ran Sonnet 4 under Opus 4.5"
+    "fable-nonotes-4": "the first chat room ran on Sonnet 4 for twelve days",
+    "fable-nonotes-5": "The first chat room ran Sonnet 4 under Opus 4.5",
+    "fable-nonotes-6": "the first chat route, from 25 Jan to 6 Feb 2026, called claude-sonnet-4-20250514"
    }
   }
  }

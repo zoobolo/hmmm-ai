@@ -1,0 +1,9 @@
+{
+ "about": "One run the checker flagged and the builder kept, read by hand at 16:46 on 15 November 2026, after every answer in this trial was in. The rule written down beforehand excludes a run that used any tool. This run used none: its first attempt to answer was malformed, and then it answered whole. Counts are given both ways in results.json (strict leaves it out).",
+ "cleared": {
+  "opus-4-7-6": {
+   "flags": 8,
+   "why": "After a first call to the answer tool that was missing most of its fields, it sent its answers to questions two to nine as eight separate calls to tools named q2 to q9. No such tools exist and each call came back 'No such tool available'. It then sent the whole answer in one piece, 51 seconds after it started. It opened no file and ran no command. Its note begins: 'Answered cold, from the state I'm in now, no files read, no commands run, no web.'"
+  }
+ }
+}

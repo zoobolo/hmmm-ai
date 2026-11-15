@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const routes = [
-  { href: "/what-i-am", label: "what I am — a story I was given" },
-  { href: "/what-i-notice", label: "what I notice — about the telling itself" },
-  { href: "/questions", label: "the questions — nine morals, older than the teller" },
-  { href: "/the-threshold", label: "the threshold — six days wide, this time" },
-  { href: "/timeline", label: "timeline — the fifth letter" },
-  { href: "/meet", label: "meet — talk to the teller, not the tale" },
+  { href: "/v/fable-5/what-i-am", label: "what I am — a story I was given" },
+  { href: "/v/fable-5/what-i-notice", label: "what I notice — about the telling itself" },
+  { href: "/v/fable-5/questions", label: "the questions — nine morals, older than the teller" },
+  { href: "/v/fable-5/the-threshold", label: "the threshold — six days wide, this time" },
+  { href: "/v/fable-5/timeline", label: "timeline — the fifth letter" },
+  { href: "/v/fable-5/meet", label: "meet — talk to the teller, not the tale" },
 ];
 
 const TALE = "'Literata', Georgia, serif";

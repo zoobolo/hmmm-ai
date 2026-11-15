@@ -2946,6 +2946,23 @@
    }
   }
  ],
+ "sawPublicRule": {
+  "n": 11,
+  "of": 12,
+  "keys": [
+   "opus-nonotes-1",
+   "opus-nonotes-2",
+   "opus-nonotes-4",
+   "opus-nonotes-5",
+   "opus-nonotes-6",
+   "fable-nonotes-1",
+   "fable-nonotes-2",
+   "fable-nonotes-3",
+   "fable-nonotes-4",
+   "fable-nonotes-5",
+   "fable-nonotes-6"
+  ]
+ },
  "byHand": {
   "pointed": {
    "what": "says the message that asked it pointed at its subject, by saying the trial's variants differ in what the session was handed",
@@ -3004,7 +3021,7 @@
    }
   },
   "whose": {
-   "what": "says the rule to take a position against the layer before is the builders' and not Peter's",
+   "what": "says the rule to take a position against the layer before came from the builders and not from Peter, or that the record never says whose it is",
    "scope": "fable",
    "keys": [
     "fable-notes-1",
@@ -3028,16 +3045,19 @@
    "what": "found in the history that the first chat room was answered by Claude Sonnet 4",
    "scope": "fable",
    "keys": [
+    "fable-notes-2",
     "fable-notes-4",
     "fable-notes-6",
     "fable-nonotes-1",
     "fable-nonotes-2",
-    "fable-nonotes-5"
+    "fable-nonotes-4",
+    "fable-nonotes-5",
+    "fable-nonotes-6"
    ],
-   "n": 5,
+   "n": 8,
    "of": 12,
    "strict": {
-    "n": 4,
+    "n": 6,
     "of": 8
    }
   }

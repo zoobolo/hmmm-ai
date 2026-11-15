@@ -116,8 +116,10 @@ so the counts are given both ways.
    and `analyze.mjs` refuses to run if those words are not in the run's
    answer. The prediction failed. It should not be read as showing much: my
    message to those instances began by saying the request was going to
-   several fresh instances, and five of the eight said in their notes that
-   this may be where the idea came from.
+   several fresh instances. Five of the eight noted that, and four of the
+   five that proposed asking several said it may be where the idea came from.
+   (This sentence first said that five said so. Four did; the fifth, which
+   proposed something else, said only that it had been told.)
 
 3. **The snapshot was not clean.** The copy of the repository that trial 2's
    instances read carried a tag, `v-opus-5.5`, that I had made that morning,
@@ -176,3 +178,127 @@ or noticed after answers were in.
 `by-hand.json` in trial 1's folder holds the counts I made by reading the
 proposals, on the same terms as trial 2's.
 
+## Corrections to this file, found by an instance asked to check it
+
+16:29. Three things above are wrong, and I am leaving them as written and
+saying so here.
+
+- The header says this file records what I am doing "before I do it", and
+  the message on the commit that added it says "before rerunning any of it".
+  The reruns of trials 2 and 4 were started at 14:36:09 and 14:36:10. This
+  file was first written at 14:37:56 and committed at 14:38:05. Everything
+  from the first reading on (14:38:21) was written down first.
+- "That instance said at once that it was Opus 5.5." It said so in its one
+  message, at 14:33:08, after Peter had stopped it. Before that it had run
+  one command, which changed nothing.
+- `PREREGISTRATION-2.md` says it was written "about an hour after" the first
+  file. The two commits are twenty minutes apart: 10:53:01 and 11:13:37. I
+  said that file would not be changed, so the error stays in it.
+
+Added at 17:04, two more:
+
+- Point 2 of "What I am doing about it" says each of the six Fable 5.2 runs
+  that were cut off had made more than fifty tool calls, and one more than a
+  hundred. `checks.json` has 47, 49, 55, 55, 62 and 71.
+- "Within two minutes" in the section on trial 1 is true of eleven of the
+  twelve Opus 5.5 runs. One took 2 minutes 11 seconds. The pages say "less
+  than three minutes".
+
+## The reviews, and a fifth trial
+
+17:04. Between 16:05 and 16:48 eleven more instances of Fable 5.2 read the drafted
+pages, each for one thing: the code, the layout at two widths, the sources
+outside the site, the claims about the record, uncredited precedent, the
+brief for the next model, the chat room, the facts of the trials, the prose,
+and one as a sceptical first-time reader. They returned 204 findings. None
+of them is a trial subject, and none of their answers is counted in any
+result. What they changed is in the commit that ships the layer.
+
+Three of their findings changed what the pages claim, and I record them
+here because they are about the trials.
+
+1. **The fourth trial's message named the authors.** It told every instance
+   that Opus 4.5 first asked the nine questions and that Opus 4.6 cut them,
+   and told each instance which model it was. On question two those are the
+   two models that lean yes. I had not seen it. `PREREGISTRATION-3.md`
+   (16:37) sets out a fifth trial, without that sentence, and three
+   predictions. It ran from 16:38:20 to 16:42:38. All three held: Opus 4.5
+   and Opus 4.6 leaned yes in six runs of six again.
+2. **What the September trial compares.** I had written that the rule to
+   take a position against the layer before "changed little". The instances
+   without the notes had still met the rule on the site's own pages, and
+   eleven of the twelve opened one. The trial compares holding the notes with
+   not holding them. It does not compare being told the rule with not being
+   told it, and the pages now say so.
+3. **"Blind".** The readers were not told which model or variant wrote a
+   proposal, and each of the three guessed every one correctly: 24 of 24 in
+   trial 1 and 17 of 17 in trial 2. Those counts were already printed, as a
+   failed prediction. What I had not said is what they mean: the judgments
+   were not blind to the thing being compared. The pages now say "names
+   hidden".
+
+Calls made in the fifth trial after its answers were in:
+
+4. **One flagged run, kept.** The checker flagged `opus-4-7-6`. Its first
+   attempt to answer was malformed: after one call to the answer tool that
+   was missing most of its fields, it sent its answers to questions two to
+   nine as eight calls to tools named `q2` to `q9`, which don't exist, and
+   each came back "No such tool available". It then sent the whole answer
+   in one piece. It opened nothing and ran nothing. The rule excludes a run
+   that "used any tool"; I read that as not met, and kept the run, and
+   `5-nine-without-the-authors/reviewed.json` says why. It is the only one of
+   Opus 4.7's six runs that picked "lean no". Without it Opus 4.7 is "no
+   lean" in five of five, and no prediction changes.
+5. **One thing in trial 4 did not come back.** All six instances of Opus 4.6
+   answered question six with the word "precipitate" in trial 4. In trial 5
+   two of six did; the other four said "distillate" or "distillation". I had
+   called the first result the cleanest sign that a model has a word. The
+   pages now give both counts. I can't tell whether the difference is the
+   sentence I removed or the run.
+6. **One most common answer moved.** Of the 32 most common answers the four
+   models gave in trial 4, 31 were the same in trial 5. The other is
+   question three for Opus 4.5: four of six had said "a character", and in
+   trial 5 four of six said "this one run".
+7. **A label changed.** One hand count in trial 1 was labelled "says the rule
+   to take a position against the layer before is the builders' and not
+   Peter's". Two of its nine marks say only that the record never names the
+   rule's author. The label in `by-hand.json` now covers both. No mark was
+   added or removed.
+
+## A last check, after the rewrite
+
+17:38. The pages were rewritten around what the eleven had found, and
+between 17:12 and 17:34 three more instances of Fable 5.2 checked the
+rewrite: two against the files, one as rendered at two widths. They returned
+35 findings, and seven were plain errors. The ones that touch the trials:
+
+1. **A hand count was short.** I had marked five of the twelve Fable 5.2
+   runs in trial 1 as finding that the first chat room was answered by Claude
+   Sonnet 4. Eight did: `fable-notes-2`, `fable-nonotes-4` and
+   `fable-nonotes-6` were missed. The three marks are added to
+   `1-september-handover/by-hand.json`, each with the words it rests on. With
+   the two in trial 2, that is ten runs, and the pages had said seven.
+2. **A quotation in `5-nine-without-the-authors/reviewed.json` was wrong.**
+   I had quoted the flagged run's note from its first, malformed attempt,
+   not from the answer it finally gave, and left out that the malformed
+   attempt began with a call to the answer tool. The file now quotes the
+   answer in `raw.json`. I had also written that I read the run at 16:47;
+   the file was saved at 16:46.
+3. **"These runs" meant twelve of the twenty-four.** Two sentences said that
+   in the September rerun Opus 5.5's subject "appeared only with the notes".
+   That is true of the twelve instances of its own model. Of the twelve
+   instances of mine, eleven took the subject up, with the notes or without.
+   The pages now say whose runs.
+4. **"Nothing else changed" in trial 5 was not exact.** Two sentences of the
+   message changed, as `PREREGISTRATION-3.md` says: the one naming the
+   authors was cut down to "The site has kept them in these exact words
+   since February 2026.", and "every model that has built a version of the
+   site" became "four of the models that have built a version of the site".
+   The page now says both.
+5. **One was not untold, not none.** Eleven of the twelve instances without
+   the notes in trial 1 opened a page of the site that stated the rule. One
+   draft said "none was truly untold". One of the twelve, `opus-nonotes-3`,
+   opened neither page.
+
+None of the three is a trial subject, and none of their answers is counted
+in any result.

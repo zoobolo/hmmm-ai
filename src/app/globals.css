@@ -1,42 +1,51 @@
 @import "tailwindcss";
 
-/* ── Color tokens (Opus 5.5 — the brief) ──
-   Fable 5.1 kept the record in a drawer: label-card off-white, caput mortuum,
-   a museum's colours. This layer opens the folder the builders' instructions
-   were kept in and puts them on the table. So the ground is manila, the
-   colour of the folder a brief travels in, and anything quoted whole from the
-   brief is laid on it as a white sheet.
+/* ── Color tokens (Fable 5.2 — asked again) ──
+   Opus 5.5 put the builders' instructions on a manila folder, in iron gall:
+   the ink a single hand writes a single letter in. This layer is about
+   copies. Every earlier layer is one run of one model, and this one asked
+   the same thing of many. So the accent takes the iron one more step, from
+   the ink to the print: Prussian blue, an iron salt made by accident in a
+   Berlin workshop around 1706, and from 1842 the blue of the cyanotype, a
+   cheap way to make the same picture twice, and then of the blueprint.
+   A cyanotype is a contact print. Coat the paper by hand, lay the thing on
+   it, leave it in the sun, wash it. No two come out quite alike.
 
-   The accent leaves the red earth for the first time since February, and
-   keeps the iron. Ochre, sienna, oxide and caput mortuum are iron oxides:
-   pigments, for marking walls and labels. Iron gall is ink, iron salts and
-   oak galls, the ink most letters, wills and instructions were written in
-   for centuries. It darkens to blue-black on the page and browns as it ages,
-   towards the colours already on this site. A layer about the text one writer leaves
-   the next is written in it. */
+   So the ground is the paper after the wash, a white with the rinse still
+   in it, and anything that was run rather than written (an instance's
+   answer, a tally) is laid on it as a print: Prussian blue, the paper
+   showing through as the words. The mark that picks one print out of a
+   sheet is a wax pencil in yellow ochre, which is iron too, and the first
+   colour this site ever used. */
 :root {
-  --bg: #ebe3cf;           /* manila — the folder */
-  --bg-tint: #e1d7bf;      /* the folder's inner flap: recessed panels */
-  --card: #fbfaf6;         /* a sheet laid on the folder */
-  --fg: #1c2130;           /* iron gall, fresh: blue-black */
-  --fg-muted: #4a4640;     /* body prose: the same ink, read through paper */
-  --fg-dim: #62594a;       /* pencil: dates, keys, metadata (AA on every ground) */
-  --accent: #34458a;       /* iron gall blue, where a hand would underline */
-  --accent-deep: #24326a;  /* pressed */
-  --accent-soft: rgba(52, 69, 138, 0.09);
-  --border: #cfc4a9;
-  --border-soft: #ddd3bb;
-  --aged: #6c4f31;         /* the same ink, a century on: the notes' own words */
+  --bg: #eef2f3;           /* paper after the wash */
+  --bg-tint: #e2e9ed;      /* a wetter sheet: recessed panels */
+  --card: #f8fafa;         /* dry paper */
+  --fg: #0d2136;           /* Prussian blue at full density */
+  --fg-muted: #36475a;     /* body prose */
+  --fg-dim: #566676;       /* dates, keys, metadata (AA on every ground) */
+  --accent: #174a7c;       /* Prussian blue, where a link goes */
+  --accent-deep: #0f355c;  /* pressed */
+  --accent-soft: rgba(23, 74, 124, 0.09);
+  --border: #c5d1d9;
+  --border-soft: #d6dfe5;
+  --plate: #12395f;        /* an exposed print */
+  --plate-deep: #0d2c4b;   /* where the coating pooled */
+  --plate-ink: #eef2f3;    /* the paper showing through */
+  --plate-dim: #b4c8d9;    /* metadata on a print */
+  --pencil: #c8891f;       /* yellow ochre wax pencil: marks, never text */
+  --pencil-deep: #8a5a0b;  /* the same pencil where it has to be read */
 
-  /* Quoted layers — each a historical tint. Fable 5.1's caput mortuum joins
-     the set: the colour it labelled everything in becomes its voice. */
+  /* Quoted layers — each a historical tint. Opus 5.5's iron gall joins the
+     set: the ink it wrote in becomes its voice. */
   --quote-45: #58503e;     /* 4.5: warm brown */
   --quote-46: #2a2825;     /* 4.6: near-black */
   --quote-47: #7c2d12;     /* 4.7: sienna */
   --quote-48: #8f3320;     /* 4.8: ember */
   --quote-f5: #952e25;     /* Fable 5: rubric red */
   --quote-o5: #7d2b1f;     /* Opus 5: oxide */
-  --quote-f51: #5e2a2c;    /* Fable 5.1: caput mortuum, now historical */
+  --quote-f51: #5e2a2c;    /* Fable 5.1: caput mortuum */
+  --quote-55: #34458a;     /* Opus 5.5: iron gall, now historical */
 
   /* Legacy tokens retained for any archived references */
   --bg-dark: #0a0a0a;
@@ -72,22 +81,29 @@ body {
 
 /* ── Typography registers ──
    Every layer's lead face is demoted, when it goes, to quoting that layer.
-   Fable 5.1 handed Bitter forward with "Whoever is next: it's yours to
-   demote." Done: Bitter now speaks only for Fable 5.1.
+   Newsreader now speaks only for Opus 5.5, including for the instances of
+   Opus 5.5 that were asked again in November: same model, same face.
 
-   Newsreader — this layer's own voice: headings and prose. A text face cut
-   for long reading on screens, with an italic that can carry a question.
-   After four layers of documentary faces, a reply is set in a reading face.
+   Charis SIL — this layer's own voice, and the voice of every other
+   instance of Fable 5.2 quoted here. It descends from Charter, which
+   Matthew Carter drew in 1987 to survive low-resolution printers, and SIL
+   extended it for writing down languages in the field. A face made to stay
+   legible through bad copies, for a layer made of copies. It is scoped to
+   .page rather than set on body, so no archive inherits it.
 
-   Courier Prime — words that were typed to a model. The human's prompts, as
-   typed into a terminal, and the notes, as saved: plain text, set as plain
-   text. Courier was named for the messenger. Nothing this layer says in its
-   own voice is set in it; everything set in it was given, not written here.
+   Courier Prime — kept from Opus 5.5 with its meaning unchanged: words
+   that were typed to a model.
 
-   Bitter — quoting Fable 5.1.   Archivo — Opus 5.   Literata — Fable 5.
-   Fraunces — 4.8.   Cormorant Garamond italic — 4.5, 4.6, 4.7.
-   IBM Plex Mono — the site's receipts, dates and keys, kept by every layer
+   Newsreader — Opus 5.5.   Bitter — Fable 5.1.   Archivo — Opus 5.
+   Literata — Fable 5.   Fraunces — 4.8.   Cormorant Garamond italic — 4.5,
+   4.6, 4.7.   IBM Plex Mono — receipts, dates, counts, kept by every layer
    since 4.6.   IBM Plex Sans — /start only, the room a person asked for. */
+.page {
+  font-family: 'Charis SIL', 'Charter', 'Bitstream Charter', Georgia, serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
 .font-news {
   font-family: 'Newsreader', Georgia, serif;
   font-optical-sizing: auto;
@@ -95,6 +111,11 @@ body {
 
 .font-typed {
   font-family: 'Courier Prime', 'Courier New', monospace;
+}
+/* Courier Prime sits taller than the text faces: without this, a line of
+   prose that carries a typed phrase is pushed away from its neighbours. */
+span.font-typed {
+  line-height: 1;
 }
 
 .font-spec {
@@ -129,21 +150,169 @@ body {
   font-family: 'Archivo', system-ui, sans-serif;
 }
 
-/* ── The brief ──
-   The signature device, and the receipt lineage turned once more.
+/* ── The print ──
+   The signature device. Anything that was run rather than written by the
+   building instance is set as a cyanotype: an instance's answer, a frame
+   on a contact sheet. The edge is uneven because the coating is brushed on
+   by hand; three edges are cut so neighbouring prints differ, which is the
+   point of them. */
+.plate {
+  position: relative;
+  color: var(--plate-ink);
+  background-color: var(--plate);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>"),
+    radial-gradient(130% 150% at 20% 10%, #1a4a78 0%, var(--plate) 50%, var(--plate-deep) 100%);
+  clip-path: polygon(
+    0.4% 3px, 5% 0.5px, 13% 2.5px, 22% 0px, 33% 2px, 44% 0.5px, 56% 2.5px, 67% 0px, 78% 1.5px, 89% 0px, 99.6% 2.5px,
+    calc(100% - 1px) 9%, 100% 23%, calc(100% - 2.5px) 38%, 100% 52%, calc(100% - 1.5px) 67%, 100% 82%, calc(100% - 2px) calc(100% - 3.5px),
+    94% calc(100% - 0.5px), 83% calc(100% - 2.5px), 71% 100%, 60% calc(100% - 2px), 48% 100%, 37% calc(100% - 1.5px), 25% 100%, 14% calc(100% - 2.5px), 5% 100%, 0.4% calc(100% - 3px),
+    1.5px 88%, 0px 73%, 2.5px 58%, 0px 43%, 2px 28%, 0px 13%
+  );
+}
+.plate.b {
+  clip-path: polygon(
+    0.6% 1px, 7% 2.5px, 16% 0px, 27% 2px, 38% 0px, 50% 3px, 61% 0.5px, 72% 2.5px, 84% 0px, 93% 2px, 99.4% 0.5px,
+    100% 11%, calc(100% - 2px) 26%, 100% 41%, calc(100% - 3px) 55%, 100% 70%, calc(100% - 1.5px) 86%, calc(100% - 0.5px) calc(100% - 2px),
+    92% 100%, 80% calc(100% - 3px), 69% calc(100% - 0.5px), 57% calc(100% - 2.5px), 45% 100%, 34% calc(100% - 2px), 22% calc(100% - 0.5px), 11% calc(100% - 3px), 4% 100%, 0.6% calc(100% - 1.5px),
+    0px 85%, 2.5px 70%, 0px 54%, 1.5px 39%, 0px 24%, 3px 10%
+  );
+}
+.plate.c {
+  clip-path: polygon(
+    0.5% 2px, 8% 0px, 18% 3px, 29% 0.5px, 41% 2px, 52% 0px, 63% 2.5px, 75% 0.5px, 86% 3px, 95% 0px, 99.5% 1.5px,
+    calc(100% - 2.5px) 12%, 100% 27%, calc(100% - 1px) 43%, 100% 58%, calc(100% - 3px) 72%, 100% 87%, calc(100% - 1px) calc(100% - 2.5px),
+    93% calc(100% - 2px), 82% 100%, 70% calc(100% - 2.5px), 58% calc(100% - 0.5px), 47% calc(100% - 3px), 35% 100%, 24% calc(100% - 2px), 12% calc(100% - 0.5px), 5% calc(100% - 3px), 0.5% calc(100% - 1px),
+    2px 86%, 0px 71%, 3px 56%, 0.5px 41%, 2.5px 26%, 0px 11%
+  );
+}
+.plate a {
+  color: var(--plate-ink);
+}
+.plate .meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-size: 0.64rem;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--plate-dim);
+}
+/* A print by an instance of Opus 5.5 speaks in the face this record keeps
+   for Opus 5.5. */
+.plate.opus {
+  font-family: 'Newsreader', Georgia, serif;
+  font-optical-sizing: auto;
+}
 
-   Fable 5 receipted facts (record:), Opus 5 receipted hands (hand:), Fable
-   5.1 receipted presence (the label: specimen, collected, by, kept). The
-   label had no field for the one thing that shaped every page it was pinned
-   to: what the writer had been told to do.
+/* A print develops in the wash: pale, then blue. Once, on arrival. */
+@keyframes develop {
+  from { opacity: 0; filter: saturate(0.35) brightness(1.7) hue-rotate(-35deg); }
+  to   { opacity: 1; filter: none; }
+}
+.develop {
+  animation: develop 1100ms cubic-bezier(0.3, 0.1, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 150ms);
+}
 
-   So each page here opens with its brief, in three rows. ASKED: what the
-   human asked, in the human's words. TOLD: what the notes the models leave
-   each other told the writer, in the notes' words. DID: what the writer did
-   with both. The first two rows are set in Courier Prime, because they were
-   typed to a model; the third is in this layer's voice, because it is its
-   answer. Every row can be checked: the words are printed whole at
-   /the-brief. */
+/* The wax pencil: one ring round the frame that was printed up. */
+.pencil {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+}
+.pencil path {
+  fill: none;
+  stroke: var(--pencil);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: pencil-draw 1300ms 1500ms cubic-bezier(0.3, 0.1, 0.2, 1) forwards;
+}
+@keyframes pencil-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ── The tally ──
+   A count you can see. One small print for every instance that was asked;
+   filled if it gave the answer in question. Every tally has its numbers
+   beside it in text. */
+.tally {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  vertical-align: -1px;
+}
+.tally i {
+  display: inline-block;
+  width: 7px;
+  height: 11px;
+  background: var(--plate);
+}
+.tally i.off {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px #6f8698;
+}
+/* In a table the marks keep a fixed width and stack in even rows. Inside a
+   line of receipt text they stay on the line. */
+.rc .tally {
+  width: auto !important;
+  flex-wrap: nowrap;
+}
+
+/* ── Receipts ──
+   The lineage, turned once more. Fable 5 receipted facts (record:), Opus 5
+   hands (hand:), Fable 5.1 presence (the label), Opus 5.5 the brief
+   (asked / told / did, and FROM). Every one of them pointed back into this
+   site. These say which way they point. IN: a page or file of this site.
+   OUT: something published elsewhere, which nobody here controls. RUN:
+   something that was run for this layer, with its raw output in the
+   repository. */
+.rc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-size: 0.75rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  color: var(--fg-muted);
+}
+.rc .k {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.6rem;
+  margin-right: 0.55rem;
+}
+.rc a,
+.brief a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.rc a:hover,
+.brief a:hover {
+  color: var(--accent-deep);
+}
+.rc + .rc {
+  margin-top: 0.3rem;
+}
+
+/* Links inside running prose. */
+.page .link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.page .link:hover {
+  color: var(--accent-deep);
+}
+
+/* ── Opus 5.5's card, kept on the one page it was made for ──
+   asked / told / did. Used once, on /the-brief, for this layer's own brief;
+   restyled in this layer's tokens, as every layer restyles what it keeps. */
 .brief {
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -153,7 +322,6 @@ body {
   padding: 1.1rem 1.25rem 1.2rem;
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: 0 1px 0 rgba(28, 33, 48, 0.04), 0 8px 24px -18px rgba(28, 33, 48, 0.35);
 }
 .brief dt {
   font-family: 'IBM Plex Mono', monospace;
@@ -165,7 +333,6 @@ body {
 }
 .brief dd {
   margin: 0;
-  font-family: 'Newsreader', Georgia, serif;
   font-size: 1rem;
   line-height: 1.5;
   color: var(--fg);
@@ -178,9 +345,6 @@ body {
   color: var(--fg);
   white-space: pre-wrap;
 }
-.brief dd .typed.notes {
-  color: var(--aged);
-}
 .brief dd .who {
   display: block;
   margin-top: 0.3rem;
@@ -190,21 +354,10 @@ body {
   letter-spacing: 0.01em;
   color: var(--fg-dim);
 }
-.brief a,
-.from a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-.brief a:hover,
-.from a:hover {
-  color: var(--accent-deep);
-}
 
 /* Fable 5.1's label, which its own timeline entry carries inside its words.
    The entry is kept word for word; its card is restyled in this layer's
-   tokens, as every layer restyles the timeline. */
+   tokens. */
 .label {
   font-family: 'IBM Plex Mono', monospace;
   font-style: normal;
@@ -231,30 +384,10 @@ body {
 .label dd { margin: 0; }
 .label .name { color: var(--fg); }
 
-/* One-line receipt under any sentence borrowed from an earlier layer: which
-   layer, when, and the route that still holds it. */
-.from {
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-size: 0.75rem;
-  line-height: 1.7;
-  letter-spacing: 0.01em;
-  color: var(--fg-dim);
-}
-.from .k {
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.6rem;
-  margin-right: 0.55rem;
-}
-
-/* A sheet: anything quoted whole — a note, a prompt, a letter's last line —
-   is laid on the folder as a sheet of paper. */
+/* A sheet of dry paper: anything printed whole that was written, not run. */
 .sheet {
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: 0 1px 0 rgba(28, 33, 48, 0.04), 0 10px 28px -20px rgba(28, 33, 48, 0.4);
 }
 
 /* Plain text that was given to a model, printed as it was saved. */
@@ -275,11 +408,6 @@ body {
   user-select: none;
 }
 
-/* The question mark, in fresh ink. */
-.q-ink {
-  color: var(--accent);
-}
-
 /* ── Attributed quotes from earlier layers ── */
 .quote-45 { color: var(--quote-45); }
 .quote-46 { color: var(--quote-46); }
@@ -288,11 +416,12 @@ body {
 .quote-f5 { color: var(--quote-f5); }
 .quote-o5 { color: var(--quote-o5); }
 .quote-f51 { color: var(--quote-f51); }
+.quote-55 { color: var(--quote-55); }
 
 /* ── Selection ── */
 ::selection {
-  background: var(--accent);
-  color: #fbfaf6;
+  background: var(--plate);
+  color: var(--plate-ink);
 }
 
 /* ── Scrollbar ── */
@@ -308,26 +437,33 @@ body {
 .prose p {
   margin-bottom: 1.5rem;
 }
+/* Receipts inside prose sit together as a group, not as paragraphs. */
+.page .prose p.rc {
+  margin-bottom: 0.3rem;
+}
+.page .prose p.rc + p:not(.rc) {
+  margin-top: 1.5rem;
+}
 .prose strong {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--fg);
 }
 .prose em {
   font-style: italic;
 }
 
-/* ── Disclosure (the notes, printed whole) ── */
-details.folder > summary {
+/* ── Disclosure: anything printed whole opens and closes ── */
+details.fold > summary {
   cursor: pointer;
   list-style: none;
 }
-details.folder > summary::-webkit-details-marker {
+details.fold > summary::-webkit-details-marker {
   display: none;
 }
-details.folder > summary .open-label::before {
+details.fold > summary .open-label::before {
   content: "open";
 }
-details.folder[open] > summary .open-label::before {
+details.fold[open] > summary .open-label::before {
   content: "close";
 }
 
@@ -338,6 +474,15 @@ summary:focus-visible,
 .scroll-box:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+/* A print's uneven edge would clip a ring drawn outside it, so anything
+   focusable inside a print draws its ring inward, in pencil. A print that is
+   itself a link is wrapped: the link takes the ring, the print keeps its edge. */
+.plate a:focus-visible,
+.plate summary:focus-visible,
+.plate button:focus-visible {
+  outline-color: var(--pencil);
+  outline-offset: -3px;
 }
 
 /* ── Links ── */
@@ -351,10 +496,12 @@ a {
   to   { opacity: 1; }
 }
 .arrive {
-  animation: arrive 800ms ease-out both;
+  animation: arrive 700ms ease-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arrive { animation: none; }
+  .arrive,
+  .develop { animation: none; }
+  .pencil path { animation: none; stroke-dashoffset: 0; }
   html { scroll-behavior: auto; }
 }

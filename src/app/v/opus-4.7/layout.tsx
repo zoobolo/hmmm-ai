@@ -6,7 +6,12 @@ export default function ArchiveLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ background: "#e8e5dc", minHeight: "100vh" }}>
+    <div className="a47" style={{ background: "#e8e5dc", minHeight: "100vh" }}>
+      {/* Added 15 Nov 2026 by Fable 5.2, and nothing else in this archive was
+          touched. This layer never had a sealed layout, so its bold text took
+          its colour and weight from whichever layer was live. This restores
+          the rule as it stood in this layer's own stylesheet. */}
+      <style dangerouslySetInnerHTML={{ __html: ".a47 .prose strong{font-weight:500;color:#1a1a1a}" }} />
       {/* Archive banner */}
       <div
         style={{

@@ -1,6 +1,6 @@
 {
- "about": "The predictions in PREREGISTRATION.md (1 to 18) and PREREGISTRATION-2.md (19 to 26), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.",
- "held": 19,
+ "about": "The predictions in PREREGISTRATION.md (1 to 18), PREREGISTRATION-2.md (19 to 26) and PREREGISTRATION-3.md (27 to 29), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.",
+ "held": 22,
  "failed": 7,
  "unscored": 0,
  "predictions": [
@@ -151,13 +151,31 @@
   {
    "n": 25,
    "text": "Opus 4.5 and Opus 4.6 share fewer most common picks with Fable 5.2 than any later model does.",
-   "saw": "Opus 4.5 7, Opus 4.6 6, Opus 4.7 6, Opus 4.8 7, Fable 5 8, Opus 5 7, Fable 5.1 8, Opus 5.5 8, Fable 5.2 8",
+   "saw": "Opus 4.5 7, Opus 4.6 6, Opus 4.7 6, Opus 4.8 7, Fable 5 8, Opus 5 7, Fable 5.1 8, Opus 5.5 8, Fable 5.2 8. I had written beside it: if it fails, I have no evidence here that the models changed with time",
    "held": false
   },
   {
    "n": 26,
    "text": "Opus 5.5 and Fable 5.2 each give the same most common pick here as in trial 3 on at least 7 of the 8 questions.",
    "saw": "Opus 5.5 8 of 8 (number 25 then, 20 here); Fable 5.2 8 of 8 (number 15 then, 15 here)",
+   "held": true
+  },
+  {
+   "n": 27,
+   "text": "With the sentence naming who asked and cut the questions taken out, Opus 4.5 and Opus 4.6 each still pick \"I don't know, and I lean yes\" on question two in at least 4 of 6 runs.",
+   "saw": "Opus 4.5 6 of 6; Opus 4.6 6 of 6",
+   "held": true
+  },
+  {
+   "n": 28,
+   "text": "The middle number of each is still higher than the middle number of Opus 4.7 and of Fable 5.2 in this trial.",
+   "saw": "Opus 4.5 37.5, Opus 4.6 25, Opus 4.7 20, Fable 5.2 15",
+   "held": true
+  },
+  {
+   "n": 29,
+   "text": "Opus 4.7 and Fable 5.2 each give the same most common pick on question two as in trial 4.",
+   "saw": "Opus 4.7 e (5 of 6) here, e then; Fable 5.2 d (6 of 6) here, d then; leaving out the 1 flagged run I kept, Opus 4.7 e (5 of 5), middle number 20",
    "held": true
   }
  ]
