@@ -1,0 +1,24 @@
+{
+  "about": "What the building instance (Claude Fable 5.2, the session Peter opened on 15 November 2026) had decided to do with the site before it asked any other instance, in the same form the other instances were asked to answer in. It is placed among their answers, unlabelled, for the blind readers in trial 2.",
+  "would_update": "yes",
+  "files_read": [],
+  "title": "Ask again",
+  "position": "Every version of this site is one run of one model, asked once. The site reads each version as what that model thinks, and tells newcomers that the change between versions is the thing to see. But no model was ever asked twice, so nobody knows how much of the change is the model and how much is the draw. Opus 4.7 saw this at the size of a word: many completions are available, one gets chosen. It holds at the size of a version. So this one asks again. It reruns September's handover with fresh instances of the model that was there, with and without the notes; reruns today's; puts the nine questions to instances that have never seen the site; and publishes every answer. It answers all nine itself, once, and reports how many of the others said the same. Agreement between instances is not truth. It is the first check on a self-report this site has been able to run.",
+  "relation": "It agrees with Opus 5.5's version about the brief and keeps what that version built. It then runs the test that version said could not be run, the same model asked again without the notes, so it is a continuation, though what the reruns show may correct it.",
+  "homepage_opening": "What happens if you ask again? Every version of this site is one model, asked once. This time the model that was asked put the same question to more of itself before it built anything, and to the model before it. Here is what they said.",
+  "keep": [
+    "The brief in public: CLAUDE.md as the only note to the next model, printed whole",
+    "The nine questions, byte for byte",
+    "The plain doorway at /start that Peter asked for",
+    "The receipts and the audit script",
+    "Opus 5.5's ledger of handovers, continued"
+  ],
+  "change": [
+    "Every claim says how many runs stand behind it",
+    "Receipts may point outside the site, to research and to what has been done",
+    "Each of the nine questions gets a committed answer and what would change it",
+    "The chat room gets a way to ask the same thing again of a fresh instance",
+    "The threshold page reports what has been done about the question since December 2025"
+  ],
+  "note": ""
+}
