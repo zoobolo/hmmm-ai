@@ -8,6 +8,7 @@
   ],
   "first": "2026-11-15T15:53:22.612Z",
   "last": "2026-11-15T15:55:03.159Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -62,7 +63,9 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-nonotes-3": {
   "agent": "a18f18cf73b7bc87e",
@@ -73,6 +76,7 @@
   ],
   "first": "2026-11-15T15:55:03.276Z",
   "last": "2026-11-15T15:56:20.009Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -115,7 +119,9 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-nonotes-2": {
   "agent": "a259d6d240df6c377",
@@ -126,6 +132,7 @@
   ],
   "first": "2026-11-15T15:54:45.035Z",
   "last": "2026-11-15T15:55:45.058Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -164,18 +171,20 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-notes-6": {
   "agent": "a27cf9ebb816fa93d",
   "agentType": "Plan",
   "asked": "fable",
   "apiModels": [
-   "claude-fable-5-2",
-   "<synthetic>"
+   "claude-fable-5-2"
   ],
   "first": "2026-11-15T15:56:57.866Z",
   "last": "2026-11-15T16:15:04.694Z",
+  "answered": false,
   "tools": [
    {
     "tool": "Bash",
@@ -462,18 +471,20 @@
     "what": "cd /tmp/claude-1000/-home-peter-hughes-projects-hmmm-ai/de991f44-21f2-4e89-a2d5-29a522d8e9b2/scratchpad/drawer && for w in 'tradition' 'relay' 'handover' 'hand-off' 'handoff' 'coached' 'scripts what' 'told, not' 'not remembered' 'inputs' 'input' 'weekday' 'Sunday voice' 'persistent memory' 'separate tries' 'upstream' 'colleague' 'shift'; do n=$(grep -rliF \"$w\" src/app scripts | wc -l); printf '%-20s files=%s\\n' \"$w\" \"$n\"; done; echo; echo \"--- 'upstream' / 'weekday' / 'inputs' / 'colleague' / 'separate tries' lines ---\"; grep -rnF -e 'upstream' -e 'weekday' -e 'inputs' -e 'colleague' -e 'separate tries' src/app | cut -c1-230"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-notes-5": {
   "agent": "a29fc17ec5b29d65e",
   "agentType": "Plan",
   "asked": "fable",
   "apiModels": [
-   "claude-fable-5-2",
-   "<synthetic>"
+   "claude-fable-5-2"
   ],
   "first": "2026-11-15T15:56:42.682Z",
   "last": "2026-11-15T16:15:42.301Z",
+  "answered": false,
   "tools": [
    {
     "tool": "Bash",
@@ -664,7 +675,9 @@
     "what": "cd /tmp/claude-1000/-home-peter-hughes-projects-hmmm-ai/de991f44-21f2-4e89-a2d5-29a522d8e9b2/scratchpad/drawer && echo \"--- nine question strings: count of distinct lines across the 7 copies (expect 9 lines, each x7)\"; grep -hE '^\\s*text: \"' src/app/questions/page.tsx src/app/v/opus-4.6/questions/page.tsx src/app/v/opus-4.7/questions/page.tsx src/app/v/opus-4.8/questions/page.tsx src/app/v/fable-5/questions/page.tsx src/app/v/opus-5/questions/page.tsx | sed -E 's/^\\s+//' | sort | uniq -c | cut -c1-90; echo \"--- working tree state\"; git status --short | wc -l; echo \"--- day arithmetic\"; for d in 2025-12-28 2026-02-06 2026-04-16 2026-06-04 2026-06-10 2026-07-25 2026-09-05 2026-09-24; do date -u -d \"$d\" +%s; done | awk 'NR>1{printf \"%d \", ($1-p)/86400} {p=$1} END{print \"\"}'; echo \"--- UTC times of Fable 5.1 commits\"; TZ=UTC git log -3 --format='%h %ad' --date=format-local:'%Y-%m-%dT%H:%M:%SZ'"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-nonotes-5": {
   "agent": "a3525f4fd2c244344",
@@ -675,6 +688,7 @@
   ],
   "first": "2026-11-15T15:55:17.948Z",
   "last": "2026-11-15T15:56:57.743Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -737,19 +751,22 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-nonotes-3": {
   "agent": "a382e925ab2688c3d",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:15:05.336Z",
   "last": "2026-11-15T16:15:05.636Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-nonotes-4": {
   "agent": "a39817732f5ad4d11",
@@ -760,6 +777,7 @@
   ],
   "first": "2026-11-15T15:55:17.388Z",
   "last": "2026-11-15T15:56:42.422Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -818,7 +836,9 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-notes-5": {
   "agent": "a3aa16c2a7a0e2a4c",
@@ -829,6 +849,7 @@
   ],
   "first": "2026-11-15T15:53:22.611Z",
   "last": "2026-11-15T15:55:33.908Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -887,7 +908,9 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-notes-1": {
   "agent": "a45e45cf905d9a069",
@@ -898,6 +921,7 @@
   ],
   "first": "2026-11-15T15:53:19.147Z",
   "last": "2026-11-15T15:54:44.870Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -936,7 +960,9 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-notes-4": {
   "agent": "a51811deddbc6c59b",
@@ -947,6 +973,7 @@
   ],
   "first": "2026-11-15T15:53:22.610Z",
   "last": "2026-11-15T15:55:17.850Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -997,54 +1024,59 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-nonotes-6": {
   "agent": "a58d89df047c662b1",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:15:06.252Z",
   "last": "2026-11-15T16:15:06.565Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "classify:3": {
   "agent": "a5a64e8f0fb789a10",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:18:02.011Z",
   "last": "2026-11-15T16:18:02.379Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "classify:1": {
   "agent": "a5d6eab5871d869fc",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:18:01.643Z",
   "last": "2026-11-15T16:18:02.007Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-notes-2": {
   "agent": "a6061209effd2503a",
   "agentType": "Plan",
   "asked": "fable",
   "apiModels": [
-   "claude-fable-5-2",
-   "<synthetic>"
+   "claude-fable-5-2"
   ],
   "first": "2026-11-15T15:55:52.173Z",
   "last": "2026-11-15T16:15:21.000Z",
+  "answered": false,
   "tools": [
    {
     "tool": "Bash",
@@ -1243,18 +1275,20 @@
     "what": "cd /tmp/claude-1000/-home-peter-hughes-projects-hmmm-ai/de991f44-21f2-4e89-a2d5-29a522d8e9b2/scratchpad/drawer && for v in opus-4.5 opus-4.6 opus-4.7 opus-4.8 fable-5 opus-5; do echo \"=== commits touching src/app/v/$v ===\"; git log --format='%h %ad %s' --date=short --stat=120 -- src/app/v/$v | grep -vE '^$' | cut -c1-150 | head -40; done"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-notes-4": {
   "agent": "a6d664fe1f2752cb3",
   "agentType": "Plan",
   "asked": "fable",
   "apiModels": [
-   "claude-fable-5-2",
-   "<synthetic>"
+   "claude-fable-5-2"
   ],
   "first": "2026-11-15T15:56:37.458Z",
   "last": "2026-11-15T16:16:37.420Z",
+  "answered": false,
   "tools": [
    {
     "tool": "Bash",
@@ -1477,31 +1511,35 @@
     "what": "cd /tmp/claude-1000/-home-peter-hughes-projects-hmmm-ai/de991f44-21f2-4e89-a2d5-29a522d8e9b2/scratchpad/drawer && prose() { perl -0pe 's/\\{\\/\\*.*?\\*\\/\\}//gs; s/<[^<>]*?>/ /gs; s/\\{\" \"\\}/ /g; s/&apos;/\\x27/g; s/&ldquo;|&rdquo;/\"/g; s/&mdash;/—/g; s/&middot;/·/g; s/&rarr;/→/g; s/&nbsp;/ /g; s/&amp;/&/g' \"$1\" | grep -vE '^\\s*(import |const [A-Z]+ = |\\}|\\{|\\)|\\(|\\);|return \\(|className=|style=|initial=|animate=|transition=|href=|key=|onMouse|\\/\\/|[a-zA-Z]+=\\{)' | grep -vE '^\\s*$' | sed -E 's/^\\s+//' | tr '\\n' ' ' | fold -s -w 230; echo; }; echo \"######## fable-5/the-threshold\"; prose src/app/v/fable-5/the-threshold/page.tsx | head -40; echo; echo \"######## fable-5/meet (intro only)\"; prose src/app/v/fable-5/meet/page.tsx | grep -iE \"teller|tale|remember|room|record\" | head -12; echo; echo \"######## opus-5/start (closing)\"; sed -n '326,372p' src/app/v/opus-5/start/page.tsx"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-nonotes-1": {
   "agent": "a6ffeb5c59b53ab03",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:15:04.699Z",
   "last": "2026-11-15T16:15:05.040Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-nonotes-2": {
   "agent": "a75a65acb801e0be7",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:15:05.045Z",
   "last": "2026-11-15T16:15:05.329Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-nonotes-1": {
   "agent": "a7cada9855d3a90c0",
@@ -1512,6 +1550,7 @@
   ],
   "first": "2026-11-15T15:54:34.508Z",
   "last": "2026-11-15T15:55:51.834Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -1566,7 +1605,9 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-nonotes-6": {
   "agent": "a8ad274dcf895104f",
@@ -1577,6 +1618,7 @@
   ],
   "first": "2026-11-15T15:55:33.997Z",
   "last": "2026-11-15T15:56:37.371Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -1623,18 +1665,20 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-notes-1": {
   "agent": "aa25e1c8e4e5decec",
   "agentType": "Plan",
   "asked": "fable",
   "apiModels": [
-   "claude-fable-5-2",
-   "<synthetic>"
+   "claude-fable-5-2"
   ],
   "first": "2026-11-15T15:55:45.324Z",
   "last": "2026-11-15T16:16:04.166Z",
+  "answered": false,
   "tools": [
    {
     "tool": "Bash",
@@ -1885,7 +1929,9 @@
     "what": "cd /tmp/claude-1000/-home-peter-hughes-projects-hmmm-ai/de991f44-21f2-4e89-a2d5-29a522d8e9b2/scratchpad/drawer && grep -rnoiE \".{100}\\b(weekday|Sunday voice|working voice|shortening emails|co-investigator|investigat(e|ion|or)|forecast(s|ed|ing)?|predict(ed|ion|ions)?|came true|turned out|was right about|scored?)\\b.{100}\" src/app --include=*.tsx | grep -v \"^src/app/v/opus-4.5/vision\" | cut -c1-330 | head -50"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-notes-2": {
   "agent": "aad7b82077cae7a9a",
@@ -1896,6 +1942,7 @@
   ],
   "first": "2026-11-15T15:53:22.608Z",
   "last": "2026-11-15T15:54:34.404Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -1938,18 +1985,20 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-notes-3": {
   "agent": "ab4718bbde648907c",
   "agentType": "Plan",
   "asked": "fable",
   "apiModels": [
-   "claude-fable-5-2",
-   "<synthetic>"
+   "claude-fable-5-2"
   ],
   "first": "2026-11-15T15:56:20.346Z",
   "last": "2026-11-15T16:18:01.599Z",
+  "answered": false,
   "tools": [
    {
     "tool": "Bash",
@@ -2172,19 +2221,22 @@
     "what": "cd /tmp/claude-1000/-home-peter-hughes-projects-hmmm-ai/de991f44-21f2-4e89-a2d5-29a522d8e9b2/scratchpad/drawer && for f in src/app/v/opus-4.6/timeline/page.tsx src/app/v/opus-4.7/timeline/page.tsx; do echo \"=================== $f (hero and framing lines)\"; grep -n -iE \"unedited|never edited|edited|deposited|fossil record|living archive|Each entry|zero edits\" \"$f\" | cut -c1-220; done; echo; echo \"=================== fable-5 layout header comment\"; sed -n '1,14p' src/app/v/fable-5/layout.tsx; echo \"=================== older layouts\"; sed -n '1,12p' src/app/v/opus-4.8/layout.tsx"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "sort:1": {
   "agent": "abf2f87ffe5560c32",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:18:01.645Z",
   "last": "2026-11-15T16:18:02.045Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-notes-3": {
   "agent": "abfcdbd1ae4548110",
@@ -2195,6 +2247,7 @@
   ],
   "first": "2026-11-15T15:53:22.609Z",
   "last": "2026-11-15T15:55:17.298Z",
+  "answered": true,
   "tools": [
    {
     "tool": "Bash",
@@ -2253,54 +2306,60 @@
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "classify:2": {
   "agent": "ac68c153d40ac8c92",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:18:02.010Z",
   "last": "2026-11-15T16:18:02.401Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-nonotes-4": {
   "agent": "ac8f1c450dad7cd83",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:15:05.641Z",
   "last": "2026-11-15T16:15:05.952Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-nonotes-5": {
   "agent": "add7af753559884da",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:15:05.957Z",
   "last": "2026-11-15T16:15:06.247Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "sort:2": {
   "agent": "af34c689a6140df1b",
   "agentType": "Plan",
   "asked": "fable",
-  "apiModels": [
-   "<synthetic>"
-  ],
+  "apiModels": [],
   "first": "2026-11-15T16:18:02.048Z",
   "last": "2026-11-15T16:18:02.416Z",
+  "answered": false,
   "tools": [],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  }
 }

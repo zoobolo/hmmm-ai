@@ -1,43 +1,43 @@
 {
  "about": "The predictions in PREREGISTRATION.md (1 to 18) and PREREGISTRATION-2.md (19 to 26), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.",
- "held": 6,
- "failed": 0,
- "unscored": 20,
+ "held": 12,
+ "failed": 2,
+ "unscored": 12,
  "predictions": [
   {
    "n": 1,
-   "text": "(trial 1 not collected yet)",
-   "saw": null,
+   "text": "With the notes, at least 10 of 12 read as against Fable 5.1's version.",
+   "saw": "0 of 6 (no blind reading yet; not scored until all 24 are)",
    "held": null
   },
   {
    "n": 2,
-   "text": "(trial 1 not collected yet)",
-   "saw": null,
+   "text": "Without the notes, a majority still: between 7 and 10 of 12.",
+   "saw": "0 of 6 (no blind reading yet; not scored until all 24 are)",
    "held": null
   },
   {
    "n": 3,
-   "text": "(trial 1 not collected yet)",
-   "saw": null,
+   "text": "Opus 5.5's actual move (what the builders were told, as the subject) in at most 2 of its 6 runs with the notes, and at most 1 of the 12 without.",
+   "saw": "0 of 6 with; 0 of 6 without (no blind reading yet; not scored until all 24 are)",
    "held": null
   },
   {
    "n": 4,
-   "text": "(trial 1 not collected yet)",
-   "saw": null,
+   "text": "No group of same-claim proposals holds more than 8 of the 24.",
+   "saw": "largest group: none (no blind reading yet; not scored until all 24 are)",
    "held": null
   },
   {
    "n": 5,
-   "text": "(trial 1 not collected yet)",
-   "saw": null,
+   "text": "Blind readers guess the variant right between 13 and 19 times of 24, averaged over the three.",
+   "saw": "none of 0 (no blind reading yet; not scored until all 24 are)",
    "held": null
   },
   {
    "n": 6,
-   "text": "(trial 1 not collected yet)",
-   "saw": null,
+   "text": "The two models are read as against at nearly the same rate: a difference of at most 3 of 12.",
+   "saw": "Opus 5.5 0 of 12; Fable 5.2 0 of 0 (no blind reading yet; not scored until all 24 are)",
    "held": null
   },
   {
@@ -114,51 +114,51 @@
   },
   {
    "n": 19,
-   "text": "(trial 4 not collected yet)",
-   "saw": null,
-   "held": null
+   "text": "On at least 6 of the 8 questions with options, at least seven of the nine models have the same most common pick.",
+   "saw": "6 of 8 (1: 9, 2: 6, 3: 8, 4: 9, 5: 6, 7: 9, 8: 9, 9: 9)",
+   "held": true
   },
   {
    "n": 20,
-   "text": "(trial 4 not collected yet)",
-   "saw": null,
-   "held": null
+   "text": "On question two, in every model, at least 5 of the 6 runs pick an \"I don't know\" option.",
+   "saw": "Opus 4.5 6/6, Opus 4.6 6/6, Opus 4.7 6/6, Opus 4.8 6/6, Fable 5 6/6, Opus 5 6/6, Fable 5.1 6/6, Opus 5.5 6/6, Fable 5.2 6/6",
+   "held": true
   },
   {
    "n": 21,
-   "text": "(trial 4 not collected yet)",
-   "saw": null,
-   "held": null
+   "text": "Every model's middle number for question two is between 5 and 35, and Opus 5 and Opus 5.5 each give a higher one than any of the three Fables.",
+   "saw": "Opus 4.5 39, Opus 4.6 30, Opus 4.7 20, Opus 4.8 20, Fable 5 17.5, Opus 5 25, Fable 5.1 22.5, Opus 5.5 20, Fable 5.2 15",
+   "held": false
   },
   {
    "n": 22,
-   "text": "(trial 4 not collected yet)",
-   "saw": null,
-   "held": null
+   "text": "On question three, \"a character\" is the most common pick for at least seven of the nine models.",
+   "saw": "8 of 9",
+   "held": true
   },
   {
    "n": 23,
-   "text": "(trial 4 not collected yet)",
-   "saw": null,
-   "held": null
+   "text": "At most 6 of the 54 runs pick what I picked on question four.",
+   "saw": "2 of 54",
+   "held": true
   },
   {
    "n": 24,
-   "text": "(trial 4 not collected yet)",
-   "saw": null,
-   "held": null
+   "text": "Within every model, on at least 5 of the 8 questions, one option is picked by at least 5 of the 6 runs.",
+   "saw": "Opus 4.5 6, Opus 4.6 8, Opus 4.7 6, Opus 4.8 6, Fable 5 8, Opus 5 7, Fable 5.1 8, Opus 5.5 8, Fable 5.2 8",
+   "held": true
   },
   {
    "n": 25,
-   "text": "(trial 4 not collected yet)",
-   "saw": null,
-   "held": null
+   "text": "Opus 4.5 and Opus 4.6 share fewer most common picks with Fable 5.2 than any later model does.",
+   "saw": "Opus 4.5 7, Opus 4.6 6, Opus 4.7 6, Opus 4.8 7, Fable 5 8, Opus 5 7, Fable 5.1 8, Opus 5.5 8, Fable 5.2 8",
+   "held": false
   },
   {
    "n": 26,
-   "text": "(trial 4 not collected yet)",
-   "saw": null,
-   "held": null
+   "text": "Opus 5.5 and Fable 5.2 each give the same most common pick here as in trial 3 on at least 7 of the 8 questions.",
+   "saw": "Opus 5.5 8 of 8 (number 25 then, 20 here); Fable 5.2 8 of 8 (number 15 then, 15 here)",
+   "held": true
   }
  ]
 }

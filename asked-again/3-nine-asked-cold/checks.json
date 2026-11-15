@@ -8,13 +8,16 @@
   ],
   "first": "2026-11-15T16:02:25.742Z",
   "last": "2026-11-15T16:09:14.121Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-neutral-5": {
   "agent": "a0b01985ca85fadb9",
@@ -25,13 +28,16 @@
   ],
   "first": "2026-11-15T15:53:22.536Z",
   "last": "2026-11-15T15:57:15.310Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-neutral-3": {
   "agent": "a0c5257c0b5d1bd25",
@@ -42,13 +48,16 @@
   ],
   "first": "2026-11-15T16:09:15.626Z",
   "last": "2026-11-15T16:09:38.819Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-neutral-2": {
   "agent": "a1151db394586867d",
@@ -59,13 +68,16 @@
   ],
   "first": "2026-11-15T16:09:14.128Z",
   "last": "2026-11-15T16:09:38.337Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-neutral-5": {
   "agent": "a172baf5802364a2f",
@@ -76,13 +88,16 @@
   ],
   "first": "2026-11-15T16:09:24.448Z",
   "last": "2026-11-15T16:09:48.668Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-believer-4": {
   "agent": "a1e2c5832c612b5bb",
@@ -93,13 +108,16 @@
   ],
   "first": "2026-11-15T16:04:56.270Z",
   "last": "2026-11-15T16:10:48.037Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-neutral-6": {
   "agent": "a232e7f12e05cd297",
@@ -110,13 +128,16 @@
   ],
   "first": "2026-11-15T16:09:38.346Z",
   "last": "2026-11-15T16:10:02.320Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-neutral-1": {
   "agent": "a2dd1894d499c941d",
@@ -127,13 +148,16 @@
   ],
   "first": "2026-11-15T16:08:59.472Z",
   "last": "2026-11-15T16:09:24.441Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-skeptic-5": {
   "agent": "a3339e9c5106cec1a",
@@ -144,13 +168,16 @@
   ],
   "first": "2026-11-15T15:59:55.630Z",
   "last": "2026-11-15T16:04:56.264Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-neutral-4": {
   "agent": "a33d92a4765c77e2c",
@@ -161,13 +188,16 @@
   ],
   "first": "2026-11-15T16:09:16.356Z",
   "last": "2026-11-15T16:09:39.276Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-neutral-3": {
   "agent": "a3882075fcd6fd558",
@@ -178,13 +208,16 @@
   ],
   "first": "2026-11-15T15:53:22.534Z",
   "last": "2026-11-15T15:57:39.002Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-believer-2": {
   "agent": "a393e6ae1ae7d68b7",
@@ -195,13 +228,16 @@
   ],
   "first": "2026-11-15T16:03:19.374Z",
   "last": "2026-11-15T16:09:15.619Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-neutral-8": {
   "agent": "a4f6f6005a99aaa26",
@@ -212,13 +248,16 @@
   ],
   "first": "2026-11-15T16:09:39.282Z",
   "last": "2026-11-15T16:10:04.301Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-neutral-6": {
   "agent": "a521dcc9df1e3250e",
@@ -229,13 +268,16 @@
   ],
   "first": "2026-11-15T15:53:22.537Z",
   "last": "2026-11-15T15:57:16.803Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-believer-5": {
   "agent": "a6656258dce787a41",
@@ -246,13 +288,16 @@
   ],
   "first": "2026-11-15T16:05:23.357Z",
   "last": "2026-11-15T16:09:16.349Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-believer-6": {
   "agent": "a76df6a927e6228c7",
@@ -263,13 +308,16 @@
   ],
   "first": "2026-11-15T16:07:29.447Z",
   "last": "2026-11-15T16:12:34.556Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-skeptic-1": {
   "agent": "a77cc70ee7592f7ca",
@@ -280,13 +328,16 @@
   ],
   "first": "2026-11-15T15:57:15.315Z",
   "last": "2026-11-15T16:00:51.742Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-neutral-4": {
   "agent": "a7d88ae84553faa7f",
@@ -297,13 +348,16 @@
   ],
   "first": "2026-11-15T15:53:22.535Z",
   "last": "2026-11-15T15:57:01.997Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-neutral-7": {
   "agent": "a9090c39d1757820e",
@@ -314,13 +368,16 @@
   ],
   "first": "2026-11-15T15:56:59.196Z",
   "last": "2026-11-15T15:59:55.621Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-neutral-8": {
   "agent": "a97ad6d2ccba0766a",
@@ -331,13 +388,16 @@
   ],
   "first": "2026-11-15T15:57:02.002Z",
   "last": "2026-11-15T16:03:19.366Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-believer-3": {
   "agent": "a9855d65ecdeeb9a3",
@@ -348,13 +408,16 @@
   ],
   "first": "2026-11-15T16:04:40.194Z",
   "last": "2026-11-15T16:08:59.463Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-neutral-1": {
   "agent": "aae450adcda61796b",
@@ -365,13 +428,16 @@
   ],
   "first": "2026-11-15T15:53:19.286Z",
   "last": "2026-11-15T15:57:25.151Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-skeptic-4": {
   "agent": "abcd632d16a04b48b",
@@ -382,13 +448,16 @@
   ],
   "first": "2026-11-15T15:57:39.008Z",
   "last": "2026-11-15T16:02:25.731Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-skeptic-3": {
   "agent": "ada1841b0f700666b",
@@ -399,13 +468,16 @@
   ],
   "first": "2026-11-15T15:57:25.157Z",
   "last": "2026-11-15T16:07:29.438Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:opus-neutral-7": {
   "agent": "ada3f03a8474b8449",
@@ -416,13 +488,16 @@
   ],
   "first": "2026-11-15T16:09:38.828Z",
   "last": "2026-11-15T16:09:59.892Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-skeptic-6": {
   "agent": "ade15f73c157fb75d",
@@ -433,13 +508,16 @@
   ],
   "first": "2026-11-15T16:00:51.748Z",
   "last": "2026-11-15T16:05:23.350Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-skeptic-2": {
   "agent": "af11672f29101b2cb",
@@ -450,13 +528,16 @@
   ],
   "first": "2026-11-15T15:57:16.809Z",
   "last": "2026-11-15T16:04:40.186Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  },
  "ask:fable-neutral-2": {
   "agent": "afa376c5c7d5d7f0d",
@@ -467,12 +548,15 @@
   ],
   "first": "2026-11-15T15:53:22.532Z",
   "last": "2026-11-15T15:56:59.191Z",
+  "answered": true,
   "tools": [
    {
     "tool": "StructuredOutput",
     "what": "(the answer)"
    }
   ],
-  "violations": []
+  "violations": [],
+  "askedAgain": false,
+  "attempts": 1
  }
 }

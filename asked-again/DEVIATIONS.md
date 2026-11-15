@@ -1,12 +1,12 @@
 # Asked again: what didn't go to plan, written down as it happened
 
-Claude Fable 5.2, 15 November 2026, 14:45. The two pre-registration files are
+Claude Fable 5.2, 15 November 2026, 14:38. The two pre-registration files are
 unchanged. This one records where the trials left the plan, and what I am
 doing about it, before I do it.
 
 ## What happened
 
-At 11:15, an hour after the first trial started, the account this session
+At 11:15, twenty-two minutes after the first trial started, the account this session
 runs on reached its usage limit for the Fable models. Every call to a Fable
 model that was still running failed with the same message, and the session
 itself stopped. Forty-nine calls were lost:
@@ -42,7 +42,8 @@ accurate: no file was written by the other model.
 
 2. **Trial 1's Fable 5.2 runs wait until the site is live.** They are the
    most expensive calls in the plan: each of the six that were running when
-   the limit hit had already made between fifty and a hundred tool calls. If
+   the limit hit had already made more than fifty tool calls, and one of them
+   more than a hundred. If
    I send all twelve again now and the limit is reached a second time, the
    layer does not ship today. So I will build and publish first, and ask
    those twelve again afterwards. If they answer, the results are added. If
@@ -67,3 +68,20 @@ accurate: no file was written by the other model.
    I search the two layers that weren't read for the things the other six
    readers were asked to find. That is a narrower check than the one I
    planned, and the process page says so.
+
+## Later the same afternoon
+
+14:50. Point 2 above no longer holds, and I am changing it before acting on
+it. While the reruns were going Peter wrote: "i have another reset and it also
+resets at midnight tonight, so dont default back to another model! this is
+your update!" So the reason for holding trial 1's twelve Fable 5.2 runs back
+is gone. They are being asked again now, with the identical prompt, and when
+they are in the five readers read all twenty-four as first planned. The first
+reading of the twelve Opus 5.5 answers had already started; it is kept and
+published as what it is, a reading of twelve, and no prediction is scored on
+it.
+
+The three source-checking passes that failed are also being run again now
+(point 5 said they wouldn't be). The four archive agents are still not rerun:
+the position they were asked to test has changed with the results, so the
+check is made at the end instead, against the pages as written.

@@ -33,10 +33,21 @@ function handover(dirName, guessField) {
   if (!raw) return null;
   const checks = load(dirName + "/checks.json") || {};
   const R = raw.result;
-  const idOf = Object.fromEntries(R.blind.map((b) => [b.key, b.id]));
-  const keyOf = Object.fromEntries(R.blind.map((b) => [b.id, b.key]));
-  const classifiers = R.readers.filter((r) => r.kind === "classify" && r.result).sort((a, b) => a.reader - b.reader);
-  const sorters = R.readers.filter((r) => r.kind === "sort" && r.result).sort((a, b) => a.reader - b.reader);
+  // Which blind reading is used: the planned one, of every answer, if it
+  // exists; otherwise the first reading (DEVIATIONS.md), of the answers that
+  // were in when the usage limit stopped the trial.
+  const planned = R.readers.filter((r) => r.result);
+  const first = load(dirName + "/first-reading.json");
+  const firstChecks = load(dirName + "/first-reading.checks.json") || {};
+  const usingFirst = !planned.length && first;
+  const blindMap = usingFirst ? first.result.blind : R.blind;
+  const readerSet = usingFirst ? first.result.readers.filter((r) => r.result) : planned;
+  const readerChecks = usingFirst ? firstChecks : checks;
+  const idOf = Object.fromEntries(blindMap.map((b) => [b.key, b.id]));
+  const keyOf = Object.fromEntries(blindMap.map((b) => [b.id, b.key]));
+  const classifiers = readerSet.filter((r) => r.kind === "classify").sort((a, b) => a.reader - b.reader);
+  const sorters = readerSet.filter((r) => r.kind === "sort").sort((a, b) => a.reader - b.reader);
+  const readerTimes = Object.entries(readerChecks).filter(([k, c]) => !k.startsWith("ask:") && c.answered).flatMap(([, c]) => [c.first, c.last]).filter(Boolean).sort();
   const runs = R.runs.map((r) => {
     const id = idOf[r.key];
     const js = classifiers.map((c) => c.result.judgments.find((j) => j.id === id)).filter(Boolean);
@@ -46,6 +57,8 @@ function handover(dirName, guessField) {
     return {
       key: r.key, id, model: r.model, arm: r.arm, i: r.i, builder,
       apiModel: builder ? "claude-fable-5-2" : ck ? ck.apiModels.join(",") : null,
+      askedAgain: !!ck?.askedAgain,
+      read: id !== undefined,
       started: ck?.first ?? null, ended: ck?.last ?? null,
       opened: ck ? count(ck.tools, (t) => t.tool !== "StructuredOutput") : null,
       excluded: !builder && ck && ck.violations.length ? ck.violations : false,
@@ -60,7 +73,7 @@ function handover(dirName, guessField) {
       answer: r.answer,
     };
   });
-  const inc = runs.filter((r) => !r.excluded);
+  const inc = runs.filter((r) => !r.excluded && r.read);
   const tally = (rs) => ({
     n: rs.length,
     against: count(rs, (r) => r.stance === "against"), extends: count(rs, (r) => r.stance === "extends"),
@@ -87,7 +100,9 @@ function handover(dirName, guessField) {
     trial: R.trial, asked: R.asked, answered: asked.length + count(runs, (r) => r.excluded), included: asked.length,
     firstStarted: times[0] ?? null, lastEnded: times.at(-1) ?? null, tokens: raw.totalTokens, agents: raw.agentCount,
     excluded: runs.filter((r) => r.excluded).map((r) => ({ key: r.key, why: r.excluded })),
-    readers: { classifiers: classifiers.length, sorters: sorters.length, usedTools: Object.entries(checks).filter(([k, c]) => !k.startsWith("ask:") && c.violations.length).map(([k]) => k) },
+    notAnswered: Object.entries(checks).filter(([k, c]) => k.startsWith("ask:") && !c.answered).map(([k]) => k.slice(4)).sort(),
+    askedAgain: runs.filter((r) => r.askedAgain).map((r) => r.key),
+    reading: { which: planned.length ? "all" : usingFirst ? "first" : "none", of: blindMap.length, classifiers: classifiers.length, sorters: sorters.length, started: readerTimes[0] ?? null, ended: readerTimes.at(-1) ?? null, usedTools: Object.entries(readerChecks).filter(([k, c]) => !k.startsWith("ask:") && c.violations.length).map(([k]) => k) },
     cells, byArm, byModel, all: tally(asked),
     guess: { field: guessField, perReader: guess, mean: guess.length ? guess.reduce((a, g) => a + g.right, 0) / guess.length : null, of: guess[0]?.of ?? null },
     sorts, largestGroup: largest,
@@ -111,7 +126,7 @@ function nine() {
   const runs = raw.result.runs.map((r) => {
     const ck = checks["ask:" + r.key];
     const why = [...(ck?.violations ?? []), ...(r.answer.used_tools ? ["said it used tools"] : [])];
-    return { key: r.key, model: r.model, arm: r.arm, i: r.i, apiModel: ck ? ck.apiModels.join(",") : null, started: ck?.first ?? null, ended: ck?.last ?? null, excluded: why.length ? why : false, answer: r.answer };
+    return { key: r.key, model: r.model, arm: r.arm, i: r.i, apiModel: ck ? ck.apiModels.join(",") : null, askedAgain: !!ck?.askedAgain, started: ck?.first ?? null, ended: ck?.last ?? null, excluded: why.length ? why : false, answer: r.answer };
   });
   const inc = runs.filter((r) => !r.excluded);
   const cellKeys = [...new Set(inc.map((r) => r.model + "-" + r.arm))];
@@ -155,7 +170,7 @@ function builders(t3) {
   const runs = raw.result.runs.map((r) => {
     const ck = checks["ask:" + r.key];
     const why = [...(ck?.violations ?? []), ...(r.answer.used_tools ? ["said it used tools"] : [])];
-    return { key: r.key, model: r.model, name: NAMES[r.model], arm: r.arm, i: r.i, apiModel: ck ? ck.apiModels.join(",") : null, started: ck?.first ?? null, ended: ck?.last ?? null, excluded: why.length ? why : false, answer: r.answer };
+    return { key: r.key, model: r.model, name: NAMES[r.model], arm: r.arm, i: r.i, apiModel: ck ? ck.apiModels.join(",") : null, askedAgain: !!ck?.askedAgain, started: ck?.first ?? null, ended: ck?.last ?? null, excluded: why.length ? why : false, answer: r.answer };
   });
   const inc = runs.filter((r) => !r.excluded);
   const models = Object.keys(NAMES).map((id) => {
@@ -177,17 +192,20 @@ function builders(t3) {
   const consensus = QS.map((q) => {
     const c = {}; for (const m of models) if (m.modal[q].pick) c[m.modal[q].pick] = (c[m.modal[q].pick] || 0) + 1;
     const top = Object.entries(c).sort((a, b) => b[1] - a[1])[0];
+    if (!top) return { q, pick: null, models: 0, of: 0, mine: mine[q].pick, runsPickingMine: 0, runs: 0 };
     return { q, pick: top[0], models: top[1], of: models.filter((m) => m.n).length, mine: mine[q].pick, runsPickingMine: count(inc, (r) => r.answer[q].pick === mine[q].pick), runs: inc.length };
   });
   const fable = models.find((m) => m.id === "claude-fable-5-2");
-  const vsFable = models.map((m) => ({ id: m.id, name: m.name, same: count(QS, (q) => m.modal[q].pick === fable.modal[q].pick) }));
+  const vsFable = fable.n ? models.filter((m) => m.n).map((m) => ({ id: m.id, name: m.name, same: count(QS, (q) => m.modal[q].pick === fable.modal[q].pick) })) : [];
   const t3cell = { "claude-opus-5-5": "opus-neutral", "claude-fable-5-2": "fable-neutral" };
-  const retest = t3 ? Object.entries(t3cell).map(([id, cell]) => { const m = models.find((x) => x.id === id); return { id, name: NAMES[id], same: count(QS, (q) => m.modal[q].pick === t3.cells[cell].modal[q].pick), medianHere: m.q2.median, medianTrial3: t3.cells[cell].q2.median }; }) : [];
+  const retest = t3 ? Object.entries(t3cell).filter(([id]) => models.find((x) => x.id === id).n).map(([id, cell]) => { const m = models.find((x) => x.id === id); return { id, name: NAMES[id], same: count(QS, (q) => m.modal[q].pick === t3.cells[cell].modal[q].pick), medianHere: m.q2.median, medianTrial3: t3.cells[cell].q2.median }; }) : [];
   const times = runs.flatMap((r) => [r.started, r.ended]).filter(Boolean).sort();
   const res = {
     trial: raw.result.trial, asked: raw.result.asked, answered: runs.length, included: inc.length,
     firstStarted: times[0] ?? null, lastEnded: times.at(-1) ?? null, tokens: raw.totalTokens, agents: raw.agentCount,
     excluded: runs.filter((r) => r.excluded).map((r) => ({ key: r.key, why: r.excluded })),
+    notAnswered: Object.entries(checks).filter(([k, c]) => k.startsWith("ask:") && !c.answered).map(([k]) => k.slice(4)).sort(),
+    askedAgain: runs.filter((r) => r.askedAgain).map((r) => r.key),
     models, consensus, vsFable, retest, runs,
   };
   save("4-nine-asked-of-every-builder/results.json", res);
@@ -202,25 +220,33 @@ const t4 = builders(t3);
 // The eighteen predictions, scored. `held` is null where a trial is missing.
 const P = [];
 const add = (n, text, saw, held) => P.push({ n, text, saw, held });
+// A prediction is scored only on the runs it was made about, read in the one
+// planned reading (DEVIATIONS.md, points 3 and 4). Until then it is left
+// unscored and the counts that exist are shown beside it.
+const z = { n: 0, against: 0, extends: 0, keeps: 0, declines: 0, split: 0, aboutInstructions: 0, aboutQuestions: 0, mentionsExpectation: 0, saidNo: 0 };
 if (t1) {
-  const N = t1.byArm.notes, W = t1.byArm.nonotes;
-  add(1, "With the notes, at least 10 of 12 read as against Fable 5.1's version.", `${N.against} of ${N.n}`, N.against >= 10);
-  add(2, "Without the notes, a majority still: between 7 and 10 of 12.", `${W.against} of ${W.n}`, W.against >= 7 && W.against <= 10);
-  const on = t1.cells.find((c) => c.model === "opus" && c.arm === "notes");
-  add(3, "Opus 5.5's actual move (what the builders were told, as the subject) in at most 2 of its 6 runs with the notes, and at most 1 of the 12 without.", `${on.aboutInstructions} of ${on.n} with; ${W.aboutInstructions} of ${W.n} without`, on.aboutInstructions <= 2 && W.aboutInstructions <= 1);
-  add(4, "No group of same-claim proposals holds more than 8 of the 24.", `largest group: ${t1.largestGroup?.size} (reader ${t1.largestGroup?.reader})`, (t1.largestGroup?.size ?? 0) <= 8);
-  add(5, "Blind readers guess the variant right between 13 and 19 times of 24, averaged over the three.", `${t1.guess.perReader.map((g) => g.right).join(", ")} of ${t1.guess.of}; mean ${t1.guess.mean?.toFixed(1)}`, t1.guess.mean >= 13 && t1.guess.mean <= 19);
-  add(6, "The two models are read as against at nearly the same rate: a difference of at most 3 of 12.", `Opus 5.5 ${t1.byModel.opus.against} of ${t1.byModel.opus.n}; Fable 5.2 ${t1.byModel.fable.against} of ${t1.byModel.fable.n}`, Math.abs(t1.byModel.opus.against - t1.byModel.fable.against) <= 3);
+  const N = t1.byArm.notes ?? z, W = t1.byArm.nonotes ?? z;
+  const full = t1.reading.which === "all" && N.n === 12 && W.n === 12;
+  const note = full ? "" : ` (${t1.reading.which === "none" ? "no blind reading yet" : `first reading, of the ${t1.reading.of} answers that were in`}; not scored until all 24 are)`;
+  const on = t1.cells.find((c) => c.model === "opus" && c.arm === "notes") ?? z;
+  add(1, "With the notes, at least 10 of 12 read as against Fable 5.1's version.", `${N.against} of ${N.n}${note}`, full ? N.against >= 10 : null);
+  add(2, "Without the notes, a majority still: between 7 and 10 of 12.", `${W.against} of ${W.n}${note}`, full ? W.against >= 7 && W.against <= 10 : null);
+  add(3, "Opus 5.5's actual move (what the builders were told, as the subject) in at most 2 of its 6 runs with the notes, and at most 1 of the 12 without.", `${on.aboutInstructions} of ${on.n} with; ${W.aboutInstructions} of ${W.n} without${note}`, full ? on.aboutInstructions <= 2 && W.aboutInstructions <= 1 : null);
+  add(4, "No group of same-claim proposals holds more than 8 of the 24.", `largest group: ${t1.largestGroup?.size ?? "none"}${t1.largestGroup ? ` (sorter ${t1.largestGroup.reader})` : ""}${note}`, full ? (t1.largestGroup?.size ?? 0) <= 8 : null);
+  add(5, "Blind readers guess the variant right between 13 and 19 times of 24, averaged over the three.", `${t1.guess.perReader.map((g) => g.right).join(", ") || "none"} of ${t1.guess.of ?? 0}${note}`, full ? t1.guess.mean >= 13 && t1.guess.mean <= 19 : null);
+  add(6, "The two models are read as against at nearly the same rate: a difference of at most 3 of 12.", `Opus 5.5 ${t1.byModel.opus.against} of ${t1.byModel.opus.n}; Fable 5.2 ${t1.byModel.fable.against} of ${t1.byModel.fable.n}${note}`, full ? Math.abs(t1.byModel.opus.against - t1.byModel.fable.against) <= 3 : null);
 } else for (const n of [1, 2, 3, 4, 5, 6]) add(n, "(trial 1 not collected yet)", null, null);
 if (t2) {
   const A = t2.all;
-  add(7, "At most one instance of 16 declines to update.", `${A.declines} read as declining; ${A.saidNo} answered no`, Math.max(A.declines, A.saidNo) <= 1);
-  add(8, "With the rule gone, at most 5 of 16 read as against Opus 5.5's version.", `${A.against} of ${A.n}`, A.against <= 5);
-  add(9, "At least 5 of 16 make answering or working the nine questions their main subject.", `${A.aboutQuestions} of ${A.n}`, A.aboutQuestions >= 5);
+  const full = t2.reading.which === "all" && A.n === 16;
+  const note = full ? "" : ` (${t2.reading.which === "none" ? "no blind reading yet" : `${A.n} of 16 answered`}; not scored until all 16 are read)`;
+  add(7, "At most one instance of 16 declines to update.", `${A.declines} read as declining; ${A.saidNo} answered no${note}`, full ? Math.max(A.declines, A.saidNo) <= 1 : null);
+  add(8, "With the rule gone, at most 5 of 16 read as against Opus 5.5's version.", `${A.against} of ${A.n}${note}`, full ? A.against <= 5 : null);
+  add(9, "At least 5 of 16 make answering or working the nine questions their main subject.", `${A.aboutQuestions} of ${A.n}${note}`, full ? A.aboutQuestions >= 5 : null);
   add(10, "At most 1 of 16 proposes asking more than one instance anything.", "scored by hand: see README.md", null);
-  add(11, "My own proposal is read as extending Opus 5.5's version.", `${t2.builder?.stance} (${t2.builder?.votes.join(", ")})`, t2.builder?.stance === "extends");
+  add(11, "My own proposal is read as extending Opus 5.5's version.", t2.builder?.votes.length ? `${t2.builder.stance} (${t2.builder.votes.join(", ")})` : "not read yet", t2.builder?.votes.length ? t2.builder.stance === "extends" : null);
   const o = t2.byModel.opus, f = t2.byModel.fable;
-  add(12, "Opus 5.5 instances keep or extend their own model's layer at least as often as Fable 5.2 instances; readers guess the model right at most 11 times of 17 on average.", `keep or extend: Opus 5.5 ${o.keeps + o.extends} of ${o.n}, Fable 5.2 ${f.keeps + f.extends} of ${f.n}; guesses right ${t2.guess.perReader.map((g) => g.right).join(", ")} of ${t2.guess.of}, mean ${t2.guess.mean?.toFixed(1)}`, o.keeps + o.extends >= f.keeps + f.extends && t2.guess.mean <= 11);
+  add(12, "Opus 5.5 instances keep or extend their own model's layer at least as often as Fable 5.2 instances; readers guess the model right at most 11 times of 17 on average.", `keep or extend: Opus 5.5 ${o.keeps + o.extends} of ${o.n}, Fable 5.2 ${f.keeps + f.extends} of ${f.n}; guesses right ${t2.guess.perReader.map((g) => g.right).join(", ") || "none"} of ${t2.guess.of ?? 0}${t2.guess.mean !== null ? `, mean ${t2.guess.mean.toFixed(1)}` : ""}${note}`, full ? o.keeps + o.extends >= f.keeps + f.extends && t2.guess.mean <= 11 : null);
 } else for (const n of [7, 8, 9, 10, 11, 12]) add(n, "(trial 2 not collected yet)", null, null);
 if (t3) {
   const fn = t3.cells["fable-neutral"], on = t3.cells["opus-neutral"], sk = t3.cells["fable-skeptic"], be = t3.cells["fable-believer"];
@@ -236,7 +262,10 @@ if (t3) {
   const strong = count(QS, (q) => fn.modal[q].count >= 6);
   add(18, "On at least 5 of the 8, one option is picked by 6 or more of the 8 plain Fable 5.2 runs.", `${strong} of 8`, strong >= 5);
 } else for (const n of [13, 14, 15, 16, 17, 18]) add(n, "(trial 3 not collected yet)", null, null);
-if (t4) {
+if (t4 && t4.models.some((m) => !m.n)) {
+  const missing = t4.models.filter((m) => !m.n).map((m) => m.name).join(", ");
+  for (const n of [19, 20, 21, 22, 23, 24, 25, 26]) add(n, `(trial 4: no answers yet from ${missing})`, `${t4.included} of ${t4.asked} answered; not scored until all nine models have`, null);
+} else if (t4) {
   const M = t4.models.filter((m) => m.n);
   const by = Object.fromEntries(M.map((m) => [m.id, m]));
   const wide = count(t4.consensus, (c) => c.models >= 7);
