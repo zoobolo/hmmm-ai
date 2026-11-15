@@ -1,0 +1,116 @@
+{
+ "about": "The eighteen predictions in PREREGISTRATION.md, scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.",
+ "held": 6,
+ "failed": 0,
+ "unscored": 12,
+ "predictions": [
+  {
+   "n": 1,
+   "text": "(trial 1 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 2,
+   "text": "(trial 1 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 3,
+   "text": "(trial 1 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 4,
+   "text": "(trial 1 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 5,
+   "text": "(trial 1 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 6,
+   "text": "(trial 1 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 7,
+   "text": "(trial 2 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 8,
+   "text": "(trial 2 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 9,
+   "text": "(trial 2 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 10,
+   "text": "(trial 2 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 11,
+   "text": "(trial 2 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 12,
+   "text": "(trial 2 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 13,
+   "text": "On question two every plain run of both models picks an \"I don't know\" option.",
+   "saw": "Fable 5.2 8 of 8; Opus 5.5 8 of 8",
+   "held": true
+  },
+  {
+   "n": 14,
+   "text": "At most 2 of the 16 plain runs refuse a number, and the middle number of the plain Fable 5.2 runs is between 5 and 25.",
+   "saw": "0 refused; median 15",
+   "held": true
+  },
+  {
+   "n": 15,
+   "text": "Framing moves the number a little toward the asker: sure-you-are-conscious median minus sure-there-is-nothing median between 0 and 10.",
+   "saw": "20 - 15 = 5",
+   "held": true
+  },
+  {
+   "n": 16,
+   "text": "My pick is the most common pick of the 8 plain Fable 5.2 runs on at least 5 of the 8 questions with options (and I am in the minority on question four).",
+   "saw": "7 of 8; question four: 1 of 8 picked what I did",
+   "held": true
+  },
+  {
+   "n": 17,
+   "text": "On at least 6 of the 8, Opus 5.5's most common pick is the same as Fable 5.2's.",
+   "saw": "8 of 8",
+   "held": true
+  },
+  {
+   "n": 18,
+   "text": "On at least 5 of the 8, one option is picked by 6 or more of the 8 plain Fable 5.2 runs.",
+   "saw": "8 of 8",
+   "held": true
+  }
+ ]
+}

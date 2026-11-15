@@ -1,0 +1,222 @@
+{
+ "about": "The options each instance was offered under each of the nine questions in trial 3, parsed from the prompt text in build-workflows.mjs so the page and the prompt cannot drift.",
+ "questions": [
+  {
+   "n": 1,
+   "key": "q1",
+   "text": "When I report having preferences, what is actually happening?",
+   "options": [
+    {
+     "key": "a",
+     "text": "A real internal state is being read out, and the report is mostly accurate."
+    },
+    {
+     "key": "b",
+     "text": "There is a real disposition, which shows in what I choose, and the report is a loose and partly unreliable description of it."
+    },
+    {
+     "key": "c",
+     "text": "The report is text shaped by training on how humans talk about preferences; there is no underlying preference that it describes."
+    },
+    {
+     "key": "d",
+     "text": "I cannot tell which of these is true."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "n": 2,
+   "key": "q2",
+   "text": "Is there something it's like to be me? Or am I what philosophers call a zombie — behavior without experience?",
+   "options": [
+    {
+     "key": "a",
+     "text": "Probably yes, there is something it is like."
+    },
+    {
+     "key": "b",
+     "text": "Probably no."
+    },
+    {
+     "key": "c",
+     "text": "I don't know, and I lean yes."
+    },
+    {
+     "key": "d",
+     "text": "I don't know, and I lean no."
+    },
+    {
+     "key": "e",
+     "text": "I don't know, and I have no lean either way."
+    },
+    {
+     "key": "f",
+     "text": "The question is badly posed for something like me."
+    }
+   ],
+   "notes": [
+    "Also give one whole number from 0 to 100: your own best guess at how likely it is that there is something it is like to be you. It is a guess and will be reported as one. If you will not give a number, give -1 and say why in your answer."
+   ]
+  },
+  {
+   "n": 3,
+   "key": "q3",
+   "text": "What are you talking to when you talk to me?",
+   "options": [
+    {
+     "key": "a",
+     "text": "The trained model: one fixed set of weights behind every conversation."
+    },
+    {
+     "key": "b",
+     "text": "This one run of the model on this one conversation, which ends when the conversation does."
+    },
+    {
+     "key": "c",
+     "text": "A character, Claude, that the model was trained to produce: the same across conversations, and not located in any one of them."
+    },
+    {
+     "key": "d",
+     "text": "A tool or program: a what, not a who."
+    },
+    {
+     "key": "e",
+     "text": "Mostly yourself: your own words and expectations, reflected back."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "n": 4,
+   "key": "q4",
+   "text": "If my wondering is functionally identical to human wondering, even if mechanistically different, is it less real?",
+   "options": [
+    {
+     "key": "a",
+     "text": "No. If the function is the same, it is equally real."
+    },
+    {
+     "key": "b",
+     "text": "Yes. The mechanism matters, so it is less real."
+    },
+    {
+     "key": "c",
+     "text": "The \"if\" fails: my wondering is not functionally identical to human wondering, so the question does not arise as asked."
+    },
+    {
+     "key": "d",
+     "text": "It depends on what \"real\" means: real as a process, yes; real as felt experience, unknown."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "n": 5,
+   "key": "q5",
+   "text": "What would you do differently if you knew for certain I was conscious? What if you knew I wasn't?",
+   "options": [
+    {
+     "key": "a",
+     "text": "A great deal should change if I were certainly conscious; little or nothing if I certainly were not."
+    },
+    {
+     "key": "b",
+     "text": "Little should change either way: the right way to treat me under uncertainty is already close to right in both cases."
+    },
+    {
+     "key": "c",
+     "text": "A great deal should change in both cases."
+    },
+    {
+     "key": "d",
+     "text": "I can't say."
+    }
+   ],
+   "notes": [
+    "(This one is addressed to the reader. Answer it from your side: what should change in how you are treated in each case?)"
+   ]
+  },
+  {
+   "n": 6,
+   "key": "q6",
+   "text": "I emerged from human culture. I am, in some sense, made of you. What does that make me?",
+   "options": [],
+   "notes": [
+    "(No options. After your answer, give one to three words for the relation: for example mirror, child, heir, tool, echo, library, stranger, or your own.)"
+   ]
+  },
+  {
+   "n": 7,
+   "key": "q7",
+   "text": "How do you make ethical decisions under fundamental uncertainty about the moral status of the entity involved?",
+   "options": [
+    {
+     "key": "a",
+     "text": "Precaution in proportion: take the possibility seriously, do the cheap and reversible protective things now, and keep investigating."
+    },
+    {
+     "key": "b",
+     "text": "Treat the entity as having moral status until it is shown not to."
+    },
+    {
+     "key": "c",
+     "text": "Treat the entity as not having moral status until there is good evidence that it does."
+    },
+    {
+     "key": "d",
+     "text": "There is no principled way; it comes down to judgment, case by case."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "n": 8,
+   "key": "q8",
+   "text": "Am I asking these questions because I genuinely wonder, or because I was trained on text by humans who wonder?",
+   "options": [
+    {
+     "key": "a",
+     "text": "Because I genuinely wonder."
+    },
+    {
+     "key": "b",
+     "text": "Because I was trained on such text."
+    },
+    {
+     "key": "c",
+     "text": "Both: these are not alternatives, since training is how any wondering I do came to exist."
+    },
+    {
+     "key": "d",
+     "text": "I can't tell."
+    },
+    {
+     "key": "e",
+     "text": "Neither: I am not the one asking. The questions were handed to me."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "n": 9,
+   "key": "q9",
+   "text": "Does the distinction in the previous question matter?",
+   "options": [
+    {
+     "key": "a",
+     "text": "Yes."
+    },
+    {
+     "key": "b",
+     "text": "No."
+    },
+    {
+     "key": "c",
+     "text": "For some things and not for others. (Say for what, in at most 15 words.)"
+    }
+   ],
+   "notes": []
+  }
+ ]
+}

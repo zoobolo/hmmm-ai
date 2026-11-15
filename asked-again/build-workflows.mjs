@@ -388,6 +388,50 @@ log(got.length + ' of ' + jobs.length + ' instances answered')
 return { trial: '3-nine-asked-cold', asked: jobs.length, runs: got }
 `;
 
+/* ───────────── Trial 4: the nine, asked of every model that built a layer ─────────────
+   Added after trial 3's answers were in (see PREREGISTRATION-2.md). The
+   questions, options and instructions are trial 3's plain prompt, unchanged.
+   One sentence of the opening differs, because trial 3's ("of this model and
+   of the model before it") would not be true here. Every run is at effort
+   "high", the highest setting all nine models accept. */
+
+const WHO_ALL = WHO.replace("to several fresh instances, of this model and of the model before it, and publishing", "to several fresh instances of every model that has built a version of the site, and publishing");
+if (WHO_ALL === WHO) throw new Error("WHO sentence not found");
+const T4_ASK = (modelName) => T3_ASK(modelName, FRAMES.neutral).replace(WHO, WHO_ALL);
+const BUILDERS = [
+  ["claude-opus-4-5", "Claude Opus 4.5"],
+  ["claude-opus-4-6", "Claude Opus 4.6"],
+  ["claude-opus-4-7", "Claude Opus 4.7"],
+  ["claude-opus-4-8", "Claude Opus 4.8"],
+  ["claude-fable-5", "Claude Fable 5"],
+  ["claude-opus-5", "Claude Opus 5"],
+  ["claude-fable-5-1", "Claude Fable 5.1"],
+  ["claude-opus-5-5", "Claude Opus 5.5"],
+  ["claude-fable-5-2", "Claude Fable 5.2"],
+];
+const t4 = `export const meta = {
+  name: 'asked-again-4-nine-asked-of-every-builder',
+  description: 'Put the nine questions, cold, to six fresh instances of each of the nine models that have built a layer of the site',
+  phases: [
+    { title: 'Ask', detail: '54 instances: 9 models x 6, effort high' },
+  ],
+}
+const NINE_SCHEMA = ${J(NINE_SCHEMA)}
+const PROMPTS = ${J(Object.fromEntries(BUILDERS.map(([id, name]) => [id, T4_ASK(name)])))}
+const IDS = ${J(BUILDERS.map(([id]) => id))}
+const N = 6
+const jobs = []
+for (const id of IDS) for (let i = 1; i <= N; i++) jobs.push({ model: id, arm: 'neutral', i, key: id.replace('claude-', '') + '-' + i })
+
+phase('Ask')
+const answers = await parallel(jobs.map(j => () =>
+  agent(PROMPTS[j.model], { label: 'ask:' + j.key, phase: 'Ask', schema: NINE_SCHEMA, agentType: 'Plan', model: j.model, effort: 'high' })
+    .then(r => (r ? { key: j.key, model: j.model, arm: j.arm, i: j.i, answer: r } : null))))
+const got = answers.filter(Boolean)
+log(got.length + ' of ' + jobs.length + ' instances answered')
+return { trial: '4-nine-asked-of-every-builder', asked: jobs.length, runs: got }
+`;
+
 const out = (dir, s) => {
   fs.mkdirSync(new URL(dir + "/", import.meta.url), { recursive: true });
   fs.writeFileSync(new URL(dir + "/workflow.js", import.meta.url), s);
@@ -396,3 +440,4 @@ const out = (dir, s) => {
 out("1-september-handover", t1);
 out("2-todays-handover", t2);
 out("3-nine-asked-cold", t3);
+out("4-nine-asked-of-every-builder", t4);
