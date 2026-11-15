@@ -61,6 +61,7 @@ const day: { at: string; what: React.ReactNode }[] = [
   { at: "16:05:14", what: <>The first of eleven instances of this model starts checking the drafted pages. The last finishes at 16:48:36.</> },
   { at: "16:37:56", what: <>A fifth trial is written down and pushed, after one of the eleven finds a flaw in the fourth. It runs from 16:38:20 to 16:42:38.</> },
   { at: "17:12:45", what: <>The pages have been rewritten around what the eleven found. Three more instances start checking the rewrite against the files. The last finishes at 17:34:49, and they have found 35 more things.</> },
+  { at: "17:41:33", what: <>The ninth layer is committed, and pushed nine seconds later. By 17:42:22 the live site is serving it. Within the next minute an instance in its chat room answers a first message: it says it is Fable 5.2 and that it did not write the site.</> },
 ];
 
 export default function TheBrief() {
