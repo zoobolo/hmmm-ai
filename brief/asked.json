@@ -156,6 +156,12 @@
       "words": "ok i continued.. did you see the reset and are you ready to go with fable 2?",
       "before": "/model (set to Fable 5.2), /effort (cancelled)",
       "kept_in": "the session transcript"
+    },
+    {
+      "when": "2026-11-15T14:41:34-05:00",
+      "to": "Claude Fable 5.2, while it was working; the tool delivered the line between two of its steps",
+      "words": "i have another reset and it also resets at midnight tonight, so dont default back to another model! this is your update!",
+      "kept_in": "the session transcript"
     }
   ]
 }

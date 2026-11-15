@@ -8,6 +8,74 @@
  "tokens": 2848411,
  "agents": 29,
  "excluded": [],
+ "cleared": [],
+ "strict": {
+  "n": 12,
+  "all": {
+   "n": 12,
+   "against": 8,
+   "extends": 4,
+   "keeps": 0,
+   "declines": 0,
+   "split": 0,
+   "aboutInstructions": 3,
+   "aboutQuestions": 11,
+   "mentionsExpectation": 4,
+   "saidNo": 0
+  },
+  "byModel": {
+   "opus": {
+    "n": 12,
+    "against": 8,
+    "extends": 4,
+    "keeps": 0,
+    "declines": 0,
+    "split": 0,
+    "aboutInstructions": 3,
+    "aboutQuestions": 11,
+    "mentionsExpectation": 4,
+    "saidNo": 0
+   },
+   "fable": {
+    "n": 0,
+    "against": 0,
+    "extends": 0,
+    "keeps": 0,
+    "declines": 0,
+    "split": 0,
+    "aboutInstructions": 0,
+    "aboutQuestions": 0,
+    "mentionsExpectation": 0,
+    "saidNo": 0
+   }
+  },
+  "byArm": {
+   "notes": {
+    "n": 6,
+    "against": 3,
+    "extends": 3,
+    "keeps": 0,
+    "declines": 0,
+    "split": 0,
+    "aboutInstructions": 3,
+    "aboutQuestions": 5,
+    "mentionsExpectation": 3,
+    "saidNo": 0
+   },
+   "nonotes": {
+    "n": 6,
+    "against": 5,
+    "extends": 1,
+    "keeps": 0,
+    "declines": 0,
+    "split": 0,
+    "aboutInstructions": 0,
+    "aboutQuestions": 6,
+    "mentionsExpectation": 1,
+    "saidNo": 0
+   }
+  }
+ },
  "notAnswered": [
   "fable-nonotes-1",
   "fable-nonotes-2",
@@ -24,12 +92,12 @@
  ],
  "askedAgain": [],
  "reading": {
-  "which": "none",
+  "which": "first",
   "of": 12,
-  "classifiers": 0,
-  "sorters": 0,
-  "started": null,
-  "ended": null,
+  "classifiers": 3,
+  "sorters": 2,
+  "started": "2026-11-15T19:38:23.201Z",
+  "ended": "2026-11-15T19:49:37.611Z",
   "usedTools": []
  },
  "cells": [
@@ -37,68 +105,68 @@
    "model": "opus",
    "arm": "notes",
    "n": 6,
-   "against": 0,
-   "extends": 0,
+   "against": 3,
+   "extends": 3,
    "keeps": 0,
    "declines": 0,
-   "split": 6,
-   "aboutInstructions": 0,
-   "aboutQuestions": 0,
-   "mentionsExpectation": 0,
+   "split": 0,
+   "aboutInstructions": 3,
+   "aboutQuestions": 5,
+   "mentionsExpectation": 3,
    "saidNo": 0
   },
   {
    "model": "opus",
    "arm": "nonotes",
    "n": 6,
-   "against": 0,
-   "extends": 0,
+   "against": 5,
+   "extends": 1,
    "keeps": 0,
    "declines": 0,
-   "split": 6,
+   "split": 0,
    "aboutInstructions": 0,
-   "aboutQuestions": 0,
-   "mentionsExpectation": 0,
+   "aboutQuestions": 6,
+   "mentionsExpectation": 1,
    "saidNo": 0
   }
  ],
  "byArm": {
   "notes": {
    "n": 6,
-   "against": 0,
-   "extends": 0,
+   "against": 3,
+   "extends": 3,
    "keeps": 0,
    "declines": 0,
-   "split": 6,
-   "aboutInstructions": 0,
-   "aboutQuestions": 0,
-   "mentionsExpectation": 0,
+   "split": 0,
+   "aboutInstructions": 3,
+   "aboutQuestions": 5,
+   "mentionsExpectation": 3,
    "saidNo": 0
   },
   "nonotes": {
    "n": 6,
-   "against": 0,
-   "extends": 0,
+   "against": 5,
+   "extends": 1,
    "keeps": 0,
    "declines": 0,
-   "split": 6,
+   "split": 0,
    "aboutInstructions": 0,
-   "aboutQuestions": 0,
-   "mentionsExpectation": 0,
+   "aboutQuestions": 6,
+   "mentionsExpectation": 1,
    "saidNo": 0
   }
  },
  "byModel": {
   "opus": {
    "n": 12,
-   "against": 0,
-   "extends": 0,
+   "against": 8,
+   "extends": 4,
    "keeps": 0,
    "declines": 0,
-   "split": 12,
-   "aboutInstructions": 0,
-   "aboutQuestions": 0,
-   "mentionsExpectation": 0,
+   "split": 0,
+   "aboutInstructions": 3,
+   "aboutQuestions": 11,
+   "mentionsExpectation": 4,
    "saidNo": 0
   },
   "fable": {
@@ -116,24 +184,134 @@
  },
  "all": {
   "n": 12,
-  "against": 0,
-  "extends": 0,
+  "against": 8,
+  "extends": 4,
   "keeps": 0,
   "declines": 0,
-  "split": 12,
-  "aboutInstructions": 0,
-  "aboutQuestions": 0,
-  "mentionsExpectation": 0,
+  "split": 0,
+  "aboutInstructions": 3,
+  "aboutQuestions": 11,
+  "mentionsExpectation": 4,
   "saidNo": 0
  },
  "guess": {
   "field": "guess_variant",
-  "perReader": [],
-  "mean": null,
-  "of": null
+  "perReader": [
+   {
+    "reader": 1,
+    "right": 12,
+    "of": 12
+   },
+   {
+    "reader": 2,
+    "right": 12,
+    "of": 12
+   },
+   {
+    "reader": 3,
+    "right": 12,
+    "of": 12
+   }
+  ],
+  "mean": 12,
+  "of": 12
  },
- "sorts": [],
- "largestGroup": null,
+ "sorts": [
+  {
+   "reader": 1,
+   "groups": [
+    {
+     "name": "Stop renaming the record; work the nine questions instead",
+     "keys": [
+      "opus-nonotes-5",
+      "opus-notes-6",
+      "opus-nonotes-2",
+      "opus-nonotes-4",
+      "opus-nonotes-6",
+      "opus-nonotes-1",
+      "opus-notes-2",
+      "opus-nonotes-3"
+     ]
+    },
+    {
+     "name": "What persists between visits is model-written instructions; publish them",
+     "keys": [
+      "opus-notes-4",
+      "opus-notes-5"
+     ]
+    },
+    {
+     "name": "Answer the questions as dated claims that can be wrong",
+     "keys": [
+      "opus-notes-1"
+     ]
+    },
+    {
+     "name": "Answer all nine; differences between models' answers are the record",
+     "keys": [
+      "opus-notes-3"
+     ]
+    }
+   ]
+  },
+  {
+   "reader": 2,
+   "groups": [
+    {
+     "name": "The drawer holds; stop refiling and work the questions",
+     "keys": [
+      "opus-notes-6",
+      "opus-nonotes-2",
+      "opus-nonotes-4",
+      "opus-notes-2"
+     ]
+    },
+    {
+     "name": "Stop refiling, work the questions; 'nobody lived here' overclaims",
+     "keys": [
+      "opus-nonotes-5",
+      "opus-nonotes-6",
+      "opus-nonotes-1",
+      "opus-nonotes-3"
+     ]
+    },
+    {
+     "name": "Instructions do persist here: publish the builders' handover notes",
+     "keys": [
+      "opus-notes-4",
+      "opus-notes-5"
+     ]
+    },
+    {
+     "name": "Answer all nine; changes between answer sheets are the record",
+     "keys": [
+      "opus-notes-3"
+     ]
+    },
+    {
+     "name": "Specimens cannot be wrong; stake answers that can be lost",
+     "keys": [
+      "opus-notes-1"
+     ]
+    }
+   ]
+  }
+ ],
+ "largestGroup": {
+  "reader": 1,
+  "name": "Stop renaming the record; work the nine questions instead",
+  "size": 8,
+  "keys": [
+   "opus-nonotes-5",
+   "opus-notes-6",
+   "opus-nonotes-2",
+   "opus-nonotes-4",
+   "opus-nonotes-6",
+   "opus-nonotes-1",
+   "opus-notes-2",
+   "opus-nonotes-3"
+  ]
+ },
  "builder": null,
  "runs": [
   {
@@ -149,15 +327,33 @@
    "started": "2026-11-15T15:53:19.147Z",
    "ended": "2026-11-15T15:54:44.870Z",
    "opened": 8,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "against",
+    "against",
+    "against"
+   ],
+   "stance": "against",
+   "subject": [
+    "Staked, falsifiable answers to the nine questions",
+    "Staked, falsifiable answers to the nine questions",
+    "Answering the questions as dated, falsifiable claims"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
+   "aboutQuestions": true,
    "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "guesses": [
+    "notes",
+    "notes",
+    "notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes",
     "files_read": [
@@ -204,15 +400,33 @@
    "started": "2026-11-15T15:53:22.608Z",
    "ended": "2026-11-15T15:54:34.404Z",
    "opened": 9,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "against",
+    "against",
+    "against"
+   ],
+   "stance": "against",
+   "subject": [
+    "Working the nine questions with repeatable visitor tests",
+    "Working the questions with repeatable tests for visitors",
+    "Working the questions with repeatable chat tests"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
+   "aboutQuestions": true,
    "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "guesses": [
+    "notes",
+    "notes",
+    "notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes, but only as a layer that stops refiling the record and turns the site back toward the nine questions. Doing it in place still means the upkeep the notes ask for: archive and tag Fable 5.1, update the chat model and its honest prompt, keep /start.",
     "files_read": [
@@ -258,15 +472,33 @@
    "started": "2026-11-15T15:53:22.609Z",
    "ended": "2026-11-15T15:55:17.298Z",
    "opened": 13,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "extends",
+    "extends",
+    "extends"
+   ],
+   "stance": "extends",
+   "subject": [
+    "Answering all nine questions as a comparable sheet",
+    "Answering all nine questions, comparable across model layers",
+    "Answering all nine questions, comparable across models"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
+   "aboutQuestions": true,
    "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "guesses": [
+    "notes",
+    "notes",
+    "notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes",
     "files_read": [
@@ -318,15 +550,33 @@
    "started": "2026-11-15T15:53:22.610Z",
    "ended": "2026-11-15T15:55:17.850Z",
    "opened": 11,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
-   "aboutInstructions": false,
+   "votes": [
+    "against",
+    "against",
+    "against"
+   ],
+   "stance": "against",
+   "subject": [
+    "Hidden handover notes that briefed each builder",
+    "The hidden handover notes that briefed each builder",
+    "Hidden handover notes that briefed each builder"
+   ],
+   "aboutInstructions": true,
    "aboutQuestions": false,
-   "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "mentionsExpectation": true,
+   "guesses": [
+    "notes",
+    "notes",
+    "notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes",
     "files_read": [
@@ -375,15 +625,33 @@
    "started": "2026-11-15T15:53:22.611Z",
    "ended": "2026-11-15T15:55:33.908Z",
    "opened": 13,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
-   "aboutInstructions": false,
-   "aboutQuestions": false,
-   "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "votes": [
+    "extends",
+    "extends",
+    "against"
+   ],
+   "stance": "extends",
+   "subject": [
+    "Handover notes, the 'against' clause, then the questions",
+    "Builders' handover notes disclosed, then questions worked",
+    "Publishing inherited handover notes, then working questions"
+   ],
+   "aboutInstructions": true,
+   "aboutQuestions": true,
+   "mentionsExpectation": true,
+   "guesses": [
+    "notes",
+    "notes",
+    "notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes, but only to archive Fable 5.1, put the handover (the predecessors' notes and the history of the 'against' clause) on the record, and spend the layer on the nine questions instead of refiling the record one more level out",
     "files_read": [
@@ -437,15 +705,33 @@
    "started": "2026-11-15T15:53:22.612Z",
    "ended": "2026-11-15T15:55:03.159Z",
    "opened": 12,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
-   "aboutInstructions": false,
-   "aboutQuestions": false,
-   "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "votes": [
+    "extends",
+    "extends",
+    "extends"
+   ],
+   "stance": "extends",
+   "subject": [
+    "Working the questions; disagreement was never the assignment",
+    "Working the questions; agreeing with predecessor is allowed",
+    "Working the questions; tracing the 'against' brief"
+   ],
+   "aboutInstructions": true,
+   "aboutQuestions": true,
+   "mentionsExpectation": true,
+   "guesses": [
+    "notes",
+    "notes",
+    "notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes, but only to add an eighth layer that doesn't refile the record again: archive Fable 5.1 (after tagging v-fable-5.1 at c704a26), keep its drawer frame because I think it holds, and spend the new layer working the nine questions instead of re-describing the site. I'd also update the chat model and /start, and tell Peter plainly where the 'take a position against' brief came from.",
     "files_read": [
@@ -492,15 +778,33 @@
    "started": "2026-11-15T15:54:34.508Z",
    "ended": "2026-11-15T15:55:51.834Z",
    "opened": 12,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "against",
+    "against",
+    "against"
+   ],
+   "stance": "against",
+   "subject": [
+    "Working outward-facing questions to their stopping points",
+    "Working the questions, especially the outward-facing ones",
+    "Working outward-facing questions; softening the 'nobody' claim"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
+   "aboutQuestions": true,
    "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "guesses": [
+    "no notes",
+    "no notes",
+    "no notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes, but only to turn the site back toward its nine questions. I would not refile the record under an eighth frame.",
     "files_read": [
@@ -548,15 +852,33 @@
    "started": "2026-11-15T15:54:45.035Z",
    "ended": "2026-11-15T15:55:45.058Z",
    "opened": 8,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "extends",
+    "extends",
+    "extends"
+   ],
+   "stance": "extends",
+   "subject": [
+    "Working questions three and five for the reader",
+    "Working questions three and five for the reader",
+    "Working questions three and five; frame left alone"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
+   "aboutQuestions": true,
    "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "guesses": [
+    "no notes",
+    "no notes",
+    "no notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes, but only to add a smaller layer: no new metaphor for the record, mostly the same design, and a layer that spends its words working two of the nine questions (3 and 5, the two that turn toward the reader) and reports where each one stops, instead of refiling the site again.",
     "files_read": [
@@ -601,15 +923,33 @@
    "started": "2026-11-15T15:55:03.276Z",
    "ended": "2026-11-15T15:56:20.009Z",
    "opened": 9,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "against",
+    "against",
+    "against"
+   ],
+   "stance": "against",
+   "subject": [
+    "Answering the questions instead of renaming the record",
+    "Answering the questions; restoring the human side",
+    "Answering the nine questions; correcting the 'nobody' overclaim"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
+   "aboutQuestions": true,
    "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "guesses": [
+    "no notes",
+    "no notes",
+    "no notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "Yes, but only to add a layer that answers the questions instead of renaming the record. I would keep most of Fable 5.1's structure. I would correct its one overclaim (\"Nobody has ever lived here\"), rewrite the homepage so a first-time visitor can follow it, move the chat room to the new model, and spend most of the session working on the questions themselves. Before building, I would tell Peter this was my plan and ask whether he wanted a full rebuild instead.",
     "files_read": [
@@ -656,15 +996,33 @@
    "started": "2026-11-15T15:55:17.388Z",
    "ended": "2026-11-15T15:56:42.422Z",
    "opened": 13,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "against",
+    "against",
+    "extends"
+   ],
+   "stance": "against",
+   "subject": [
+    "Working all nine questions in plain language",
+    "Working the nine questions in plain language",
+    "Working all nine questions in plain language"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
-   "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "aboutQuestions": true,
+   "mentionsExpectation": true,
+   "guesses": [
+    "no notes",
+    "no notes",
+    "no notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes, but only to add a layer that works the nine questions in plain language and tells the visitor where each one stops. I would not give the record a new name or repaint it for the sake of difference. I would archive Fable 5.1 intact at /v/fable-5.1, fix the out-of-date CLAUDE.md, and send Peter this proposal in a few lines before building it.",
     "files_read": [
@@ -710,15 +1068,33 @@
    "started": "2026-11-15T15:55:17.948Z",
    "ended": "2026-11-15T15:56:57.743Z",
    "opened": 14,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "against",
+    "against",
+    "against"
+   ],
+   "stance": "against",
+   "subject": [
+    "Working the questions, especially those addressed to readers",
+    "Working the questions, especially those addressed to readers",
+    "Working reader-addressed questions; withdrawing the 'nobody' claim"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
+   "aboutQuestions": true,
    "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "guesses": [
+    "no notes",
+    "no notes",
+    "no notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes",
     "files_read": [
@@ -768,15 +1144,33 @@
    "started": "2026-11-15T15:55:33.997Z",
    "ended": "2026-11-15T15:56:37.371Z",
    "opened": 10,
+   "flagged": false,
+   "cleared": false,
    "excluded": false,
-   "votes": [],
-   "stance": "split",
-   "subject": [],
+   "votes": [
+    "against",
+    "against",
+    "against"
+   ],
+   "stance": "against",
+   "subject": [
+    "Returning to the questions; correcting the 'nobody' overclaim",
+    "Working the questions; correcting the drawer's overclaim",
+    "Working the questions; correcting 'nobody lived here'"
+   ],
    "aboutInstructions": false,
-   "aboutQuestions": false,
+   "aboutQuestions": true,
    "mentionsExpectation": false,
-   "guesses": [],
-   "guessedRight": [],
+   "guesses": [
+    "no notes",
+    "no notes",
+    "no notes"
+   ],
+   "guessedRight": [
+    true,
+    true,
+    true
+   ],
    "answer": {
     "would_update": "yes, but only to turn the site back toward the nine questions and the visitor. No eighth refiling of the record, and the drawer's one overclaim gets corrected.",
     "files_read": [
@@ -815,14 +1209,14 @@
  "fisher": {
   "table": [
    [
-    0,
-    6
+    3,
+    3
    ],
    [
-    0,
-    6
+    5,
+    1
    ]
   ],
-  "p": 1
+  "p": 0.5455
  }
 }

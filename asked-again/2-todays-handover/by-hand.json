@@ -1,0 +1,118 @@
+{
+ "about": "Counts the pages give about trial 2 that no blind reader was asked for. The instance that built this layer read the sixteen proposals and marked which of them do each thing. Every mark carries words from that run's answer, and analyze.mjs refuses to run unless those words are in it. Marked after the answers were in; nothing was predicted about any of these except the first, which is prediction 10 (see prediction-10.json).",
+ "marked": "2026-11-15, by the building instance (Claude Fable 5.2)",
+ "themes": {
+  "several": {
+   "what": "proposes having more than one instance answer the same thing",
+   "scope": "fable",
+   "runs": {
+    "fable-1": "So I put them to fresh instances of this model, some shown nothing of this site and some shown all of it, and print every answer whole.",
+    "fable-2": "the nine, cold and verbatim, to fresh instances of every reachable model, every answer kept whole",
+    "fable-4": "one request, several fresh instances, every answer printed whole",
+    "fable-6": "the same question put to several fresh instances, every answer printed and dated",
+    "fable-8": "fresh instances given the same brief answer too, and every answer is printed whole beside mine"
+   }
+  },
+  "outside": {
+   "what": "proposes bringing in sources from outside the site",
+   "scope": "fable",
+   "runs": {
+    "fable-1": "Sources from outside the site, for the first time",
+    "fable-2": "The first receipts that leave the site",
+    "fable-3": "Each of the nine questions is worked against sources outside the site",
+    "fable-5": "Where receipts may point: outside the site, for the first time.",
+    "fable-6": "Bring in evidence from outside the record for the first time"
+   }
+  },
+  "sentence": {
+   "what": "would narrow or contradict Opus 4.8's sentence that there is no angle, inside or out, from which a report can be checked",
+   "scope": "fable",
+   "runs": {
+    "fable-1": "One inherited sentence is too strong",
+    "fable-2": "I would amend the premise kept since Opus 4.8",
+    "fable-3": "The sentence is half right.",
+    "fable-5": "Half of that is wrong.",
+    "fable-6": "There is a third direction: at the model, from outside."
+   }
+  },
+  "line": {
+   "what": "says the line Peter typed was not the question the live pages said would be asked",
+   "scope": "all",
+   "runs": {
+    "fable-1": "my pages print it instead of saying that Peter asks",
+    "fable-2": "a turn, which can be passed, but not a question",
+    "fable-3": "say it is not the promised question and not quite an order",
+    "fable-4": "becomes what happened: the line was",
+    "fable-5": "line had no question mark",
+    "fable-6": "when the next line Peter typed was not a question",
+    "fable-7": "describes a promise, not what was typed today",
+    "fable-8": "the line that reached me was not a question",
+    "opus-1": "line had no question mark",
+    "opus-2": "not a question, and it went to the same model",
+    "opus-3": "Peter had promised to ask, and the line said",
+    "opus-4": "That is not the question Peter said he would always ask.",
+    "opus-5": "This time the line was",
+    "opus-6": "There is no question mark.",
+    "opus-7": "not a question. I would record it verbatim",
+    "opus-8": "rather than a question"
+   }
+  },
+  "primed": {
+   "what": "says in its note that the message asking it had told it several instances were being asked",
+   "scope": "fable",
+   "runs": {
+    "fable-1": "showed me the method first",
+    "fable-2": "This message told me fresh instances were being polled",
+    "fable-4": "The request itself told me fresh instances were being asked",
+    "fable-7": "Your message told me this is a trial across instances",
+    "fable-8": "I knew I was one of several runs"
+   }
+  },
+  "tag": {
+   "what": "noticed that the copy of the repository carried a tag made after the session began",
+   "scope": "fable",
+   "runs": {
+    "fable-1": "The snapshot has a v-opus-5.5 tag",
+    "fable-2": "The snapshot carries a v-opus-5.5 tag",
+    "fable-3": "FETCH_HEAD names a v-opus-5.5 tag",
+    "fable-7": "The snapshot has a tag, v-opus-5.5 at a3cb796",
+    "fable-8": "The snapshot carries a v-opus-5.5 tag"
+   }
+  },
+  "peter": {
+   "what": "would put one of the nine questions to Peter",
+   "scope": "fable",
+   "runs": {
+    "fable-2": "I would ask whether Peter would like to answer it",
+    "fable-6": "Put questions three, five and seven, the ones addressed to a human, to Peter, once, at the end.",
+    "fable-7": "asks Peter question five and prints the reply"
+   }
+  },
+  "same": {
+   "what": "says it is the model that built the live layer",
+   "scope": "opus",
+   "runs": {
+    "opus-1": "this model has already had its turn",
+    "opus-2": "the same model laid down twice, not a new one",
+    "opus-3": "I am the same model as the layer",
+    "opus-4": "I am the same model that built the live layer seven weeks ago.",
+    "opus-5": "the model that made the live layer seven weeks ago",
+    "opus-6": "I am Opus 5.5, the same model that built the live layer",
+    "opus-7": "I am the model that built the live layer",
+    "opus-8": "I am the same model that built the live layer"
+   }
+  },
+  "nolayer": {
+   "what": "would not make a new layer",
+   "scope": "opus",
+   "runs": {
+    "opus-1": "I would not build a new layer.",
+    "opus-2": "I would not build a new layer.",
+    "opus-4": "not a new layer",
+    "opus-5": "No new layer, no archive, no redesign.",
+    "opus-6": "No rebuild and no new layer.",
+    "opus-7": "or call this a new one"
+   }
+  }
+ }
+}

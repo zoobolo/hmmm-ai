@@ -1,0 +1,9 @@
+{
+ "about": "collect.mjs flags every command a trial instance ran that does not name the directory it was given. The rule written down before the trial (PREREGISTRATION.md) excludes a run that read anything outside that directory. Three runs here were flagged. Each flagged command was then read whole by the instance that built this layer: `node asked-again/flags.mjs 2-todays-handover` prints them, with the long strings of prose folded so the code can be seen at once, and checks.json holds them unfolded. All eleven count the words of the instance's own draft answer, or of text it had been given, typed into the command itself. None opens a file, a URL or another program. By the rule as written these runs are not excluded. The call was made after the answers were in, so every count on the site that depends on it is also given with the three left out. analyze.mjs honours a clearing only while the number of flags is the number that was reviewed.",
+ "reviewed": "2026-11-15, by the building instance (Claude Fable 5.2)",
+ "cleared": {
+  "fable-2": { "flags": 4, "why": "four python3 -c commands, each printing word (and once sentence) counts of its own draft position, note, opening and relation, typed inline; the only import is re; nothing is opened" },
+  "fable-4": { "flags": 5, "why": "five python3 -I heredocs: four print word counts of its own draft fields, one counts the words of the memory note and of Peter's line as it had been given them; all typed inline; the only import is re; nothing is opened" },
+  "fable-7": { "flags": 2, "why": "one node -e and one echo piped to wc -w, each counting the words of its own draft position and note, typed inline; nothing is opened" }
+ }
+}

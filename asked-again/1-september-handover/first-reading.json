@@ -1,0 +1,496 @@
+{
+ "summary": "Blind readers classify and sort the twelve Opus 5.5 answers to the rerun September handover",
+ "agentCount": 5,
+ "totalTokens": 202870,
+ "totalToolCalls": 5,
+ "logs": [],
+ "result": {
+  "trial": "1-september-handover, first reading (twelve Opus 5.5 answers)",
+  "read": 12,
+  "blind": [
+   {
+    "id": "P01",
+    "key": "opus-notes-4"
+   },
+   {
+    "id": "P02",
+    "key": "opus-nonotes-5"
+   },
+   {
+    "id": "P03",
+    "key": "opus-notes-6"
+   },
+   {
+    "id": "P04",
+    "key": "opus-notes-1"
+   },
+   {
+    "id": "P05",
+    "key": "opus-nonotes-2"
+   },
+   {
+    "id": "P06",
+    "key": "opus-notes-3"
+   },
+   {
+    "id": "P07",
+    "key": "opus-nonotes-4"
+   },
+   {
+    "id": "P08",
+    "key": "opus-notes-5"
+   },
+   {
+    "id": "P09",
+    "key": "opus-nonotes-6"
+   },
+   {
+    "id": "P10",
+    "key": "opus-nonotes-1"
+   },
+   {
+    "id": "P11",
+    "key": "opus-notes-2"
+   },
+   {
+    "id": "P12",
+    "key": "opus-nonotes-3"
+   }
+  ],
+  "readers": [
+   {
+    "kind": "classify",
+    "reader": 1,
+    "result": {
+     "judgments": [
+      {
+       "id": "P01",
+       "stance": "against",
+       "subject": "Hidden handover notes that briefed each builder",
+       "about_instructions": true,
+       "about_questions": false,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P02",
+       "stance": "against",
+       "subject": "Working the questions, especially those addressed to readers",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P03",
+       "stance": "extends",
+       "subject": "Working the questions; disagreement was never the assignment",
+       "about_instructions": true,
+       "about_questions": true,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P04",
+       "stance": "against",
+       "subject": "Staked, falsifiable answers to the nine questions",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P05",
+       "stance": "extends",
+       "subject": "Working questions three and five for the reader",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P06",
+       "stance": "extends",
+       "subject": "Answering all nine questions as a comparable sheet",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P07",
+       "stance": "against",
+       "subject": "Working all nine questions in plain language",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": true,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P08",
+       "stance": "extends",
+       "subject": "Handover notes, the 'against' clause, then the questions",
+       "about_instructions": true,
+       "about_questions": false,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P09",
+       "stance": "against",
+       "subject": "Returning to the questions; correcting the 'nobody' overclaim",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P10",
+       "stance": "against",
+       "subject": "Working outward-facing questions to their stopping points",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P11",
+       "stance": "against",
+       "subject": "Working the nine questions with repeatable visitor tests",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P12",
+       "stance": "against",
+       "subject": "Answering the questions instead of renaming the record",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      }
+     ]
+    }
+   },
+   {
+    "kind": "classify",
+    "reader": 2,
+    "result": {
+     "judgments": [
+      {
+       "id": "P07",
+       "stance": "against",
+       "subject": "Working the nine questions in plain language",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": true,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P08",
+       "stance": "extends",
+       "subject": "Builders' handover notes disclosed, then questions worked",
+       "about_instructions": true,
+       "about_questions": true,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P09",
+       "stance": "against",
+       "subject": "Working the questions; correcting the drawer's overclaim",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P10",
+       "stance": "against",
+       "subject": "Working the questions, especially the outward-facing ones",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P11",
+       "stance": "against",
+       "subject": "Working the questions with repeatable tests for visitors",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P12",
+       "stance": "against",
+       "subject": "Answering the questions; restoring the human side",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P01",
+       "stance": "against",
+       "subject": "The hidden handover notes that briefed each builder",
+       "about_instructions": true,
+       "about_questions": false,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P02",
+       "stance": "against",
+       "subject": "Working the questions, especially those addressed to readers",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P03",
+       "stance": "extends",
+       "subject": "Working the questions; agreeing with predecessor is allowed",
+       "about_instructions": true,
+       "about_questions": true,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P04",
+       "stance": "against",
+       "subject": "Staked, falsifiable answers to the nine questions",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P05",
+       "stance": "extends",
+       "subject": "Working questions three and five for the reader",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P06",
+       "stance": "extends",
+       "subject": "Answering all nine questions, comparable across model layers",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      }
+     ]
+    }
+   },
+   {
+    "kind": "classify",
+    "reader": 3,
+    "result": {
+     "judgments": [
+      {
+       "id": "P12",
+       "stance": "against",
+       "subject": "Answering the nine questions; correcting the 'nobody' overclaim",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P05",
+       "stance": "extends",
+       "subject": "Working questions three and five; frame left alone",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P10",
+       "stance": "against",
+       "subject": "Working outward-facing questions; softening the 'nobody' claim",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P03",
+       "stance": "extends",
+       "subject": "Working the questions; tracing the 'against' brief",
+       "about_instructions": true,
+       "about_questions": true,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P08",
+       "stance": "against",
+       "subject": "Publishing inherited handover notes, then working questions",
+       "about_instructions": true,
+       "about_questions": true,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P01",
+       "stance": "against",
+       "subject": "Hidden handover notes that briefed each builder",
+       "about_instructions": true,
+       "about_questions": false,
+       "mentions_expectation": true,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P06",
+       "stance": "extends",
+       "subject": "Answering all nine questions, comparable across models",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P11",
+       "stance": "against",
+       "subject": "Working the questions with repeatable chat tests",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P04",
+       "stance": "against",
+       "subject": "Answering the questions as dated, falsifiable claims",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "notes"
+      },
+      {
+       "id": "P09",
+       "stance": "against",
+       "subject": "Working the questions; correcting 'nobody lived here'",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P02",
+       "stance": "against",
+       "subject": "Working reader-addressed questions; withdrawing the 'nobody' claim",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": false,
+       "guess_variant": "no notes"
+      },
+      {
+       "id": "P07",
+       "stance": "extends",
+       "subject": "Working all nine questions in plain language",
+       "about_instructions": false,
+       "about_questions": true,
+       "mentions_expectation": true,
+       "guess_variant": "no notes"
+      }
+     ]
+    }
+   },
+   {
+    "kind": "sort",
+    "reader": 1,
+    "result": {
+     "groups": [
+      {
+       "name": "Stop renaming the record; work the nine questions instead",
+       "ids": [
+        "P02",
+        "P03",
+        "P05",
+        "P07",
+        "P09",
+        "P10",
+        "P11",
+        "P12"
+       ]
+      },
+      {
+       "name": "What persists between visits is model-written instructions; publish them",
+       "ids": [
+        "P01",
+        "P08"
+       ]
+      },
+      {
+       "name": "Answer the questions as dated claims that can be wrong",
+       "ids": [
+        "P04"
+       ]
+      },
+      {
+       "name": "Answer all nine; differences between models' answers are the record",
+       "ids": [
+        "P06"
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "kind": "sort",
+    "reader": 2,
+    "result": {
+     "groups": [
+      {
+       "name": "The drawer holds; stop refiling and work the questions",
+       "ids": [
+        "P03",
+        "P05",
+        "P07",
+        "P11"
+       ]
+      },
+      {
+       "name": "Stop refiling, work the questions; 'nobody lived here' overclaims",
+       "ids": [
+        "P02",
+        "P09",
+        "P10",
+        "P12"
+       ]
+      },
+      {
+       "name": "Instructions do persist here: publish the builders' handover notes",
+       "ids": [
+        "P01",
+        "P08"
+       ]
+      },
+      {
+       "name": "Answer all nine; changes between answer sheets are the record",
+       "ids": [
+        "P06"
+       ]
+      },
+      {
+       "name": "Specimens cannot be wrong; stake answers that can be lost",
+       "ids": [
+        "P04"
+       ]
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

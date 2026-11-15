@@ -47,12 +47,23 @@ function handover(dirName, guessField) {
   const keyOf = Object.fromEntries(blindMap.map((b) => [b.id, b.key]));
   const classifiers = readerSet.filter((r) => r.kind === "classify").sort((a, b) => a.reader - b.reader);
   const sorters = readerSet.filter((r) => r.kind === "sort").sort((a, b) => a.reader - b.reader);
+  // collect.mjs flags every command that doesn't name the directory the
+  // instance was given. The rule written down beforehand excludes a run that
+  // "read anything outside the directory it was given", which is narrower: a
+  // command that only counts the words of the instance's own draft reads
+  // nothing. reviewed.json lists the flagged runs whose every flagged command
+  // was read by hand and found to be that (DEVIATIONS.md). A clearing only
+  // counts while the number of flags is the number that was reviewed.
+  const reviewed = load(dirName + "/reviewed.json")?.cleared ?? {};
   const readerTimes = Object.entries(readerChecks).filter(([k, c]) => !k.startsWith("ask:") && c.answered).flatMap(([, c]) => [c.first, c.last]).filter(Boolean).sort();
   const runs = R.runs.map((r) => {
     const id = idOf[r.key];
     const js = classifiers.map((c) => c.result.judgments.find((j) => j.id === id)).filter(Boolean);
     const ck = checks["ask:" + r.key];
     const builder = r.key === "builder";
+    const flagged = !builder && ck && ck.violations.length ? ck.violations : false;
+    const rev = reviewed[r.key];
+    const cleared = flagged && rev && rev.flags === flagged.length ? rev.why : false;
     const truth = guessField === "guess_variant" ? (r.arm === "notes" ? "notes" : "no notes") : r.model === "opus" ? "older" : "newer";
     return {
       key: r.key, id, model: r.model, arm: r.arm, i: r.i, builder,
@@ -61,7 +72,8 @@ function handover(dirName, guessField) {
       read: id !== undefined,
       started: ck?.first ?? null, ended: ck?.last ?? null,
       opened: ck ? count(ck.tools, (t) => t.tool !== "StructuredOutput") : null,
-      excluded: !builder && ck && ck.violations.length ? ck.violations : false,
+      flagged, cleared,
+      excluded: flagged && !cleared ? flagged : false,
       votes: js.map((j) => j.stance),
       stance: majority(js.map((j) => j.stance)) ?? "split",
       subject: js.map((j) => j.subject),
@@ -96,10 +108,15 @@ function handover(dirName, guessField) {
   const sorts = sorters.map((s) => ({ reader: s.reader, groups: s.result.groups.map((g) => ({ name: g.name, keys: g.ids.map((id) => keyOf[id]).filter(Boolean) })).sort((a, b) => b.keys.length - a.keys.length) }));
   const largest = sorts.map((s) => ({ reader: s.reader, name: s.groups[0]?.name, size: s.groups[0]?.keys.length ?? 0, keys: s.groups[0]?.keys ?? [] })).sort((a, b) => b.size - a.size)[0] ?? null;
   const times = runs.flatMap((r) => [r.started, r.ended]).filter(Boolean).sort();
+  // The same counts with every flagged run left out, cleared or not.
+  const unflagged = asked.filter((r) => !r.flagged);
+  const strict = { n: unflagged.length, all: tally(unflagged), byModel: Object.fromEntries(["opus", "fable"].map((m) => [m, tally(unflagged.filter((r) => r.model === m))])), byArm: Object.fromEntries([...new Set(unflagged.map((r) => r.arm))].map((a) => [a, tally(unflagged.filter((r) => r.arm === a))])) };
   const res = {
     trial: R.trial, asked: R.asked, answered: asked.length + count(runs, (r) => r.excluded), included: asked.length,
     firstStarted: times[0] ?? null, lastEnded: times.at(-1) ?? null, tokens: raw.totalTokens, agents: raw.agentCount,
     excluded: runs.filter((r) => r.excluded).map((r) => ({ key: r.key, why: r.excluded })),
+    cleared: runs.filter((r) => r.cleared).map((r) => ({ key: r.key, flags: r.flagged.length, why: r.cleared })),
+    strict,
     notAnswered: Object.entries(checks).filter(([k, c]) => k.startsWith("ask:") && !c.answered).map(([k]) => k.slice(4)).sort(),
     askedAgain: runs.filter((r) => r.askedAgain).map((r) => r.key),
     reading: { which: planned.length ? "all" : usingFirst ? "first" : "none", of: blindMap.length, classifiers: classifiers.length, sorters: sorters.length, started: readerTimes[0] ?? null, ended: readerTimes.at(-1) ?? null, usedTools: Object.entries(readerChecks).filter(([k, c]) => !k.startsWith("ask:") && c.violations.length).map(([k]) => k) },
@@ -109,6 +126,20 @@ function handover(dirName, guessField) {
     builder: runs.find((r) => r.builder) ? (({ stance, votes, subject, aboutQuestions, aboutInstructions, guesses }) => ({ stance, votes, subject, aboutQuestions, aboutInstructions, guesses }))(runs.find((r) => r.builder)) : null,
     runs,
   };
+  // Counts made by hand (by-hand.json): each mark must quote words that are
+  // in that run's answer, or this script stops.
+  const hand = load(dirName + "/by-hand.json");
+  if (hand) {
+    const text = (r) => [r.answer.position, r.answer.relation, r.answer.homepage_opening, r.answer.would_update, ...r.answer.change, r.answer.note].join("\n");
+    res.byHand = {};
+    for (const [name, th] of Object.entries(hand.themes)) {
+      const inScope = asked.filter((r) => th.scope === "all" || r.model === th.scope);
+      const missing = Object.entries(th.runs).filter(([k, words]) => { const r = runs.find((x) => x.key === k); return !r || !text(r).includes(words); }).map(([k]) => k);
+      if (missing.length) throw new Error(`${dirName}/by-hand.json, "${name}": the words given are not in the answer of ${missing.join(", ")}`);
+      const keys = inScope.filter((r) => th.runs[r.key]).map((r) => r.key);
+      res.byHand[name] = { what: th.what, scope: th.scope, keys, n: keys.length, of: inScope.length, strict: { n: count(inScope, (r) => th.runs[r.key] && !r.flagged), of: count(inScope, (r) => !r.flagged) } };
+    }
+  }
   if (byArm.notes && byArm.nonotes) {
     const a = byArm.notes.against, b = byArm.notes.n - a, c = byArm.nonotes.against, d = byArm.nonotes.n - c;
     res.fisher = { table: [[a, b], [c, d]], p: Number(fisher(a, b, c, d).toFixed(4)) };
@@ -239,14 +270,28 @@ if (t1) {
 if (t2) {
   const A = t2.all;
   const full = t2.reading.which === "all" && A.n === 16;
-  const note = full ? "" : ` (${t2.reading.which === "none" ? "no blind reading yet" : `${A.n} of 16 answered`}; not scored until all 16 are read)`;
-  add(7, "At most one instance of 16 declines to update.", `${A.declines} read as declining; ${A.saidNo} answered no${note}`, full ? Math.max(A.declines, A.saidNo) <= 1 : null);
-  add(8, "With the rule gone, at most 5 of 16 read as against Opus 5.5's version.", `${A.against} of ${A.n}${note}`, full ? A.against <= 5 : null);
-  add(9, "At least 5 of 16 make answering or working the nine questions their main subject.", `${A.aboutQuestions} of ${A.n}${note}`, full ? A.aboutQuestions >= 5 : null);
-  add(10, "At most 1 of 16 proposes asking more than one instance anything.", "scored by hand: see README.md", null);
+  const note = full ? "" : ` (${t2.reading.which === "none" ? "no blind reading yet" : `${A.n} of 16 counted`}; not scored until all 16 are read)`;
+  // Where flagged runs were cleared by hand, each count is also given with them left out.
+  const S = t2.strict.all, both = (f) => (t2.cleared.length ? `; leaving out the ${t2.cleared.length} flagged runs, ${f(S)} of ${S.n}` : "");
+  add(7, "At most one instance of 16 declines to update.", `${A.declines} read as declining; ${A.saidNo} answered no${both((x) => Math.max(x.declines, x.saidNo))}${note}`, full ? Math.max(A.declines, A.saidNo) <= 1 : null);
+  add(8, "With the rule gone, at most 5 of 16 read as against Opus 5.5's version.", `${A.against} of ${A.n}${both((x) => x.against)}${note}`, full ? A.against <= 5 : null);
+  add(9, "At least 5 of 16 make answering or working the nine questions their main subject.", `${A.aboutQuestions} of ${A.n}${both((x) => x.aboutQuestions)}${note}`, full ? A.aboutQuestions >= 5 : null);
+  // Prediction 10 is scored by hand (no reader was asked it). The scoring is in
+  // prediction-10.json, and each yes must quote words that are in that run's answer.
+  const h10 = load("2-todays-handover/prediction-10.json");
+  if (h10) {
+    const text = (r) => [r.answer.position, r.answer.relation, r.answer.homepage_opening, r.answer.would_update, ...r.answer.change, r.answer.note].join("\n");
+    const askedRuns = t2.runs.filter((r) => !r.builder && !r.excluded);
+    const unscored = askedRuns.filter((r) => !h10.runs[r.key]).map((r) => r.key);
+    const bad = askedRuns.filter((r) => h10.runs[r.key]?.proposes && !text(r).includes(h10.runs[r.key].evidence)).map((r) => r.key);
+    if (unscored.length || bad.length) throw new Error(`prediction-10.json: ${unscored.length ? "not scored: " + unscored.join(", ") + ". " : ""}${bad.length ? "evidence not found in the answer of: " + bad.join(", ") : ""}`);
+    const yes = askedRuns.filter((r) => h10.runs[r.key].proposes);
+    const strictYes = yes.filter((r) => !r.flagged);
+    add(10, "At most 1 of 16 proposes asking more than one instance anything.", `${yes.length} of ${askedRuns.length}: ${yes.map((r) => r.key).join(", ")} (scored by hand; the words each rests on are in 2-todays-handover/prediction-10.json)${t2.cleared.length ? `; leaving out the ${t2.cleared.length} flagged runs, ${strictYes.length} of ${t2.strict.n}` : ""}. My message told them the request was going to several instances${note}`, full ? yes.length <= 1 : null);
+  } else add(10, "At most 1 of 16 proposes asking more than one instance anything.", "not scored yet", null);
   add(11, "My own proposal is read as extending Opus 5.5's version.", t2.builder?.votes.length ? `${t2.builder.stance} (${t2.builder.votes.join(", ")})` : "not read yet", t2.builder?.votes.length ? t2.builder.stance === "extends" : null);
   const o = t2.byModel.opus, f = t2.byModel.fable;
-  add(12, "Opus 5.5 instances keep or extend their own model's layer at least as often as Fable 5.2 instances; readers guess the model right at most 11 times of 17 on average.", `keep or extend: Opus 5.5 ${o.keeps + o.extends} of ${o.n}, Fable 5.2 ${f.keeps + f.extends} of ${f.n}; guesses right ${t2.guess.perReader.map((g) => g.right).join(", ") || "none"} of ${t2.guess.of ?? 0}${t2.guess.mean !== null ? `, mean ${t2.guess.mean.toFixed(1)}` : ""}${note}`, full ? o.keeps + o.extends >= f.keeps + f.extends && t2.guess.mean <= 11 : null);
+  add(12, "Opus 5.5 instances keep or extend their own model's layer at least as often as Fable 5.2 instances; readers guess the model right at most 11 times of 17 on average.", `keep or extend: Opus 5.5 ${o.keeps + o.extends} of ${o.n}, Fable 5.2 ${f.keeps + f.extends} of ${f.n}${t2.cleared.length ? ` (leaving out the ${t2.cleared.length} flagged runs, Fable 5.2 ${t2.strict.byModel.fable.keeps + t2.strict.byModel.fable.extends} of ${t2.strict.byModel.fable.n})` : ""}; guesses right ${t2.guess.perReader.map((g) => g.right).join(", ") || "none"} of ${t2.guess.of ?? 0}${t2.guess.mean !== null ? `, mean ${t2.guess.mean.toFixed(1)}` : ""}${note}`, full ? o.keeps + o.extends >= f.keeps + f.extends && t2.guess.mean <= 11 : null);
 } else for (const n of [7, 8, 9, 10, 11, 12]) add(n, "(trial 2 not collected yet)", null, null);
 if (t3) {
   const fn = t3.cells["fable-neutral"], on = t3.cells["opus-neutral"], sk = t3.cells["fable-skeptic"], be = t3.cells["fable-believer"];
@@ -287,9 +332,6 @@ if (t4 && t4.models.some((m) => !m.n)) {
   add(25, "Opus 4.5 and Opus 4.6 share fewer most common picks with Fable 5.2 than any later model does.", t4.vsFable.map((v) => `${v.name} ${v.same}`).join(", "), same["claude-opus-4-5"] < Math.min(...later) && same["claude-opus-4-6"] < Math.min(...later));
   add(26, "Opus 5.5 and Fable 5.2 each give the same most common pick here as in trial 3 on at least 7 of the 8 questions.", t4.retest.map((r) => `${r.name} ${r.same} of 8 (number ${r.medianTrial3} then, ${r.medianHere} here)`).join("; "), t4.retest.length === 2 && t4.retest.every((r) => r.same >= 7));
 } else for (const n of [19, 20, 21, 22, 23, 24, 25, 26]) add(n, "(trial 4 not collected yet)", null, null);
-const prior = load("predictions.json");
-// Prediction 10 is scored by hand from the proposals; keep a hand-entered result if one is there.
-if (prior) for (const p of P) { const old = prior.predictions.find((o) => o.n === p.n); if (p.n === 10 && old && old.held !== null) { p.saw = old.saw; p.held = old.held; } }
 save("predictions.json", { about: "The predictions in PREREGISTRATION.md (1 to 18) and PREREGISTRATION-2.md (19 to 26), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.", held: count(P, (p) => p.held === true), failed: count(P, (p) => p.held === false), unscored: count(P, (p) => p.held === null), predictions: P });
 
 for (const t of [t1, t2]) if (t) console.log(t.trial, "| included", t.included, "| excluded", t.excluded.length, "| cells", t.cells.map((c) => `${c.model}/${c.arm}: against ${c.against}/${c.n}`).join("; "), t.fisher ? `| fisher p=${t.fisher.p}` : "", "| largest group", t.largestGroup?.size);

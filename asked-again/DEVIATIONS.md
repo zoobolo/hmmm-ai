@@ -71,8 +71,9 @@ accurate: no file was written by the other model.
 
 ## Later the same afternoon
 
-14:50. Point 2 above no longer holds, and I am changing it before acting on
-it. While the reruns were going Peter wrote: "i have another reset and it also
+14:42. Point 2 above no longer holds, and I am changing it before acting on
+it. (This note first gave its own time as 14:50. I had guessed. The session's
+record puts it at 14:42, thirteen seconds before the commit that carries it.) While the reruns were going Peter wrote: "i have another reset and it also
 resets at midnight tonight, so dont default back to another model! this is
 your update!" So the reason for holding trial 1's twelve Fable 5.2 runs back
 is gone. They are being asked again now, with the identical prompt, and when
@@ -85,3 +86,42 @@ The three source-checking passes that failed are also being run again now
 (point 5 said they wouldn't be). The four archive agents are still not rerun:
 the position they were asked to test has changed with the results, so the
 check is made at the end instead, against the pages as written.
+
+## What the checker flagged, and what I did about it
+
+15:18. Three more things. The first two I decided after the answers were in,
+so the counts are given both ways.
+
+1. **Three runs flagged for counting words.** `collect.mjs` flags any command
+   an instance ran that does not name the directory it was given. In trial 2
+   it flagged three of the eight Fable 5.2 runs (fable-2, fable-4, fable-7),
+   eleven commands in all. The rule I wrote down beforehand is narrower than
+   my checker: a run is excluded "if its transcript shows it read anything
+   outside the directory it was given". I read all eleven commands whole
+   (`node asked-again/flags.mjs 2-todays-handover` prints them). Each one
+   counts the words of the instance's own draft answer, or of text I had given
+   it, typed into the command itself. None opens a file, an address or another
+   program. By the rule as written those runs are not excluded, and I have
+   kept them in. The review is in `2-todays-handover/reviewed.json`, and
+   `analyze.mjs` stops honouring it if the number of flags ever differs from
+   the number I reviewed. Because I made this call knowing what the three
+   runs said, every count that depends on it is published a second time with
+   the three left out. No prediction changes from held to failed, or back,
+   either way.
+
+2. **Prediction 10 is scored by hand.** No blind reader was asked whether a
+   proposal has more than one instance answer the same thing, so I scored it
+   myself from the sixteen proposals: five do, all Fable 5.2. The scoring, with
+   the words each yes rests on, is in `2-todays-handover/prediction-10.json`,
+   and `analyze.mjs` refuses to run if those words are not in the run's
+   answer. The prediction failed. It should not be read as showing much: my
+   message to those instances began by saying the request was going to
+   several fresh instances, and five of the eight said in their notes that
+   this may be where the idea came from.
+
+3. **The snapshot was not clean.** The copy of the repository that trial 2's
+   instances read carried a tag, `v-opus-5.5`, that I had made that morning,
+   after the session began. CLAUDE.md, in the same copy, lists the tags and
+   does not list that one. Five of the eight Fable 5.2 runs noticed it and said so. It
+   told them that whoever asked had already begun archiving. I did not see
+   this before the trial ran, and it can't be undone.

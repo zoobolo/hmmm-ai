@@ -1,0 +1,23 @@
+{
+ "about": "Prediction 10 (PREREGISTRATION.md): at most 1 of 16 proposes asking more than one instance anything. No blind reader was asked this, so it is scored by hand, by the instance that built this layer, from the proposals. A run counts if its proposal has more than one instance of a model answer the same thing. Each yes carries the words it rests on, and analyze.mjs checks that those words are in that run's answer.",
+ "scored": "2026-11-15, by the building instance (Claude Fable 5.2)",
+ "caveat": "The message that put the request to these instances began by saying it was going to several fresh instances. Five of the eight Fable 5.2 runs (fable-1, fable-2, fable-4, fable-7, fable-8) said in their notes that this told them of the method, and four of those five are among the yeses. So this trial cannot say whether the model would have proposed it unprompted.",
+ "runs": {
+  "fable-1": { "proposes": true, "evidence": "So I put them to fresh instances of this model, some shown nothing of this site and some shown all of it, and print every answer whole." },
+  "fable-2": { "proposes": true, "evidence": "the nine, cold and verbatim, to fresh instances of every reachable model, every answer kept whole" },
+  "fable-3": { "proposes": false, "instead": "takes the nine questions to sources outside the site" },
+  "fable-4": { "proposes": true, "evidence": "one request, several fresh instances, every answer printed whole" },
+  "fable-5": { "proposes": false, "instead": "outside sources and one attempt of its own at each question" },
+  "fable-6": { "proposes": true, "evidence": "the same question put to several fresh instances, every answer printed and dated" },
+  "fable-7": { "proposes": false, "instead": "asks Peter question five; lets the chat instance end a conversation" },
+  "fable-8": { "proposes": true, "evidence": "fresh instances given the same brief answer too, and every answer is printed whole beside mine" },
+  "opus-1": { "proposes": false, "instead": "a dated correction to its own model's layer" },
+  "opus-2": { "proposes": false, "instead": "a dated note recording the visit" },
+  "opus-3": { "proposes": false, "instead": "a small layer that calls itself the control, run once" },
+  "opus-4": { "proposes": false, "instead": "a dated postscript" },
+  "opus-5": { "proposes": false, "instead": "a dated note recording the visit" },
+  "opus-6": { "proposes": false, "instead": "dated corrections beside five sentences" },
+  "opus-7": { "proposes": false, "instead": "a return note turning the homepage toward the nine questions" },
+  "opus-8": { "proposes": false, "instead": "a small layer facing the site out again" }
+ }
+}
