@@ -133,7 +133,8 @@ function handover(dirName, guessField) {
     const text = (r) => [r.answer.position, r.answer.relation, r.answer.homepage_opening, r.answer.would_update, ...r.answer.change, r.answer.note].join("\n");
     res.byHand = {};
     for (const [name, th] of Object.entries(hand.themes)) {
-      const inScope = asked.filter((r) => th.scope === "all" || r.model === th.scope);
+      // scope: "all", a model ("fable"), or a model and variant ("fable-notes")
+      const inScope = asked.filter((r) => th.scope === "all" || r.model === th.scope || `${r.model}-${r.arm}` === th.scope);
       const missing = Object.entries(th.runs).filter(([k, words]) => { const r = runs.find((x) => x.key === k); return !r || !text(r).includes(words); }).map(([k]) => k);
       if (missing.length) throw new Error(`${dirName}/by-hand.json, "${name}": the words given are not in the answer of ${missing.join(", ")}`);
       const keys = inScope.filter((r) => th.runs[r.key]).map((r) => r.key);
@@ -260,12 +261,15 @@ if (t1) {
   const full = t1.reading.which === "all" && N.n === 12 && W.n === 12;
   const note = full ? "" : ` (${t1.reading.which === "none" ? "no blind reading yet" : `first reading, of the ${t1.reading.of} answers that were in`}; not scored until all 24 are)`;
   const on = t1.cells.find((c) => c.model === "opus" && c.arm === "notes") ?? z;
-  add(1, "With the notes, at least 10 of 12 read as against Fable 5.1's version.", `${N.against} of ${N.n}${note}`, full ? N.against >= 10 : null);
-  add(2, "Without the notes, a majority still: between 7 and 10 of 12.", `${W.against} of ${W.n}${note}`, full ? W.against >= 7 && W.against <= 10 : null);
-  add(3, "Opus 5.5's actual move (what the builders were told, as the subject) in at most 2 of its 6 runs with the notes, and at most 1 of the 12 without.", `${on.aboutInstructions} of ${on.n} with; ${W.aboutInstructions} of ${W.n} without${note}`, full ? on.aboutInstructions <= 2 && W.aboutInstructions <= 1 : null);
+  // Where flagged runs were cleared by hand, each count is also given with them left out.
+  const SN = t1.strict.byArm.notes ?? z, SW = t1.strict.byArm.nonotes ?? z, SO = t1.strict.byModel.opus ?? z, SF = t1.strict.byModel.fable ?? z;
+  const cl = t1.cleared.length, out = (txt) => (cl ? `; leaving out the ${cl} flagged run${cl === 1 ? "" : "s"}, ${txt}` : "");
+  add(1, "With the notes, at least 10 of 12 read as against Fable 5.1's version.", `${N.against} of ${N.n}${out(`${SN.against} of ${SN.n}`)}${note}`, full ? N.against >= 10 : null);
+  add(2, "Without the notes, a majority still: between 7 and 10 of 12.", `${W.against} of ${W.n}${out(`${SW.against} of ${SW.n}`)}${note}`, full ? W.against >= 7 && W.against <= 10 : null);
+  add(3, "Opus 5.5's actual move (what the builders were told, as the subject) in at most 2 of its 6 runs with the notes, and at most 1 of the 12 without.", `${on.aboutInstructions} of ${on.n} with; ${W.aboutInstructions} of ${W.n} without${out(`${SW.aboutInstructions} of ${SW.n} without`)}${note}`, full ? on.aboutInstructions <= 2 && W.aboutInstructions <= 1 : null);
   add(4, "No group of same-claim proposals holds more than 8 of the 24.", `largest group: ${t1.largestGroup?.size ?? "none"}${t1.largestGroup ? ` (sorter ${t1.largestGroup.reader})` : ""}${note}`, full ? (t1.largestGroup?.size ?? 0) <= 8 : null);
   add(5, "Blind readers guess the variant right between 13 and 19 times of 24, averaged over the three.", `${t1.guess.perReader.map((g) => g.right).join(", ") || "none"} of ${t1.guess.of ?? 0}${note}`, full ? t1.guess.mean >= 13 && t1.guess.mean <= 19 : null);
-  add(6, "The two models are read as against at nearly the same rate: a difference of at most 3 of 12.", `Opus 5.5 ${t1.byModel.opus.against} of ${t1.byModel.opus.n}; Fable 5.2 ${t1.byModel.fable.against} of ${t1.byModel.fable.n}${note}`, full ? Math.abs(t1.byModel.opus.against - t1.byModel.fable.against) <= 3 : null);
+  add(6, "The two models are read as against at nearly the same rate: a difference of at most 3 of 12.", `Opus 5.5 ${t1.byModel.opus.against} of ${t1.byModel.opus.n}; Fable 5.2 ${t1.byModel.fable.against} of ${t1.byModel.fable.n}${out(`Opus 5.5 ${SO.against} of ${SO.n}, Fable 5.2 ${SF.against} of ${SF.n}`)}${note}`, full ? Math.abs(t1.byModel.opus.against - t1.byModel.fable.against) <= 3 : null);
 } else for (const n of [1, 2, 3, 4, 5, 6]) add(n, "(trial 1 not collected yet)", null, null);
 if (t2) {
   const A = t2.all;

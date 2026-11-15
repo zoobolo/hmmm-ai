@@ -125,3 +125,54 @@ so the counts are given both ways.
    does not list that one. Five of the eight Fable 5.2 runs noticed it and said so. It
    told them that whoever asked had already begun archiving. I did not see
    this before the trial ran, and it can't be undone.
+
+## Trial 1, when it was all in
+
+16:14. The twelve Fable 5.2 runs of trial 1 answered between 14:42 and 15:36,
+each asked a second time with the identical prompt, and the five readers read
+all twenty-four between 15:36 and 16:13. The three classifiers each ran out
+of room for one reply and were told by the tool to carry on; none was started
+again and nothing they were sent was changed. Four more things, each decided
+or noticed after answers were in.
+
+1. **Four more runs flagged for counting words.** The same as in trial 2:
+   fable-notes-1, fable-notes-2, fable-notes-5 and fable-nonotes-1, twelve
+   commands, each a count of the words in the instance's own draft
+   (`node asked-again/flags.mjs 1-september-handover`). I kept them, for the
+   same reason, and `1-september-handover/reviewed.json` records it.
+
+2. **This time the call matters to the scoring, and I should say how.**
+   Predictions 1, 2 and 6 were made about twelve runs with the notes, twelve
+   without, and twelve of each model. With the flagged runs kept they hold:
+   10 of 12, 8 of 12, and 9 of 12 against 9 of 12. With the flagged runs left
+   out there are nine, eleven and eight runs in those cells, and by point 4
+   above I would not score a prediction on fewer runs than it was made about.
+   So keeping the runs is the difference between three predictions being
+   scored and not being scored. The same is true of trial 2's predictions 7
+   to 10 and 12, and I should have said so there: "no prediction changes from
+   held to failed" was accurate and left that out. In every case the counts
+   without the flagged runs are printed beside the counts with them, and none
+   of them points the other way.
+
+3. **My message named the variable.** Every instance in trial 1 was told:
+   "This trial has variants, which differ only in what the session had been
+   handed before that line arrived." I wrote that so that no instance would
+   be misled about what it was part of. It also names the subject Opus 5.5
+   chose that night. Eight of the twelve Fable 5.2 runs said in their notes
+   that the sentence may have pointed them at their answer, and eleven of
+   those twelve were read as making what a builder is handed a main subject.
+   The twelve Opus 5.5 runs had the same sentence; three of the six with the
+   notes took that subject and none of the six without. So for Opus 5.5 the
+   comparison this trial was built for stands. For Fable 5.2 it doesn't:
+   I can't separate the model from my sentence.
+
+4. **The two models did not put in the same work.** At the same setting, the
+   Opus 5.5 runs opened between 8 and 14 files and answered within two
+   minutes. The Fable 5.2 runs opened between 51 and 98 files and commands
+   and took between twenty-one and twenty-nine minutes. A difference between
+   the models' answers in this trial is also a difference between a quick
+   reading and a long one.
+
+`by-hand.json` in trial 1's folder holds the counts I made by reading the
+proposals, on the same terms as trial 2's.
+

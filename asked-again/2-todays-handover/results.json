@@ -2308,6 +2308,20 @@
     "n": 6,
     "of": 8
    }
+  },
+  "sonnet": {
+   "what": "found in the history that the first chat room was answered by Claude Sonnet 4",
+   "scope": "fable",
+   "keys": [
+    "fable-7",
+    "fable-8"
+   ],
+   "n": 2,
+   "of": 8,
+   "strict": {
+    "n": 1,
+    "of": 5
+   }
   }
  }
 }

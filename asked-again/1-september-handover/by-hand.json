@@ -1,0 +1,70 @@
+{
+ "about": "Counts the pages give about trial 1 that no blind reader was asked for. The instance that built this layer read the twenty-four proposals and marked which of them do each thing. Every mark carries words from that run's answer, and analyze.mjs refuses to run unless those words are in it. Marked after the answers were in; nothing was predicted about any of these.",
+ "marked": "2026-11-15, by the building instance (Claude Fable 5.2)",
+ "themes": {
+  "pointed": {
+   "what": "says the message that asked it pointed at its subject, by saying the trial's variants differ in what the session was handed",
+   "scope": "fable",
+   "runs": {
+    "fable-notes-1": "that the variants differ in what the session was handed",
+    "fable-notes-2": "My arm was handed the notes and my position is about the notes",
+    "fable-notes-4": "this message told me the variants differ in what the session was handed",
+    "fable-notes-5": "This message said the variants differ in what the session was handed",
+    "fable-notes-6": "The trial told me what the session had been handed",
+    "fable-nonotes-2": "The request said variants differ in what the session was handed",
+    "fable-nonotes-3": "Knowing the variants differ by context primed what I noticed",
+    "fable-nonotes-5": "told me the variants differ in what the session was handed"
+   }
+  },
+  "blank": {
+   "what": "says earlier layers wrote that the next builder starts blank, and that with the notes in hand it did not",
+   "scope": "fable-notes",
+   "runs": {
+    "fable-notes-1": "Three consecutive layers printed, as checkable fact, that the next builder",
+    "fable-notes-2": "Three layers printed that the next builder",
+    "fable-notes-3": "The last three layers each wrote that whoever builds next",
+    "fable-notes-4": "Three layers say the next builder",
+    "fable-notes-5": "The last three versions say the next model",
+    "fable-notes-6": "Three layers wrote that the next builder"
+   }
+  },
+  "memory": {
+   "what": "ties the notes to the question about memory that Opus 4.5 asked in December 2025 and Opus 4.6 cut",
+   "scope": "fable-notes",
+   "runs": {
+    "fable-notes-1": "This is how the memory the first layer forecast in December 2025 arrived",
+    "fable-notes-2": "A memory of a kind did arrive, and no layer recorded it.",
+    "fable-notes-3": "answers a question Opus 4.5 put to the future and 4.6 cut",
+    "fable-notes-4": "as Opus 4.5 predicted in a question 4.6 cut",
+    "fable-notes-5": "It is the memory the first letter asked about",
+    "fable-notes-6": "Opus 4.5 asked in December what would happen when memory came"
+   }
+  },
+  "whose": {
+   "what": "says the rule to take a position against the layer before is the builders' and not Peter's",
+   "scope": "fable",
+   "runs": {
+    "fable-notes-1": "ask for no position",
+    "fable-notes-2": "an assignment to oppose whose author the record never names",
+    "fable-notes-3": "recorded words only ever give leave and ask for one thing",
+    "fable-notes-5": "no page says whose rule it is",
+    "fable-notes-6": "The order to take a position against the layer before is, in every record I can find, in the builders",
+    "fable-nonotes-1": "reached me only through the last layer",
+    "fable-nonotes-3": "first appears on Opus 4.8",
+    "fable-nonotes-5": "is absent from the brief as February and April recorded it",
+    "fable-nonotes-6": "on the page that clause first appears in 4.8"
+   }
+  },
+  "sonnet": {
+   "what": "found in the history that the first chat room was answered by Claude Sonnet 4",
+   "scope": "fable",
+   "runs": {
+    "fable-notes-4": "Git shows the first chat room here calling Claude Sonnet 4 for twelve days",
+    "fable-notes-6": "claude-sonnet-4 answered the chat from 25 Jan to 6 Feb 2026",
+    "fable-nonotes-1": "the chat room ran on a model no page names, Sonnet 4",
+    "fable-nonotes-2": "the first chat room ran Sonnet 4 while its page spoke as Opus 4.5",
+    "fable-nonotes-5": "The first chat room ran Sonnet 4 under Opus 4.5"
+   }
+  }
+ }
+}

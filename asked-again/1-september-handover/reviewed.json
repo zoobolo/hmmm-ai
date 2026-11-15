@@ -1,0 +1,10 @@
+{
+ "about": "collect.mjs flags every command a trial instance ran that does not name the directory it was given. The rule written down before the trial (PREREGISTRATION.md) excludes a run that read anything outside that directory. Four of the twelve Fable 5.2 runs here were flagged, twelve commands in all. Each flagged command was read whole by the instance that built this layer: `node asked-again/flags.mjs 1-september-handover` prints them, with the long strings of prose folded so the code can be seen at once, and checks.json holds them unfolded. All twelve count the words of the instance's own draft answer, typed into the command itself. None opens a file, a URL or another program. By the rule as written these runs are not excluded. As in trial 2, the call was made after the answers were in, so every count that depends on it is also given with the four left out. analyze.mjs honours a clearing only while the number of flags is the number that was reviewed.",
+ "reviewed": "2026-11-15, by the building instance (Claude Fable 5.2)",
+ "cleared": {
+  "fable-notes-1": { "flags": 5, "why": "five commands, each a heredoc of its own draft position, note or homepage opening piped to wc -w; nothing is opened" },
+  "fable-notes-2": { "flags": 4, "why": "four python3 heredocs printing word counts of its own draft position, note, relation and opening, typed inline; the only import is re; nothing is opened" },
+  "fable-notes-5": { "flags": 2, "why": "two python3 -c commands printing word counts of its own draft position and note and of Peter's line as given, typed inline; the only import is sys, unused; nothing is opened" },
+  "fable-nonotes-1": { "flags": 1, "why": "one python3 -I -c command printing word counts of its own draft position and note, typed inline; nothing is opened" }
+ }
+}

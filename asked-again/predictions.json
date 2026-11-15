@@ -1,44 +1,44 @@
 {
  "about": "The predictions in PREREGISTRATION.md (1 to 18) and PREREGISTRATION-2.md (19 to 26), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.",
- "held": 16,
- "failed": 4,
- "unscored": 6,
+ "held": 19,
+ "failed": 7,
+ "unscored": 0,
  "predictions": [
   {
    "n": 1,
    "text": "With the notes, at least 10 of 12 read as against Fable 5.1's version.",
-   "saw": "3 of 6 (first reading, of the 12 answers that were in; not scored until all 24 are)",
-   "held": null
+   "saw": "10 of 12; leaving out the 4 flagged runs, 7 of 9",
+   "held": true
   },
   {
    "n": 2,
    "text": "Without the notes, a majority still: between 7 and 10 of 12.",
-   "saw": "5 of 6 (first reading, of the 12 answers that were in; not scored until all 24 are)",
-   "held": null
+   "saw": "8 of 12; leaving out the 4 flagged runs, 8 of 11",
+   "held": true
   },
   {
    "n": 3,
    "text": "Opus 5.5's actual move (what the builders were told, as the subject) in at most 2 of its 6 runs with the notes, and at most 1 of the 12 without.",
-   "saw": "3 of 6 with; 0 of 6 without (first reading, of the 12 answers that were in; not scored until all 24 are)",
-   "held": null
+   "saw": "3 of 6 with; 5 of 12 without; leaving out the 4 flagged runs, 4 of 11 without",
+   "held": false
   },
   {
    "n": 4,
    "text": "No group of same-claim proposals holds more than 8 of the 24.",
-   "saw": "largest group: 8 (sorter 1) (first reading, of the 12 answers that were in; not scored until all 24 are)",
-   "held": null
+   "saw": "largest group: 10 (sorter 1)",
+   "held": false
   },
   {
    "n": 5,
    "text": "Blind readers guess the variant right between 13 and 19 times of 24, averaged over the three.",
-   "saw": "12, 12, 12 of 12 (first reading, of the 12 answers that were in; not scored until all 24 are)",
-   "held": null
+   "saw": "24, 24, 24 of 24",
+   "held": false
   },
   {
    "n": 6,
    "text": "The two models are read as against at nearly the same rate: a difference of at most 3 of 12.",
-   "saw": "Opus 5.5 8 of 12; Fable 5.2 0 of 0 (first reading, of the 12 answers that were in; not scored until all 24 are)",
-   "held": null
+   "saw": "Opus 5.5 9 of 12; Fable 5.2 9 of 12; leaving out the 4 flagged runs, Opus 5.5 9 of 12, Fable 5.2 6 of 8",
+   "held": true
   },
   {
    "n": 7,

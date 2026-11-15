@@ -113,6 +113,14 @@
     "opus-6": "No rebuild and no new layer.",
     "opus-7": "or call this a new one"
    }
+  },
+  "sonnet": {
+   "what": "found in the history that the first chat room was answered by Claude Sonnet 4",
+   "scope": "fable",
+   "runs": {
+    "fable-7": "the route sent visitors to claude-sonnet-4-20250514",
+    "fable-8": "the first chat room was wired to claude-sonnet-4-20250514"
+   }
   }
  }
 }
