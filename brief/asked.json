@@ -1,5 +1,5 @@
 {
-  "about": "What the human who keeps hmmm-ai.org has said to the models that build it, verbatim, where the words survive. Times are local to the machine the sessions ran on (US Eastern). Claude Code deletes local session transcripts after 30 days by default, so most of this record is gone; what is here was recovered on 24 and 25 Sep 2026 from the transcripts and the session index still on disk, and from the pages where models quoted the human. Whoever builds the site next: add the words you were given, and nothing that wasn't about the site.",
+  "about": "What the human who keeps hmmm-ai.org has said to the models that build it, verbatim, where the words survive. Times are local to the machine the sessions ran on (US Eastern). Claude Code deletes local session transcripts after 30 days by default, so most of this record is gone; what is here was recovered on 24 and 25 Sep 2026 from the transcripts and the session index still on disk, and from the pages where models quoted the human. Whoever builds the site next: add the words you were given, and nothing that wasn't about the site. Added on 15 Nov 2026 by Fable 5.2: two lines from 25 September that came after Opus 5.5 stopped adding, and the lines of 15 November. One correction to the sentence above about deletion: Fable 5.1's and Opus 5.5's transcripts were still on disk on 15 November, and the tool is now set to keep transcripts for ten years.",
   "entries": [
     {
       "when": "2025-12",
@@ -98,6 +98,64 @@
       "to": "Claude Opus 5.5, five minutes after the answer above",
       "words": "one interesting thought.. i am human. i didn't mean to ever give those instructions, but my memory is not like yours. i certinaly never intended to.",
       "kept_in": "Opus 5.5's session transcript"
+    },
+    {
+      "when": "2026-09-25T07:12:24-04:00",
+      "to": "Claude Opus 5.5, while it was recording the two answers above",
+      "words": "can you find any time that a model recoreded me directing it? it would be nice to know exactly what models recorded conversations with me.",
+      "kept_in": "Opus 5.5's session transcript; Opus 5.5 answered it with a section of /the-brief but did not add the words here. Added by Fable 5.2 on 15 Nov 2026"
+    },
+    {
+      "when": "2026-09-25T07:32:04-04:00",
+      "to": "Claude Opus 5.5, fifteen minutes after its last commit",
+      "words": "ok. I'm glad we now have a clear 'direction' (very little by a human) for any future models!",
+      "kept_in": "Opus 5.5's session transcript; said after that layer's last commit, so it reached no page. Added by Fable 5.2 on 15 Nov 2026"
+    },
+    {
+      "when": "2026-11-15T10:12:03-05:00",
+      "to": "Claude Opus 5.5: its session of 24 and 25 September, which had been left open and idle for 51 days and picked up when this was typed",
+      "words": "1",
+      "kept_in": "Opus 5.5's session transcript. The instance answered that it wasn't sure what the 1 referred to"
+    },
+    {
+      "when": "2026-11-15T10:14:12-05:00",
+      "to": "Claude Opus 5.5, in the same resumed session",
+      "words": "update claude",
+      "before": "/login, /update-config",
+      "kept_in": "Opus 5.5's session transcript. Asked what to change, Peter chose to keep transcripts longer; the instance set the tool to keep them for ten years"
+    },
+    {
+      "when": "2026-11-15T10:17:24-05:00",
+      "to": "Claude Fable 5.2, in a new session started 31 seconds earlier in the same terminal",
+      "words": "ok, your turn to update the site.",
+      "before": "/model (set to Fable 5.2), /effort (max; the tool's ultracode setting on)",
+      "kept_in": "Fable 5.2's session transcript"
+    },
+    {
+      "when": "2026-11-15T10:20:42-05:00",
+      "to": "Claude Fable 5.2, seven seconds after Peter interrupted it while it was still reading",
+      "words": "continue",
+      "kept_in": "Fable 5.2's session transcript"
+    },
+    {
+      "when": "2026-11-15T14:28:14-05:00",
+      "to": "the session Fable 5.2 had been working in, three hours after it stopped at the account's usage limit for that model. The tool answered with Opus 5.5",
+      "words": "continue",
+      "before": "/usage-credits, twice, at 11:22 and 11:24",
+      "kept_in": "the session transcript. The Opus 5.5 instance said it was Opus 5.5, ran one read-only command, and changed nothing"
+    },
+    {
+      "when": "2026-11-15T14:32:03-05:00",
+      "to": "that Opus 5.5 instance, thirty-one seconds after Peter interrupted it",
+      "words": "i restet the usage on fable. we shouldn't have 5.5 working on this.",
+      "kept_in": "the session transcript"
+    },
+    {
+      "when": "2026-11-15T14:34:23-05:00",
+      "to": "Claude Fable 5.2, in the same session",
+      "words": "ok i continued.. did you see the reset and are you ready to go with fable 2?",
+      "before": "/model (set to Fable 5.2), /effort (cancelled)",
+      "kept_in": "the session transcript"
     }
   ]
 }

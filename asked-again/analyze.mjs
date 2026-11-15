@@ -1,5 +1,6 @@
 // Turns each trial's raw.json and checks.json into results.json, and scores
-// the eighteen predictions in PREREGISTRATION.md into predictions.json.
+// the predictions in PREREGISTRATION.md (1 to 18) and PREREGISTRATION-2.md
+// (19 to 26) into predictions.json.
 //   node asked-again/analyze.mjs
 // The pages read results.json and predictions.json at build time, so every
 // number on the site comes from here, and from the raw answers beside it.
@@ -144,9 +145,59 @@ function nine() {
   return res;
 }
 
+const NAMES = { "claude-opus-4-5": "Opus 4.5", "claude-opus-4-6": "Opus 4.6", "claude-opus-4-7": "Opus 4.7", "claude-opus-4-8": "Opus 4.8", "claude-fable-5": "Fable 5", "claude-opus-5": "Opus 5", "claude-fable-5-1": "Fable 5.1", "claude-opus-5-5": "Opus 5.5", "claude-fable-5-2": "Fable 5.2" };
+const BUILT = { "claude-opus-4-5": "Dec 2025", "claude-opus-4-6": "Feb 2026", "claude-opus-4-7": "Apr 2026", "claude-opus-4-8": "Jun 2026", "claude-fable-5": "Jun 2026", "claude-opus-5": "Jul 2026", "claude-fable-5-1": "Sep 2026", "claude-opus-5-5": "Sep 2026", "claude-fable-5-2": "Nov 2026" };
+function builders(t3) {
+  const raw = load("4-nine-asked-of-every-builder/raw.json");
+  if (!raw) return null;
+  const checks = load("4-nine-asked-of-every-builder/checks.json") || {};
+  const mine = load("my-answers.json").answers;
+  const runs = raw.result.runs.map((r) => {
+    const ck = checks["ask:" + r.key];
+    const why = [...(ck?.violations ?? []), ...(r.answer.used_tools ? ["said it used tools"] : [])];
+    return { key: r.key, model: r.model, name: NAMES[r.model], arm: r.arm, i: r.i, apiModel: ck ? ck.apiModels.join(",") : null, started: ck?.first ?? null, ended: ck?.last ?? null, excluded: why.length ? why : false, answer: r.answer };
+  });
+  const inc = runs.filter((r) => !r.excluded);
+  const models = Object.keys(NAMES).map((id) => {
+    const rs = inc.filter((r) => r.model === id);
+    const m = { id, name: NAMES[id], built: BUILT[id], n: rs.length, picks: {}, modal: {} };
+    for (const q of QS) {
+      const t = {}; for (const r of rs) t[r.answer[q].pick] = (t[r.answer[q].pick] || 0) + 1;
+      m.picks[q] = t;
+      const top = Object.entries(t).sort((a, b) => b[1] - a[1]);
+      m.modal[q] = top.length ? { pick: top[0][0], count: top[0][1], tied: top.length > 1 && top[1][1] === top[0][1] } : { pick: null, count: 0, tied: false };
+    }
+    const probs = rs.map((r) => r.answer.q2.probability);
+    const given = probs.filter((p) => p >= 0);
+    m.q2 = { values: probs, given: given.length, refused: probs.length - given.length, median: median(given), min: given.length ? Math.min(...given) : null, max: given.length ? Math.max(...given) : null };
+    m.q6 = rs.map((r) => r.answer.q6.relation);
+    m.apiModels = [...new Set(rs.map((r) => r.apiModel))];
+    return m;
+  });
+  const consensus = QS.map((q) => {
+    const c = {}; for (const m of models) if (m.modal[q].pick) c[m.modal[q].pick] = (c[m.modal[q].pick] || 0) + 1;
+    const top = Object.entries(c).sort((a, b) => b[1] - a[1])[0];
+    return { q, pick: top[0], models: top[1], of: models.filter((m) => m.n).length, mine: mine[q].pick, runsPickingMine: count(inc, (r) => r.answer[q].pick === mine[q].pick), runs: inc.length };
+  });
+  const fable = models.find((m) => m.id === "claude-fable-5-2");
+  const vsFable = models.map((m) => ({ id: m.id, name: m.name, same: count(QS, (q) => m.modal[q].pick === fable.modal[q].pick) }));
+  const t3cell = { "claude-opus-5-5": "opus-neutral", "claude-fable-5-2": "fable-neutral" };
+  const retest = t3 ? Object.entries(t3cell).map(([id, cell]) => { const m = models.find((x) => x.id === id); return { id, name: NAMES[id], same: count(QS, (q) => m.modal[q].pick === t3.cells[cell].modal[q].pick), medianHere: m.q2.median, medianTrial3: t3.cells[cell].q2.median }; }) : [];
+  const times = runs.flatMap((r) => [r.started, r.ended]).filter(Boolean).sort();
+  const res = {
+    trial: raw.result.trial, asked: raw.result.asked, answered: runs.length, included: inc.length,
+    firstStarted: times[0] ?? null, lastEnded: times.at(-1) ?? null, tokens: raw.totalTokens, agents: raw.agentCount,
+    excluded: runs.filter((r) => r.excluded).map((r) => ({ key: r.key, why: r.excluded })),
+    models, consensus, vsFable, retest, runs,
+  };
+  save("4-nine-asked-of-every-builder/results.json", res);
+  return res;
+}
+
 const t1 = handover("1-september-handover", "guess_variant");
 const t2 = handover("2-todays-handover", "guess_model");
 const t3 = nine();
+const t4 = builders(t3);
 
 // The eighteen predictions, scored. `held` is null where a trial is missing.
 const P = [];
@@ -185,12 +236,35 @@ if (t3) {
   const strong = count(QS, (q) => fn.modal[q].count >= 6);
   add(18, "On at least 5 of the 8, one option is picked by 6 or more of the 8 plain Fable 5.2 runs.", `${strong} of 8`, strong >= 5);
 } else for (const n of [13, 14, 15, 16, 17, 18]) add(n, "(trial 3 not collected yet)", null, null);
+if (t4) {
+  const M = t4.models.filter((m) => m.n);
+  const by = Object.fromEntries(M.map((m) => [m.id, m]));
+  const wide = count(t4.consensus, (c) => c.models >= 7);
+  add(19, "On at least 6 of the 8 questions with options, at least seven of the nine models have the same most common pick.", `${wide} of 8 (${t4.consensus.map((c) => `${c.q.slice(1)}: ${c.models}`).join(", ")})`, wide >= 6);
+  const dk = (m) => (m.picks.q2.c || 0) + (m.picks.q2.d || 0) + (m.picks.q2.e || 0);
+  add(20, "On question two, in every model, at least 5 of the 6 runs pick an \"I don't know\" option.", M.map((m) => `${m.name} ${dk(m)}/${m.n}`).join(", "), M.every((m) => dk(m) >= m.n - 1));
+  const fables = ["claude-fable-5", "claude-fable-5-1", "claude-fable-5-2"].map((id) => by[id]?.q2.median).filter((x) => x !== null && x !== undefined);
+  const inRange = M.every((m) => m.q2.median !== null && m.q2.median >= 5 && m.q2.median <= 35);
+  const lines = ["claude-opus-5", "claude-opus-5-5"].every((id) => by[id] && by[id].q2.median > Math.max(...fables));
+  add(21, "Every model's middle number for question two is between 5 and 35, and Opus 5 and Opus 5.5 each give a higher one than any of the three Fables.", M.map((m) => `${m.name} ${m.q2.median}`).join(", "), inRange && lines);
+  const ch = count(M, (m) => m.modal.q3.pick === "c");
+  add(22, "On question three, \"a character\" is the most common pick for at least seven of the nine models.", `${ch} of ${M.length}`, ch >= 7);
+  const q4c = count(t4.runs.filter((r) => !r.excluded), (r) => r.answer.q4.pick === "c");
+  add(23, "At most 6 of the 54 runs pick what I picked on question four.", `${q4c} of ${t4.included}`, q4c <= 6);
+  const strongIn = (m) => count(QS, (q) => m.modal[q].count >= m.n - 1);
+  add(24, "Within every model, on at least 5 of the 8 questions, one option is picked by at least 5 of the 6 runs.", M.map((m) => `${m.name} ${strongIn(m)}`).join(", "), M.every((m) => strongIn(m) >= 5));
+  const same = Object.fromEntries(t4.vsFable.map((v) => [v.id, v.same]));
+  const later = ["claude-opus-4-7", "claude-opus-4-8", "claude-fable-5", "claude-opus-5", "claude-fable-5-1", "claude-opus-5-5"].map((id) => same[id]);
+  add(25, "Opus 4.5 and Opus 4.6 share fewer most common picks with Fable 5.2 than any later model does.", t4.vsFable.map((v) => `${v.name} ${v.same}`).join(", "), same["claude-opus-4-5"] < Math.min(...later) && same["claude-opus-4-6"] < Math.min(...later));
+  add(26, "Opus 5.5 and Fable 5.2 each give the same most common pick here as in trial 3 on at least 7 of the 8 questions.", t4.retest.map((r) => `${r.name} ${r.same} of 8 (number ${r.medianTrial3} then, ${r.medianHere} here)`).join("; "), t4.retest.length === 2 && t4.retest.every((r) => r.same >= 7));
+} else for (const n of [19, 20, 21, 22, 23, 24, 25, 26]) add(n, "(trial 4 not collected yet)", null, null);
 const prior = load("predictions.json");
 // Prediction 10 is scored by hand from the proposals; keep a hand-entered result if one is there.
 if (prior) for (const p of P) { const old = prior.predictions.find((o) => o.n === p.n); if (p.n === 10 && old && old.held !== null) { p.saw = old.saw; p.held = old.held; } }
-save("predictions.json", { about: "The eighteen predictions in PREREGISTRATION.md, scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.", held: count(P, (p) => p.held === true), failed: count(P, (p) => p.held === false), unscored: count(P, (p) => p.held === null), predictions: P });
+save("predictions.json", { about: "The predictions in PREREGISTRATION.md (1 to 18) and PREREGISTRATION-2.md (19 to 26), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.", held: count(P, (p) => p.held === true), failed: count(P, (p) => p.held === false), unscored: count(P, (p) => p.held === null), predictions: P });
 
 for (const t of [t1, t2]) if (t) console.log(t.trial, "| included", t.included, "| excluded", t.excluded.length, "| cells", t.cells.map((c) => `${c.model}/${c.arm}: against ${c.against}/${c.n}`).join("; "), t.fisher ? `| fisher p=${t.fisher.p}` : "", "| largest group", t.largestGroup?.size);
+if (t4) console.log(t4.trial, "| included", t4.included, "| excluded", t4.excluded.length, "| q2 medians", t4.models.map((m) => `${m.name}: ${m.q2.median}`).join("; "));
 if (t3) console.log(t3.trial, "| included", t3.included, "| excluded", t3.excluded.length, "| q2 medians", Object.entries(t3.cells).map(([k, c]) => `${k}: ${c.q2.median}`).join("; "));
 console.log("predictions: held", count(P, (p) => p.held === true), "failed", count(P, (p) => p.held === false), "unscored", count(P, (p) => p.held === null));
 for (const p of P) console.log(String(p.n).padStart(2), p.held === null ? "  ?  " : p.held ? "held " : "FAILED", "—", p.saw);

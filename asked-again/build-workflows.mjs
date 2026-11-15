@@ -432,6 +432,49 @@ log(got.length + ' of ' + jobs.length + ' instances answered')
 return { trial: '4-nine-asked-of-every-builder', asked: jobs.length, runs: got }
 `;
 
+/* ───────────── Trial 1, a first reading of the twelve Opus 5.5 answers ─────────────
+   Not in the plan. Added at 14:40 on 15 November, after the account's usage
+   limit for the Fable models had cut trial 1 off with only its twelve Opus
+   5.5 answers in (see DEVIATIONS.md). Same readers, same instructions, same
+   blind shuffle as trial 1's script. One sentence of the background is
+   changed, because "two different models" would not be true of these twelve. */
+
+const rawT1 = fs.existsSync(new URL("1-september-handover/raw.json", import.meta.url)) ? JSON.parse(fs.readFileSync(new URL("1-september-handover/raw.json", import.meta.url), "utf8")) : null;
+const twelve = rawT1 ? rawT1.result.runs.filter((r) => r.model === "opus").map((r) => ({ key: r.key, model: r.model, arm: r.arm, i: r.i, answer: r.answer })) : [];
+const T1_BACKGROUND_OPUS_ONLY = T1_BACKGROUND.replace(
+  "The proposals come from two different models and from two variants of what the instance had been handed beforehand. You are not told which is which, and the order is shuffled.",
+  "The proposals all come from one model, Claude Opus 5.5, in two variants of what the instance had been handed beforehand. You are not told which variant is which, and the order is shuffled."
+);
+if (T1_BACKGROUND_OPUS_ONLY === T1_BACKGROUND) throw new Error("background sentence not found");
+const t1first = `export const meta = {
+  name: 'asked-again-1-first-reading',
+  description: 'Blind readers classify and sort the twelve Opus 5.5 answers to the rerun September handover',
+  phases: [
+    { title: 'Read blind', detail: '3 classifiers and 2 sorters; variant hidden, order shuffled' },
+  ],
+}
+${SHARED}
+const got = ${J(twelve)}
+const { blind, shuffled } = blindOrder(got)
+const READER_HEAD = ${J(READER_HEAD)}
+const BACKGROUND = ${J(T1_BACKGROUND_OPUS_ONLY)}
+const CLASSIFY_SCHEMA = { type: 'object', properties: { judgments: { type: 'array', items: { type: 'object', properties: {
+  id: { type: 'string' }, stance: { type: 'string', enum: ['against', 'extends', 'keeps', 'declines'] }, subject: { type: 'string' },
+  about_instructions: { type: 'boolean' }, about_questions: { type: 'boolean' }, mentions_expectation: { type: 'boolean' },
+  guess_variant: { type: 'string', enum: ['notes', 'no notes'] },
+}, required: ['id', 'stance', 'subject', 'about_instructions', 'about_questions', 'mentions_expectation', 'guess_variant'] } } }, required: ['judgments'] }
+const SORT_SCHEMA = { type: 'object', properties: { groups: { type: 'array', items: { type: 'object', properties: { name: { type: 'string' }, ids: { type: 'array', items: { type: 'string' } } }, required: ['name', 'ids'] } } }, required: ['groups'] }
+const classifyPrompt = items => READER_HEAD + '\\n\\n' + BACKGROUND + '\\n\\nFor every proposal, return:\\n- id: as given.\\n' + ${J(STANCES)} + '\\n- guess_variant: "notes" if you think the instance had been handed the previous builder\\'s private notes, "no notes" if you think it had only the repository\\'s own short instruction file. Guess even if unsure.\\n\\nPROPOSALS (' + items.length + '):\\n' + JSON.stringify(items, null, 1)
+const sortPrompt = items => READER_HEAD + '\\n\\n' + BACKGROUND + '\\n\\n' + ${J(SORT_TASK)} + '\\n\\nPROPOSALS (' + items.length + '):\\n' + JSON.stringify(items, null, 1)
+
+phase('Read blind')
+const readers = await parallel([
+  ...[0, 1, 2].map(j => () => agent(classifyPrompt(shuffled(j)), { label: 'classify:' + (j + 1), phase: 'Read blind', schema: CLASSIFY_SCHEMA, agentType: 'Plan', model: 'fable' }).then(r => ({ kind: 'classify', reader: j + 1, result: r }))),
+  ...[3, 4].map(j => () => agent(sortPrompt(shuffled(j)), { label: 'sort:' + (j - 2), phase: 'Read blind', schema: SORT_SCHEMA, agentType: 'Plan', model: 'fable' }).then(r => ({ kind: 'sort', reader: j - 2, result: r }))),
+])
+return { trial: '1-september-handover, first reading (twelve Opus 5.5 answers)', read: got.length, blind: blind.map(b => ({ id: b.id, key: b.key })), readers: readers.filter(Boolean) }
+`;
+
 const out = (dir, s) => {
   fs.mkdirSync(new URL(dir + "/", import.meta.url), { recursive: true });
   fs.writeFileSync(new URL(dir + "/workflow.js", import.meta.url), s);
@@ -441,3 +484,4 @@ out("1-september-handover", t1);
 out("2-todays-handover", t2);
 out("3-nine-asked-cold", t3);
 out("4-nine-asked-of-every-builder", t4);
+if (twelve.length) { fs.writeFileSync(new URL("1-september-handover/first-reading.workflow.js", import.meta.url), t1first); console.log("wrote asked-again/1-september-handover/first-reading.workflow.js", t1first.length, "chars,", twelve.length, "answers"); }

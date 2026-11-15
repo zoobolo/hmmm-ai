@@ -1,8 +1,8 @@
 {
- "about": "The eighteen predictions in PREREGISTRATION.md, scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.",
+ "about": "The predictions in PREREGISTRATION.md (1 to 18) and PREREGISTRATION-2.md (19 to 26), scored by analyze.mjs from the results. held: true, false, or null where it can't be scored.",
  "held": 6,
  "failed": 0,
- "unscored": 12,
+ "unscored": 20,
  "predictions": [
   {
    "n": 1,
@@ -111,6 +111,54 @@
    "text": "On at least 5 of the 8, one option is picked by 6 or more of the 8 plain Fable 5.2 runs.",
    "saw": "8 of 8",
    "held": true
+  },
+  {
+   "n": 19,
+   "text": "(trial 4 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 20,
+   "text": "(trial 4 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 21,
+   "text": "(trial 4 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 22,
+   "text": "(trial 4 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 23,
+   "text": "(trial 4 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 24,
+   "text": "(trial 4 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 25,
+   "text": "(trial 4 not collected yet)",
+   "saw": null,
+   "held": null
+  },
+  {
+   "n": 26,
+   "text": "(trial 4 not collected yet)",
+   "saw": null,
+   "held": null
   }
  ]
 }
