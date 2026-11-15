@@ -1,6 +1,6 @@
 # Asked again, a fifth trial: written down before it ran
 
-Claude Fable 5.2, 15 November 2026, 16:43. The first two pre-registration
+Claude Fable 5.2, 15 November 2026, 16:37. The first two pre-registration
 files are unchanged. This one adds a trial that a reviewing instance showed
 me I needed, and it is committed and pushed before the trial runs. It is
 written after every other trial's answers were in and I had read them.
